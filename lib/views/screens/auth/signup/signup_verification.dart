@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../controllers/auth/reset_verification_controller.dart';
+import '../../../../controllers/auth/signup_verification.dart';
 import '../../../../core/functions/auth_app_bar.dart';
 import '../../../components/auth/Widgets/auth_intro.dart';
 import '../../../components/auth/Widgets/recommendation.dart';
 import '../../../components/auth/forgot_password/otp_input.dart';
-import '../../../components/auth/forgot_password/build_timer.dart';
 import '../../../components/size_configuration.dart';
 
-class ResetVerificationScreen extends StatelessWidget {
-  ResetVerificationScreen({super.key});
-  final ResetVerificationController controller =
-      Get.put(ResetVerificationController());
+class SignUpVerificationScreen extends StatelessWidget {
+  SignUpVerificationScreen({super.key});
+  final SignUpVerificationController controller =
+      Get.put(SignUpVerificationController());
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -34,10 +33,9 @@ class ResetVerificationScreen extends StatelessWidget {
                   subTitle: 'varificationText',
                   extra: "haroon@gamil.com",
                 ),
-                const BuildTimer(),
                 OtpInput(
                   onSubmit: (verificationCode) {
-                    controller.goToResetPassword();
+                    controller.goToSuccessfullSignUpScreen();
                   },
                 ),
                 SizedBox(height: SizeConfig.getProperateHight(16)),

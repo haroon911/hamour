@@ -150,8 +150,7 @@ class HamourTranslations extends Translations {
     "taxNumber": "الرقم الضريبي",
     "taxNumberText": "ادخل الرقم الضريبي",
     "varification": "كود المصادقة",
-    "varificationText":
-        "ادخل كود التفعيل لاعادة تعيين كلمة السر الذي تم ارساله الى",
+    "varificationText": "ادخل كود التفعيل الذي تم ارساله الى",
     "resetPassword": "اعادة تعيين كلمة السر",
     "resetPasswordText": "تمت المصادقة بنجاح ادخل كلمة السر الجديدة",
     "newPassword": "كلمة السر الجديدة",

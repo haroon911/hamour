@@ -7,6 +7,7 @@ import 'core/constants/route_names.dart';
 import 'views/screens/auth/login/login.dart';
 import 'views/screens/auth/signup/signup.dart';
 import 'views/screens/auth/forgot_password/forgot_password.dart';
+import 'views/screens/auth/signup/signup_verification.dart';
 import 'views/screens/onboarding/onboarding_screen.dart';
 
 final Map<String, Widget Function(BuildContext)> routes = {
@@ -15,8 +16,9 @@ final Map<String, Widget Function(BuildContext)> routes = {
   AppRoute.signUp: (context) => SignUp(),
   AppRoute.forgotPasswordScreen: (context) => ForgotPasswordScreen(),
   AppRoute.supplierSignUpScreen: (context) => SupplierSignUpSceen(),
-  AppRoute.verificationScreen: (context) => VerificationScreen(),
+  AppRoute.verificationScreen: (context) => ResetVerificationScreen(),
   AppRoute.resetPasswordScreen: (context) => ResetPasswordScreen(),
+  AppRoute.signupVerificationScreen: (context) => SignUpVerificationScreen(),
 };
 
 

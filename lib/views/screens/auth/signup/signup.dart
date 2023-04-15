@@ -38,6 +38,7 @@ class SignUp extends StatelessWidget {
                       if (formKey.currentState != null &&
                           formKey.currentState!.validate()) {
                         formKey.currentState!.save();
+                        controller.signUpPressed();
                       }
                     }),
                 // SizedBox(height: SizeConfig.getProperateHight(20)),

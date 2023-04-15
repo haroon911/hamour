@@ -7,6 +7,7 @@ class AppRoute {
   static const String supplierSignUpScreen = "/supplierSignUpScreen";
   static const String forgotPasswordScreen = "/forgotPasswordScreen";
   static const String verificationScreen = "/verificationScreen";
+  static const String signupVerificationScreen = "/signupVerificationScreen";
   static const String resetPasswordScreen = "/resetPasswordScreen";
   static const String testScreen = "/testScreen";
   static const String successfullRestScreen = "/SuccessfullRestScreen";

@@ -40,7 +40,7 @@ class SignUpController extends GetxController {
   }
 
   signUpPressed() {
-    // Get.offNamed(AppRoute.checkEmail);
+    Get.offNamed(AppRoute.signupVerificationScreen);
   }
 
   goToSupplierSignUp() {

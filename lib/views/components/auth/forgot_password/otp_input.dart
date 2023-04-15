@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:hamour/controllers/auth/verification_controller.dart';
 
 class OtpInput extends StatelessWidget {
-  const OtpInput({super.key, required this.controller});
-  final VerificationController controller;
+  const OtpInput({super.key, this.onSubmit});
+  final void Function(String)? onSubmit;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -34,7 +33,6 @@ class OtpInput extends StatelessWidget {
           //     );
           //   },
           // );
-          controller.goToResetPassword();
         }, // end onSubmit
       ),
     );
