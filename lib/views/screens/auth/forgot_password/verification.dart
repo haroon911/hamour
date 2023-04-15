@@ -5,6 +5,7 @@ import '../../../../controllers/auth/verification_controller.dart';
 import '../../../../core/functions/auth_app_bar.dart';
 import '../../../components/auth/Widgets/auth_intro.dart';
 import '../../../components/auth/forgot_password/otp_input.dart';
+import '../../../components/auth/forgot_password/build_timer.dart';
 
 class VerificationScreen extends StatelessWidget {
   VerificationScreen({super.key});
@@ -30,6 +31,7 @@ class VerificationScreen extends StatelessWidget {
                   subTitle: 'varificationText',
                   extra: "haroon@gamil.com",
                 ),
+                const BuildTimer(),
                 OtpInput(controller: controller),
               ],
             ),
