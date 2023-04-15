@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
     final LocalController localController = Get.put(LocalController());
     return GetMaterialApp(
       title: 'Flutter Demo',
-      theme: HamourTheme.dark(),
+      theme: HamourTheme.light(),
+      // darkTheme: HamourTheme.dark(),
       translations: HamourTranslations(),
       locale: localController.language,
       // initialRoute: '/',

@@ -4,8 +4,10 @@ import 'package:get/get.dart';
 import '../../../../controllers/auth/verification_controller.dart';
 import '../../../../core/functions/auth_app_bar.dart';
 import '../../../components/auth/Widgets/auth_intro.dart';
+import '../../../components/auth/Widgets/recommendation.dart';
 import '../../../components/auth/forgot_password/otp_input.dart';
 import '../../../components/auth/forgot_password/build_timer.dart';
+import '../../../components/size_configuration.dart';
 
 class VerificationScreen extends StatelessWidget {
   VerificationScreen({super.key});
@@ -33,6 +35,9 @@ class VerificationScreen extends StatelessWidget {
                 ),
                 const BuildTimer(),
                 OtpInput(controller: controller),
+                SizedBox(height: SizeConfig.getProperateHight(16)),
+                const AuthRecommendation(
+                    question: 'codeNotSend', recommend: 'resend'),
               ],
             ),
           ),

@@ -103,6 +103,8 @@ class HamourTranslations extends Translations {
     "newPassword": "new password",
     "newPasswordText": "Enter your new password",
     "codeExpire": "This Code will be expired in ",
+    "codeNotSend": "did't get the code? try to ",
+    "resend": "resend the code",
     //End of Sign up Screen
   };
   Map<String, String> authAr = {
@@ -155,7 +157,8 @@ class HamourTranslations extends Translations {
     "newPassword": "كلمة السر الجديدة",
     "newPasswordText": "ادخل كلمة السر الجديدة",
     "codeExpire": "ينتهي كود التفعيل بعد ",
-
+    "codeNotSend": "لم تحصل على كود التفعيل؟ جرب ",
+    "resend": "اعادة ارسال كود التفعيل",
     // "forgot password": "تأكيد كلمة السر",
     //End of Sign up Screen
   };
