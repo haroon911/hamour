@@ -16,8 +16,8 @@ class SupplierSignUpForm extends GetView<SupplierSignUpController> {
         child: Column(
           children: [
             AuthTextFormField(
-              labelText: 'supplier',
-              hintText: 'supplierName',
+              labelText: 'supplierName',
+              hintText: 'supplierText',
               controller: controller.fullNameController,
               keyboardType: TextInputType.text,
               icon: Icons.store_rounded,

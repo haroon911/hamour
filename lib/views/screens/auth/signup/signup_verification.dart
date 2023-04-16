@@ -35,7 +35,8 @@ class SignUpVerificationScreen extends StatelessWidget {
                 ),
                 OtpInput(
                   onSubmit: (verificationCode) {
-                    controller.goToSuccessfullSignUpScreen();
+                    controller.verificationCode=verificationCode;
+                    controller.goToVerificationSuccess();
                   },
                 ),
                 SizedBox(height: SizeConfig.getProperateHight(16)),

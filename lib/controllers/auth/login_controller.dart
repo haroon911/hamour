@@ -34,4 +34,10 @@ class LoginController extends GetxController {
   goToForgetPassword() {
     Get.toNamed(AppRoute.forgotPasswordScreen);
   }
+
+  @override
+  void onReady() {
+    Get.snackbar('appName'.tr, 'welcome'.tr);
+    super.onReady();
+  }
 }

@@ -5,7 +5,7 @@ class ResetVerificationController extends GetxController {
   late String verifyCode;
 
   goToResetPassword() {
-    Get.toNamed(AppRoute.resetPasswordScreen);
+    Get.offAllNamed(AppRoute.resetPasswordScreen);
   }
 
   checkVerificationCode() {

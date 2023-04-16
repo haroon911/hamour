@@ -39,7 +39,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       if (formKey.currentState != null &&
                           formKey.currentState!.validate()) {
                         formKey.currentState!.save();
-                        controller.goToSuccessfullReset();
+                        controller.goToVerificationSuccess();
                       }
                     }),
               ],

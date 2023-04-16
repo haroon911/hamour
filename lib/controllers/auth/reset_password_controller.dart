@@ -14,8 +14,8 @@ class ResetPasswordController extends GetxController {
     super.onInit();
   }
 
-  goToSuccessfullReset() {
-    Get.toNamed(AppRoute.successfullRestScreen);
+  goToVerificationSuccess() {
+    Get.offAllNamed(AppRoute.verificationSuccess);
   }
 
   resetPassword() {

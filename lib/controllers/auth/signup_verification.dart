@@ -2,14 +2,13 @@ import 'package:get/get.dart';
 import '../../core/constants/route_names.dart';
 
 class SignUpVerificationController extends GetxController {
-  late String verifyCode;
+  late String verificationCode;
 
-  goToSuccessfullSignUpScreen() {
-    Get.toNamed(AppRoute.successfullSignUpScreen);
+  goToVerificationSuccess() {
+    Get.toNamed(AppRoute.verificationSuccess);
   }
 
   checkVerificationCode() {
     // Get.toNamed(AppRoute.login);
   }
-
 }

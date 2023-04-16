@@ -35,6 +35,9 @@ class ResetVerificationScreen extends StatelessWidget {
                   extra: "haroon@gamil.com",
                 ),
                 const BuildTimer(),
+                SizedBox(
+                  height: SizeConfig.getProperateHight(16),
+                ),
                 OtpInput(
                   onSubmit: (verificationCode) {
                     controller.goToResetPassword();

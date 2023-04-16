@@ -36,15 +36,12 @@ class SupplierSignUpController extends GetxController {
     super.dispose();
   }
 
- 
-
   goToLoginScreen() {
     Get.offAllNamed(AppRoute.login);
   }
 
-
   signUpPressed() {
-    // Get.offNamed(AppRoute.checkEmail);
+    Get.offNamed(AppRoute.signupVerificationScreen);
   }
 
   goToSignUpScreen() {

@@ -10,6 +10,5 @@ class AppRoute {
   static const String signupVerificationScreen = "/signupVerificationScreen";
   static const String resetPasswordScreen = "/resetPasswordScreen";
   static const String testScreen = "/testScreen";
-  static const String successfullRestScreen = "/SuccessfullRestScreen";
-  static const String successfullSignUpScreen = "/successfullSignUpScreen";
+  static const String verificationSuccess = "/successfullSignUpScreen";
 }

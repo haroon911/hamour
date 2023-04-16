@@ -57,7 +57,7 @@ class HamourTranslations extends Translations {
 
     "login": "Login",
     "signup": "Sign up",
-    "welcome": "welcome again",
+    "welcome": "welcome to you in hamour",
     "loginText": "Login to your account so you can surff many products",
     "email": "Email",
     "password": "Password",
@@ -78,6 +78,8 @@ class HamourTranslations extends Translations {
     "invalidPhone": "invalid number",
     "phoneNullErorr": "phone number can't be empty",
     "textNullErorr": "invalid input",
+    "wellDone": "Well Done",
+    "wellDoneText": "Verified Successfully",
     //End Login Screen
     //Start of Sign up Screen
     "storeName": "Store",
@@ -91,9 +93,10 @@ class HamourTranslations extends Translations {
     "conformText": "re-enter your password",
     "conformPassword": "confirm password",
     "sign up as": "Or sign up as",
-    "supplier": "The Supplier",
+    "supplier": "Supplier",
     "store": "store",
     "supplierName": "Supplier name",
+    "supplierText": "Enter supplier name",
     "taxNumber": "Tax number",
     "taxNumberText": "Enter your tax number",
     "varification": "Verify Code",
@@ -111,7 +114,7 @@ class HamourTranslations extends Translations {
     //Start Login Screen
     "login": "تسجيل الدخول",
     "signup": "تسجيل الاشتراك",
-    "welcome": "مرحباً بك يا هامور",
+    "welcome": "مرحباً بك في هامور",
     "loginText": "سجل دخولك لتصفح العديد من المنتجات",
     "email": "الايميل",
     "password": "كلمة السر",
@@ -144,8 +147,10 @@ class HamourTranslations extends Translations {
     "conformText": "اعد ادخال كلمة السر مرة اخرى",
     "conformPassword": "تأكيد كلمة السر",
     "sign up as": "سجل اشتراك كـ",
-    "supplier": "المورد",
+    "supplier": "مورد",
     "supplierName": "اسم المورد",
+    "supplierText": "ادخل اسم المورد",
+
     "store": "متجر",
     "taxNumber": "الرقم الضريبي",
     "taxNumberText": "ادخل الرقم الضريبي",
@@ -158,7 +163,10 @@ class HamourTranslations extends Translations {
     "codeExpire": "ينتهي كود التفعيل بعد ",
     "codeNotSend": "لم تحصل على كود التفعيل؟ جرب ",
     "resend": "اعادة ارسال كود التفعيل",
+    "wellDone": "أحسنت",
+    "wellDoneText": "تم التحقق بنجاح",
     // "forgot password": "تأكيد كلمة السر",
+
     //End of Sign up Screen
   };
 }
