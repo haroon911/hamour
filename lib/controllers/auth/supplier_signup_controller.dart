@@ -13,6 +13,12 @@ class SupplierSignUpController extends GetxController {
   late TextEditingController taxNumberController;
   bool remember = false;
   Role role = Role.supplier;
+  bool obscureText = true;
+
+  showPassword() {
+    obscureText = !obscureText;
+    update();
+  }
 
   @override
   void onInit() {

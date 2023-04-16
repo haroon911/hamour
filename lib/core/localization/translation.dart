@@ -110,6 +110,10 @@ class HamourTranslations extends Translations {
     "codeExpire": "This Code will be expired in ",
     "codeNotSend": "did't get the code? try to ",
     "resend": "resend the code",
+    "exit": "Exit",
+    "exitText": "exit from app?",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
     //End of Sign up Screen
   };
   Map<String, String> authAr = {
@@ -169,6 +173,10 @@ class HamourTranslations extends Translations {
     "resend": "اعادة ارسال كود التفعيل",
     "wellDone": "أحسنت",
     "wellDoneText": "تم التحقق بنجاح",
+    "exit": "خروج",
+    "exitText": "الخروج من التطبيق؟",
+    "cancel": "الغاء",
+    "confirm": "تأكيد",
     // "forgot password": "تأكيد كلمة السر",
 
     //End of Sign up Screen

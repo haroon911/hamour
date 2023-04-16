@@ -6,6 +6,12 @@ import '../../core/constants/route_names.dart';
 class ResetPasswordController extends GetxController {
   late TextEditingController newPasswordController;
   late TextEditingController conformPasswordController;
+  bool obscureText = true;
+
+  showPassword() {
+    obscureText = !obscureText;
+    update();
+  }
 
   @override
   void onInit() {

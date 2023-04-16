@@ -7,6 +7,12 @@ class LoginController extends GetxController {
   late TextEditingController emailController;
   late TextEditingController passwordController;
   bool remember = false;
+  bool obscureText = true;
+
+  showPassword() {
+    obscureText = !obscureText;
+    update();
+  }
 
   @override
   void onInit() {

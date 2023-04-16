@@ -26,17 +26,20 @@ class LoginForm extends GetView<LoginController> {
               onSaved: (newValue) =>
                   controller.emailController.text = newValue!,
             ),
-            AuthTextFormField(
-              labelText: 'password',
-              hintText: 'passwordText',
-              controller: controller.passwordController,
-              keyboardType: TextInputType.visiblePassword,
-              icon: Icons.lock_outline_rounded,
-              obscureText: true,
-              validator: (value) => passwordInputValidator(value!),
-              onSaved: (newValue) =>
-                  controller.passwordController.text = newValue!,
-            ),
+            GetBuilder<LoginController>(builder: (context) {
+              return AuthTextFormField(
+                labelText: 'password',
+                hintText: 'passwordText',
+                controller: controller.passwordController,
+                keyboardType: TextInputType.visiblePassword,
+                icon: Icons.lock_outline_rounded,
+                obscureText: controller.obscureText,
+                validator: (value) => passwordInputValidator(value!),
+                onSaved: (newValue) =>
+                    controller.passwordController.text = newValue!,
+                onIconPressed: () => context.showPassword(),
+              );
+            }),
           ],
         ),
       ),

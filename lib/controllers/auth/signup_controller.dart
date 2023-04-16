@@ -12,6 +12,12 @@ class SignUpController extends GetxController {
   late TextEditingController fullNameController;
   late TextEditingController phoneNumberController;
   Role role = Role.store;
+  bool obscureText = true;
+
+  showPassword() {
+    obscureText = !obscureText;
+    update();
+  }
 
   @override
   void onInit() {

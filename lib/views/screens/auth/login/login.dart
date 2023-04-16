@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:hamour/controllers/auth/login_controller.dart';
 
 import '../../../../core/functions/auth_app_bar.dart';
+import '../../../../core/functions/exite_app_alert.dart';
 import '../../../components/auth/Widgets/auth_button.dart';
 import '../../../components/auth/Widgets/auth_intro.dart';
 import '../../../components/auth/Widgets/recommendation.dart';
@@ -23,36 +24,39 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Align(
           alignment: Alignment.center,
-          child: Container(
-            constraints: const BoxConstraints(maxWidth: 800),
-            padding: const EdgeInsets.all(26.0),
-            alignment: Alignment.center,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.warehouse_rounded,
-                    size: 130, color: Theme.of(context).primaryColor),
-                const AuthIntroduction(title: 'login', subTitle: 'loginText'),
-                LoginForm(formKey: formKey),
-                const RememberForgotRow(),
-                SizedBox(height: SizeConfig.getProperateHight(20)),
-                AuthButton(
-                    title: 'login',
-                    onPressed: () {
-                      if (formKey.currentState != null &&
-                          formKey.currentState!.validate()) {
-                        formKey.currentState!.save();
-                      }
-                    }),
-                SizedBox(height: SizeConfig.getProperateHight(20)),
-                const Socials(),
-                GetBuilder<LoginController>(builder: (controller) {
-                  return AuthRecommendation(
-                      question: "don't have and account?",
-                      recommend: "signup",
-                      onTap: () => controller.goToSignupScreen());
-                }),
-              ],
+          child: WillPopScope(
+            onWillPop: ()=>exitAppAlert(),
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 800),
+              padding: const EdgeInsets.all(26.0),
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.warehouse_rounded,
+                      size: 130, color: Theme.of(context).primaryColor),
+                  const AuthIntroduction(title: 'login', subTitle: 'loginText'),
+                  LoginForm(formKey: formKey),
+                  const RememberForgotRow(),
+                  SizedBox(height: SizeConfig.getProperateHight(20)),
+                  AuthButton(
+                      title: 'login',
+                      onPressed: () {
+                        if (formKey.currentState != null &&
+                            formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                        }
+                      }),
+                  SizedBox(height: SizeConfig.getProperateHight(20)),
+                  const Socials(),
+                  GetBuilder<LoginController>(builder: (controller) {
+                    return AuthRecommendation(
+                        question: "don't have and account?",
+                        recommend: "signup",
+                        onTap: () => controller.goToSignupScreen());
+                  }),
+                ],
+              ),
             ),
           ),
         ),

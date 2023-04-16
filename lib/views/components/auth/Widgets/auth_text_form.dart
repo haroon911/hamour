@@ -12,7 +12,7 @@ class AuthTextFormField extends StatelessWidget {
       this.validator,
       this.keyboardType = TextInputType.text,
       this.obscureText = false,
-      this.onChanged});
+      this.onChanged, this.onIconPressed});
 
   final String hintText;
   final String labelText;
@@ -23,6 +23,7 @@ class AuthTextFormField extends StatelessWidget {
   final TextInputType keyboardType;
   final bool obscureText;
   final void Function(String)? onChanged;
+  final void Function()? onIconPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +45,12 @@ class AuthTextFormField extends StatelessWidget {
           hintText: hintText.tr,
           suffixIcon: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Icon(
-              icon,
-              size: 25,
+            child: IconButton(
+              onPressed: onIconPressed,
+              icon: Icon(
+                icon,
+                size: 25,
+              ),
             ),
           ),
           //hamour style
@@ -70,3 +74,12 @@ class AuthTextFormField extends StatelessWidget {
     );
   }
 }
+// bool isPassword(TextInputType keyboardType){
+//   if(keyboardType== TextInputType.visiblePassword)
+//   {return true;}
+//   else {
+//     return false;
+//   }
+// }
+
+

@@ -19,17 +19,20 @@ class ResetPasswordForm extends GetView<ResetPasswordController> {
               textDirection: TextDirection.ltr,
               child: Column(
                 children: [
-                  AuthTextFormField(
-                    labelText: 'newPassword',
-                    hintText: 'newPasswordText',
-                    controller: controller.newPasswordController,
-                    keyboardType: TextInputType.visiblePassword,
-                    icon: Icons.lock_outline_rounded,
-                    obscureText: true,
-                    validator: (value) => passwordInputValidator(value!),
-                    onSaved: (newValue) =>
-                        controller.newPasswordController.text = newValue!,
-                  ),
+                  GetBuilder<ResetPasswordController>(builder: (context) {
+                    return AuthTextFormField(
+                      labelText: 'newPassword',
+                      hintText: 'newPasswordText',
+                      controller: controller.newPasswordController,
+                      keyboardType: TextInputType.visiblePassword,
+                      icon: Icons.lock_outline_rounded,
+                      obscureText: context.obscureText,
+                      validator: (value) => passwordInputValidator(value!),
+                      onSaved: (newValue) =>
+                          controller.newPasswordController.text = newValue!,
+                      onIconPressed: () => context.showPassword(),
+                    );
+                  }),
                   AuthTextFormField(
                     labelText: 'conformPassword',
                     hintText: 'conformText',
