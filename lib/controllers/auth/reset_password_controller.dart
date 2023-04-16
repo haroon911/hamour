@@ -16,6 +16,7 @@ class ResetPasswordController extends GetxController {
 
   goToVerificationSuccess() {
     Get.offAllNamed(AppRoute.verificationSuccess);
+    Get.delete<ResetPasswordController>();
   }
 
   resetPassword() {

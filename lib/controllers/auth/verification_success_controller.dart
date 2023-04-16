@@ -5,5 +5,6 @@ import '../../core/constants/route_names.dart';
 class VerificationSuccessController extends GetxController {
   goToLogin() {
     Get.offAllNamed(AppRoute.login);
+    Get.delete<VerificationSuccessController>();
   }
 }

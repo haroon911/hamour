@@ -35,13 +35,21 @@ class SignUpVerificationScreen extends StatelessWidget {
                 ),
                 OtpInput(
                   onSubmit: (verificationCode) {
-                    controller.verificationCode=verificationCode;
+                    controller.verificationCode = verificationCode;
                     controller.goToVerificationSuccess();
                   },
                 ),
                 SizedBox(height: SizeConfig.getProperateHight(16)),
-                const AuthRecommendation(
-                    question: 'codeNotSend', recommend: 'resend'),
+                AuthRecommendation(
+                  question: 'codeNotSend',
+                  recommend: 'resend',
+                  onTap: () => controller.resendVerificationCode(),
+                ),
+                AuthRecommendation(
+                  question: 'goBack',
+                  recommend: 'signup',
+                  onTap: () => controller.goToSignUp(),
+                ),
               ],
             ),
           ),

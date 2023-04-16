@@ -13,11 +13,11 @@ import '../../../components/size_configuration.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
-  final LoginController controller = Get.put(LoginController());
   final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => LoginController());
     return Scaffold(
       appBar: myAppBar(),
       body: SingleChildScrollView(
@@ -46,10 +46,12 @@ class LoginScreen extends StatelessWidget {
                     }),
                 SizedBox(height: SizeConfig.getProperateHight(20)),
                 const Socials(),
-                AuthRecommendation(
-                    question: "don't have and account?",
-                    recommend: "signup",
-                    onTap: () => controller.goToSignupScreen()),
+                GetBuilder<LoginController>(builder: (controller) {
+                  return AuthRecommendation(
+                      question: "don't have and account?",
+                      recommend: "signup",
+                      onTap: () => controller.goToSignupScreen());
+                }),
               ],
             ),
           ),

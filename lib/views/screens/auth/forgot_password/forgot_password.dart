@@ -43,6 +43,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                         controller.goToVarificationScreen();
                       }
                     }),
+                    
               ],
             ),
           ),

@@ -34,7 +34,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 ResetPasswordForm(formKey: formKey),
                 SizedBox(height: SizeConfig.getProperateHight(20)),
                 AuthButton(
-                    title: 'send',
+                    title: 'reset',
                     onPressed: () {
                       if (formKey.currentState != null &&
                           formKey.currentState!.validate()) {

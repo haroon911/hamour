@@ -44,8 +44,16 @@ class ResetVerificationScreen extends StatelessWidget {
                   },
                 ),
                 SizedBox(height: SizeConfig.getProperateHight(16)),
-                const AuthRecommendation(
-                    question: 'codeNotSend', recommend: 'resend'),
+                AuthRecommendation(
+                  question: 'codeNotSend',
+                  recommend: 'resend',
+                  onTap: () => controller.resendVerificationCode(),
+                ),
+                AuthRecommendation(
+                  question: 'goBack',
+                  recommend: 'login',
+                  onTap: () => controller.goToLogin(),
+                ),
               ],
             ),
           ),
