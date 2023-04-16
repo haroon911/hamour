@@ -6,13 +6,13 @@ class ResetVerificationController extends GetxController {
 
   goToResetPassword() {
     Get.offAllNamed(AppRoute.resetPasswordScreen);
-    Get.delete<ResetVerificationController>();
+    // Get.delete<ResetVerificationController>();
   }
   resendVerificationCode() {
   }
   goToLogin() {
     Get.offAllNamed(AppRoute.login);
-    Get.delete<ResetVerificationController>();
+    // Get.delete<ResetVerificationController>();
   }
 
   checkVerificationCode() {

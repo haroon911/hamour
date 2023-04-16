@@ -26,9 +26,10 @@ class MyApp extends StatelessWidget {
       translations: HamourTranslations(),
       locale: localController.language,
       // initialRoute: '/',
-      initialRoute: AppRoute.onBoarding,
+      // initialRoute: AppRoute.onBoarding,
       debugShowCheckedModeBanner: false,
-      routes: routes,
+      // routes: routes,
+      getPages: routes,
     );
   }
 }

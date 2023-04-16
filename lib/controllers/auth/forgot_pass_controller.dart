@@ -19,12 +19,12 @@ class ForgotPassowrdController extends GetxController {
   }
 
   goToVarificationScreen() {
-    Get.offNamed(AppRoute.verificationScreen);
-    Get.delete<ForgotPassowrdController>();
+    Get.offNamed(AppRoute.resetVerificationScreen);
+    // Get.delete<ForgotPassowrdController>();
   }
 
   goToLoginScreen() {
     Get.offNamed(AppRoute.login);
-    Get.delete<ForgotPassowrdController>();
+    // Get.delete<ForgotPassowrdController>();
   }
 }

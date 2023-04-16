@@ -35,12 +35,12 @@ class LoginController extends GetxController {
 
   goToSignupScreen() {
     Get.toNamed(AppRoute.signUp);
-    Get.delete<LoginController>();
+    // Get.delete<LoginController>();
   }
 
   goToForgetPassword() {
     Get.offNamed(AppRoute.forgotPasswordScreen);
-    Get.delete<LoginController>();
+    // Get.delete<LoginController>();
   }
 
   @override

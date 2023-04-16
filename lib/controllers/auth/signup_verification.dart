@@ -6,12 +6,12 @@ class SignUpVerificationController extends GetxController {
 
   goToVerificationSuccess() {
     Get.offNamed(AppRoute.verificationSuccess);
-    Get.delete<SignUpVerificationController>();
+    // Get.delete<SignUpVerificationController>();
   }
 
   goToSignUp() {
     Get.offNamed(AppRoute.signUp);
-    Get.delete<SignUpVerificationController>();
+    // Get.delete<SignUpVerificationController>();
   }
   resendVerificationCode() {
   }

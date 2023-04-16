@@ -44,16 +44,16 @@ class SupplierSignUpController extends GetxController {
 
   goToLoginScreen() {
     Get.offAllNamed(AppRoute.login);
-    Get.delete<SupplierSignUpController>();
+    // Get.delete<SupplierSignUpController>();
   }
 
   signUpPressed() {
     Get.offNamed(AppRoute.signupVerificationScreen);
-    Get.delete<SupplierSignUpController>();
+    // Get.delete<SupplierSignUpController>();
   }
 
   goToSignUpScreen() {
     Get.offNamed(AppRoute.signUp);
-    Get.delete<SupplierSignUpController>();
+    // Get.delete<SupplierSignUpController>();
   }
 }

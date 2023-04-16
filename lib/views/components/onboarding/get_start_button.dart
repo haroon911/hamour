@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:get/route_manager.dart';
+import 'package:hamour/controllers/onboarding/onboarding_controller.dart';
 import '../../../core/constants/route_names.dart';
 
-class GetStartButton extends StatelessWidget {
+class GetStartButton extends GetView<OnBoardingController> {
   const GetStartButton({super.key});
 
   @override
@@ -16,7 +18,8 @@ class GetStartButton extends StatelessWidget {
               Theme.of(context).appBarTheme.backgroundColor),
           minimumSize: MaterialStateProperty.all(const Size.fromHeight(80))),
       onPressed: () {
-        Get.offAllNamed(AppRoute.login);
+        // Get.offAllNamed(AppRoute.login);
+        controller.goToLogin();
       },
       child: Text(
         'Get Started'.tr,

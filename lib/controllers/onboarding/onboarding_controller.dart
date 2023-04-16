@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hamour/core/services/services.dart';
 
 import '../../core/constants/route_names.dart';
 import '../../core/functions/change_lang_dialog.dart';
@@ -13,8 +14,11 @@ class OnBoardingController extends GetxController {
   int currentPage = 0;
   bool lastPage = false;
 
+  HamourServices hamourServices = Get.find();
+
   // next() {}
   goToLogin() {
+    hamourServices.sharedPrefrences.setBool("finishOnboarding", true);
     Get.offAllNamed(AppRoute.login);
   }
 
@@ -32,9 +36,7 @@ class OnBoardingController extends GetxController {
     changeLanguage();
 
     super.onReady();
-    
   }
-  changeLang(){
-    
-  }
+
+  changeLang() {}
 }
