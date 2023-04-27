@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/get_utils.dart';
-import 'package:get/route_manager.dart';
 import 'package:hamour/controllers/onboarding/onboarding_controller.dart';
-import '../../../core/constants/route_names.dart';
 
 class GetStartButton extends GetView<OnBoardingController> {
   const GetStartButton({super.key});

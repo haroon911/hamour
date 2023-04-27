@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hamour/core/classes/status_request.dart';
+import 'package:hamour/data/source/remote/auth/signup.dart';
 
 import '../../core/constants/route_names.dart';
+import '../../core/functions/data_handler_controller.dart';
 import 'roles.dart';
 
 class SignUpController extends GetxController {
@@ -13,6 +16,9 @@ class SignUpController extends GetxController {
   late TextEditingController phoneNumberController;
   Role role = Role.store;
   bool obscureText = true;
+  SignUpData signUpData = SignUpData(Get.find());
+
+  StatusRequest? statusRequest;
 
   showPassword() {
     obscureText = !obscureText;
@@ -46,13 +52,36 @@ class SignUpController extends GetxController {
     // Get.delete<SignUpController>();
   }
 
-  signUpPressed() {
-    Get.offAllNamed(AppRoute.signupVerificationScreen);
-    // Get.delete<SignUpController>();
+  onSignUp() async {
+    await _getData();
   }
 
   goToSupplierSignUp() {
     Get.offNamed(AppRoute.supplierSignUpScreen);
     // Get.delete<SignUpController>();
+  }
+
+  _getData() async {
+    statusRequest = StatusRequest.loading;
+        update();
+    var response = await signUpData.postStoreData(
+      email: emailController.text,
+      password: passwordController.text,
+      phoneNumber: phoneNumberController.text,
+      storeName: storeNameController.text,
+    );
+    statusRequest = dataHandler(response);
+    debugPrint("+++++++++++ $statusRequest");
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "success") {
+        Get.offAllNamed(AppRoute.signupVerificationScreen,arguments: {"email":emailController.text});
+      } else {
+        Get.defaultDialog(title: "warning".tr, content: Text("userExist".tr));
+        statusRequest = StatusRequest.failure;
+      }
+    } else {
+      // statusRequest = StatusRequest.serverFailure;
+    }
+    update();
   }
 }

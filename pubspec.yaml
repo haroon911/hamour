@@ -40,7 +40,15 @@ dependencies:
   smooth_page_indicator: ^1.0.1
   shared_preferences: ^2.0.20
   font_awesome_flutter: ^10.4.0
+  dartz: ^0.10.1
+  http: ^0.13.5
+  lottie: ^2.3.2
+  #Google Auth
+  google_sign_in: ^6.1.0
+  responsive_builder: ^0.6.4
+  flutter_svg: ^2.0.5
   flutter_otp_text_field: ^1.1.1
+  image_picker: ^0.8.7+4
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +74,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/lottie/
+    - assets/images/
     - assets/images/onboarding/
     - assets/images/product_item_images/
   # assets:

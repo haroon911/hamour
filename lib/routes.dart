@@ -1,4 +1,3 @@
-// import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/views/screens/auth/forgot_password/reset_password.dart';
 import 'package:hamour/views/screens/auth/forgot_password/verification.dart';
@@ -29,6 +28,8 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: "/",
       page: () => OnBoardingScreen(),
+      // name: "/",
+      // page: () => const TestView(),
       middlewares: [HamourMiddleware()]),
   GetPage(name: AppRoute.login, page: () => LoginScreen()),
   GetPage(name: AppRoute.signUp, page: () => SignUp()),

@@ -19,13 +19,14 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => LoginController());
+    // LoginController controller = Get.put(LoginController());
     return Scaffold(
       appBar: myAppBar(),
       body: SingleChildScrollView(
         child: Align(
           alignment: Alignment.center,
           child: WillPopScope(
-            onWillPop: ()=>exitAppAlert(),
+            onWillPop: () => exitAppAlert(),
             child: Container(
               constraints: const BoxConstraints(maxWidth: 800),
               padding: const EdgeInsets.all(26.0),

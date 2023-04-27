@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hamour/core/functions/data_handler_controller.dart';
+import 'package:hamour/data/source/remote/auth/signup.dart';
 
+import '../../core/classes/status_request.dart';
 import '../../core/constants/route_names.dart';
 import 'roles.dart';
 
@@ -8,12 +11,16 @@ class SupplierSignUpController extends GetxController {
   late TextEditingController emailController;
   late TextEditingController passwordController;
   late TextEditingController conformPasswordController;
-  late TextEditingController fullNameController;
+  late TextEditingController supplierNameController;
   late TextEditingController phoneNumberController;
-  late TextEditingController taxNumberController;
+  late TextEditingController commercialNumberController;
   bool remember = false;
   Role role = Role.supplier;
   bool obscureText = true;
+
+  SignUpData signUpData = SignUpData(Get.find());
+
+  StatusRequest? statusRequest;
 
   showPassword() {
     obscureText = !obscureText;
@@ -25,9 +32,9 @@ class SupplierSignUpController extends GetxController {
     emailController = TextEditingController();
     passwordController = TextEditingController();
     conformPasswordController = TextEditingController();
-    fullNameController = TextEditingController();
+    supplierNameController = TextEditingController();
     phoneNumberController = TextEditingController();
-    taxNumberController = TextEditingController();
+    commercialNumberController = TextEditingController();
     super.onInit();
   }
 
@@ -36,9 +43,9 @@ class SupplierSignUpController extends GetxController {
     emailController.dispose();
     passwordController.dispose();
     conformPasswordController.dispose();
-    fullNameController.dispose();
+    supplierNameController.dispose();
     phoneNumberController.dispose();
-    taxNumberController.dispose();
+    commercialNumberController.dispose();
     super.dispose();
   }
 
@@ -47,13 +54,38 @@ class SupplierSignUpController extends GetxController {
     // Get.delete<SupplierSignUpController>();
   }
 
-  signUpPressed() {
-    Get.offNamed(AppRoute.signupVerificationScreen);
-    // Get.delete<SupplierSignUpController>();
+  onSupplierSignUp() async {
+    await _getData();
   }
 
   goToSignUpScreen() {
     Get.offNamed(AppRoute.signUp);
     // Get.delete<SupplierSignUpController>();
+  }
+
+  _getData() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await signUpData.postSupplierData(
+      email: emailController.text,
+      password: passwordController.text,
+      phoneNumber: phoneNumberController.text,
+      supplierName: supplierNameController.text,
+      commercialNumber: commercialNumberController.text,
+    );
+    statusRequest = dataHandler(response);
+    debugPrint("+++++++++++ $statusRequest");
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "success") {
+        Get.offAllNamed(AppRoute.signupVerificationScreen,
+            arguments: {"email": emailController.text});
+      } else {
+        Get.defaultDialog(title: "warning".tr, content: Text("userExist".tr));
+        statusRequest = StatusRequest.failure;
+      }
+    } else {
+      // statusRequest = StatusRequest.serverFailure;
+    }
+    update();
   }
 }

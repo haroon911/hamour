@@ -18,12 +18,12 @@ class SupplierSignUpForm extends GetView<SupplierSignUpController> {
             AuthTextFormField(
               labelText: 'supplierName',
               hintText: 'supplierText',
-              controller: controller.fullNameController,
+              controller: controller.supplierNameController,
               keyboardType: TextInputType.text,
               icon: Icons.store_rounded,
               validator: (value) => textInputValidator(value!),
               onSaved: (newValue) =>
-                  controller.fullNameController.text = newValue!,
+                  controller.supplierNameController.text = newValue!,
             ),
             Directionality(
               textDirection: TextDirection.ltr,
@@ -76,14 +76,14 @@ class SupplierSignUpForm extends GetView<SupplierSignUpController> {
                         controller.phoneNumberController.text = newValue!,
                   ),
                   AuthTextFormField(
-                    labelText: 'taxNumber',
-                    hintText: 'taxNumberText',
-                    controller: controller.taxNumberController,
+                    labelText: 'commercialNumber',
+                    hintText: 'commercialNumberText',
+                    controller: controller.commercialNumberController,
                     keyboardType: TextInputType.phone,
                     icon: Icons.note_outlined,
                     validator: (value) => textInputValidator(value!),
                     onSaved: (newValue) =>
-                        controller.taxNumberController.text = newValue!,
+                        controller.commercialNumberController.text = newValue!,
                   ),
                 ],
               ),

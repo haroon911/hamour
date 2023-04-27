@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/routes.dart';
-import 'core/constants/route_names.dart';
+import 'bindings/initial_bindings.dart';
 import 'core/localization/change_local.dart';
 import 'core/localization/translation.dart';
 import 'core/services/services.dart';
@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
       // initialRoute: '/',
       // initialRoute: AppRoute.onBoarding,
       debugShowCheckedModeBanner: false,
+      initialBinding: InitialBindings(),
       // routes: routes,
       getPages: routes,
     );

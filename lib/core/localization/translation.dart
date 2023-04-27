@@ -97,8 +97,8 @@ class HamourTranslations extends Translations {
     "store": "store",
     "supplierName": "Supplier name",
     "supplierText": "Enter supplier name",
-    "taxNumber": "Tax number",
-    "taxNumberText": "Enter your tax number",
+    "commercialNumber": "commercial number",
+    "commercialNumberText": "Enter your commercial number",
     "varification": "Verify Code",
     "varificationText": "please Enter your verification code that we sent to",
     "resetPassword": "Reset Password",
@@ -158,8 +158,8 @@ class HamourTranslations extends Translations {
     "supplierText": "ادخل اسم المورد",
 
     "store": "متجر",
-    "taxNumber": "الرقم الضريبي",
-    "taxNumberText": "ادخل الرقم الضريبي",
+    "commercialNumber": "الرقم التجاري",
+    "commercialNumberText": "ادخل الرقم التجاري",
     "varification": "كود المصادقة",
     "varificationText": "ادخل كود التفعيل الذي تم ارساله الى",
     "resetPassword": "اعادة تعيين كلمة السر",
@@ -177,6 +177,8 @@ class HamourTranslations extends Translations {
     "exitText": "الخروج من التطبيق؟",
     "cancel": "الغاء",
     "confirm": "تأكيد",
+    "warning": "تنبية",
+    "userExist": "بيانات المستخدم موجود مسبقاً",
     // "forgot password": "تأكيد كلمة السر",
 
     //End of Sign up Screen
