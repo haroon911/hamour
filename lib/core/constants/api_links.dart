@@ -15,9 +15,17 @@
 
 class ApiLinks {
   //keep changin serverLinkName with your server link or in local write your ipconfig in cmd
-  static const String server = "http://192.168.1.6/hamour";
+  static const String server = "http://192.168.1.5/hamour";
   //test
   static const String test = "$server/test.php";
   // ----------------- Auth Links
   static const String signup = "$server/auth/signup.php";
+  static const String login = "$server/auth/login.php";
+  static const String signupVerification = "$server/auth/verification.php";
+  // ----------------- Forgot Password Links
+  static const String resetPassword =
+      "$server/forgot_password/reset_password.php";
+  static const String checkEmail = "$server/forgot_password/check_email.php";
+  static const String verificationReset =
+      "$server/forgot_password/verification.php";
 }

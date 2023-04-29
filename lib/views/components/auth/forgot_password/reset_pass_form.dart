@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hamour/controllers/auth/reset_password_controller.dart';
+import 'package:hamour/controllers/reset_password/reset_password_controller.dart';
 import '../../../../core/functions/input_validation.dart';
 import '../Widgets/auth_text_form.dart';
 

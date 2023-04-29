@@ -17,11 +17,6 @@ class SignUpVerificationController extends GetxController {
     super.onInit();
   }
 
-  goToVerificationSuccess() {
-    Get.offNamed(AppRoute.verificationSuccess);
-    // Get.delete<SignUpVerificationController>();
-  }
-
   goToSignUp() {
     Get.offNamed(AppRoute.signUp);
     // Get.delete<SignUpVerificationController>();
@@ -32,7 +27,7 @@ class SignUpVerificationController extends GetxController {
   checkVerificationCode() {
     // Get.toNamed(AppRoute.login);
   }
-  _getData() async {
+  goToVerificationSuccess() async {
     statusRequest = StatusRequest.loading;
     update();
     var response = await verificationSignUpData.postVerificationData(
@@ -43,7 +38,7 @@ class SignUpVerificationController extends GetxController {
       if (response['status'] == "success") {
         Get.offNamed(AppRoute.verificationSuccess);
       } else {
-        Get.defaultDialog(title: "warning".tr, content: Text("userExist".tr));
+        Get.defaultDialog(title: "warning".tr, content: Text("verificationErrText".tr));
         statusRequest = StatusRequest.failure;
       }
     } else {

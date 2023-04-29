@@ -3,16 +3,15 @@ import 'package:hamour/core/classes/crud.dart';
 
 import '../../../../core/constants/api_links.dart';
 
-class VerificationSignUpData {
+class CheckEmailData {
   Crud crud;
-  VerificationSignUpData(this.crud);
-  postVerificationData({
+  CheckEmailData(this.crud);
+  postEmailData({
     required String email,
-    required String verificationCode,
+
   }) async {
-    var response = await crud.postData(ApiLinks.signupVerification, {
+    var response = await crud.postData(ApiLinks.checkEmail, {
       "email": email,
-      "verification_code": verificationCode,
     });
     debugPrint('"---------"+$response');
 

@@ -19,13 +19,14 @@ class OtpInput extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           borderWidth: 5,
           filled: true,
-          // fillColor: Theme.of(context).hoverColor,
+          
+          fillColor: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
           // filled: true,
           // borderColor: const Color(0xFF512DA8),
           // borderColor: Theme.of(context).primaryColor,
           //set to true to show as box or false to show as dash
           showFieldAsBox: false,
-          fieldWidth: 45,
+          fieldWidth: 50,
           //runs when a code is typed in
           onCodeChanged: (String code) {
             //handle validation or checks here

@@ -112,8 +112,13 @@ class HamourTranslations extends Translations {
     "resend": "resend the code",
     "exit": "Exit",
     "exitText": "exit from app?",
-    "confirm": "Confirm",
     "cancel": "Cancel",
+    "confirm": "Confirm",
+    "warning": "Warning",
+    "userExist": "User already exist",
+    "verificationErrText": "code is not correct",
+    "notExist": "either email or password is wrong",
+    "EmailnotExist": "email not found",
     //End of Sign up Screen
   };
   Map<String, String> authAr = {
@@ -179,8 +184,10 @@ class HamourTranslations extends Translations {
     "confirm": "تأكيد",
     "warning": "تنبية",
     "userExist": "بيانات المستخدم موجود مسبقاً",
+    "verificationErrText": "رقم التحقق غير صحيح",
+    "notExist": "كلمة السر او الايميل غير صحيح",
+    "EmailnotExist": "الايميل غير موجود",
     // "forgot password": "تأكيد كلمة السر",
-
     //End of Sign up Screen
   };
 }

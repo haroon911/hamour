@@ -38,10 +38,10 @@ class SignUpVerificationScreen extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const AuthIntroduction(
+                          AuthIntroduction(
                             title: 'varification',
                             subTitle: 'varificationText',
-                            extra: "haroon@gamil.com",
+                            extra: "${controller.email}",
                           ),
                           OtpInput(
                             onSubmit: (verificationCode) {
