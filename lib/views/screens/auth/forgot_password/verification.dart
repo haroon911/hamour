@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 import '../../../../controllers/reset_password/reset_verification_controller.dart';
-import '../../../../core/classes/status_request.dart';
-import '../../../../core/constants/image_assets.dart';
+import '../../../../core/classes/data_view_hander.dart';
 import '../../../../core/functions/auth_app_bar.dart';
 import '../../../components/auth/Widgets/auth_intro.dart';
 import '../../../components/auth/Widgets/recommendation.dart';
@@ -23,10 +21,9 @@ class ResetVerificationScreen extends StatelessWidget {
     return Scaffold(
         appBar: myAppBar(),
         body: GetBuilder<ResetVerificationController>(
-          builder: (controller) => controller.statusRequest ==
-                  StatusRequest.loading
-              ? Center(child: Lottie.asset(ImageAssets.loading1))
-              : SingleChildScrollView(
+          builder: (controller) =>DataRequestHandler( // added from class that i created
+            statusRequest: controller.statusRequest,
+            widget: SingleChildScrollView(
                   child: Align(
                     alignment: Alignment.center,
                     child: Container(
@@ -66,7 +63,7 @@ class ResetVerificationScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
+                ),),
         ));
   }
 }

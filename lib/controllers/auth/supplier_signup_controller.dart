@@ -20,8 +20,7 @@ class SupplierSignUpController extends GetxController {
 
   SignUpData signUpData = SignUpData(Get.find());
 
-  StatusRequest? statusRequest;
-
+  StatusRequest statusRequest = StatusRequest.noState;
   showPassword() {
     obscureText = !obscureText;
     update();

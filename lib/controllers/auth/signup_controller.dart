@@ -18,7 +18,7 @@ class SignUpController extends GetxController {
   bool obscureText = true;
   SignUpData signUpData = SignUpData(Get.find());
 
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.noState;
 
   showPassword() {
     obscureText = !obscureText;

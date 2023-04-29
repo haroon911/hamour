@@ -8,7 +8,7 @@ import '../../core/constants/route_names.dart';
 class ResetVerificationController extends GetxController {
   late String verificationCode;
   String? email;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.noState;
   VerificationResetData verificationResetData =
       VerificationResetData(Get.find());
   @override

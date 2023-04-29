@@ -9,7 +9,7 @@ import '../../core/constants/route_names.dart';
 class ForgotPassowrdController extends GetxController {
   late TextEditingController emailController;
   CheckEmailData checkEmailData = CheckEmailData(Get.find());
-  StatusRequest? statusRequest;
+StatusRequest statusRequest = StatusRequest.noState;
   @override
   void onInit() {
     emailController = TextEditingController();

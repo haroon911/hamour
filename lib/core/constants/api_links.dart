@@ -15,7 +15,7 @@
 
 class ApiLinks {
   //keep changin serverLinkName with your server link or in local write your ipconfig in cmd
-  static const String server = "http://192.168.1.5/hamour";
+  static const String server = "http://192.168.1.3/hamour";
   //test
   static const String test = "$server/test.php";
   // ----------------- Auth Links

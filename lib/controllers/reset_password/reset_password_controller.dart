@@ -11,7 +11,7 @@ class ResetPasswordController extends GetxController {
   late TextEditingController conformPasswordController;
   bool obscureText = true;
   String? email;
-  StatusRequest? statusRequest;
+StatusRequest statusRequest = StatusRequest.noState;
   ResetPasswordData resetPasswordData = ResetPasswordData(Get.find());
   showPassword() {
     obscureText = !obscureText;

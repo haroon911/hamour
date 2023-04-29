@@ -10,8 +10,8 @@ class SignUpVerificationController extends GetxController {
       VerificationSignUpData(Get.find());
   late String verificationCode;
   String? email;
-  StatusRequest? statusRequest;
-  @override
+StatusRequest statusRequest = StatusRequest.noState; 
+ @override
   onInit() {
     email = Get.arguments['email'];
     super.onInit();

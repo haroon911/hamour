@@ -11,7 +11,7 @@ class LoginController extends GetxController {
   late TextEditingController passwordController;
   bool remember = false;
   bool obscureText = true;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.noState;
   LoginData loginData = LoginData(Get.find());
   List data = [];
   showPassword() {
