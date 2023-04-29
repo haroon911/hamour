@@ -21,6 +21,7 @@ class LoginController extends GetxController {
 
   @override
   void onInit() {
+    // FirebaseMessaging.instance.getToken().then();
     emailController = TextEditingController();
     passwordController = TextEditingController();
     super.onInit();

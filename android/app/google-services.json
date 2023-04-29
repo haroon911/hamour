@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "54160921305",
+    "project_id": "hamour-dee28",
+    "storage_bucket": "hamour-dee28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54160921305:android:0580645a61b1e24976e4c8",
+        "android_client_info": {
+          "package_name": "com.example.hamour"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54160921305-clqb0vrefmq9fesdkd2o6l272ufl9elu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hamour",
+            "certificate_hash": "b087093de7335e1b41a175110d3add190857756a"
+          }
+        },
+        {
+          "client_id": "54160921305-53pfc44qbhehf7eauvo9f5e7diq8i4f2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQXDolGlpeuO5QX2egwOi15lu0pe8dMIM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54160921305-53pfc44qbhehf7eauvo9f5e7diq8i4f2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
