@@ -3,27 +3,15 @@ import 'package:hamour/views/screens/auth/forgot_password/reset_password.dart';
 import 'package:hamour/views/screens/auth/forgot_password/verification.dart';
 import 'package:hamour/views/screens/auth/signup/supplier_signup.dart';
 import 'package:hamour/views/screens/auth/verification_succuss.dart';
-import 'package:hamour/views/screens/home/home_page.dart';
+import 'package:hamour/views/screens/home/home_screen.dart';
 
-import 'core/constants/route_names.dart';
+import 'core/constants/app_routes_names.dart';
 import 'core/middleware/hamour_middleware.dart';
 import 'views/screens/auth/login/login.dart';
 import 'views/screens/auth/signup/signup.dart';
 import 'views/screens/auth/forgot_password/forgot_password.dart';
 import 'views/screens/auth/signup/signup_verification.dart';
 import 'views/screens/onboarding/onboarding_screen.dart';
-
-// final Map<String, Widget Function(BuildContext)> routess = {
-//   AppRoute.onBoarding: (context) => OnBoardingScreen(),
-//   AppRoute.login: (context) => LoginScreen(),
-//   AppRoute.signUp: (context) => SignUp(),
-//   AppRoute.forgotPasswordScreen: (context) => ForgotPasswordScreen(),
-//   AppRoute.supplierSignUpScreen: (context) => SupplierSignUpSceen(),
-//   AppRoute.resetVerificationScreen: (context) => ResetVerificationScreen(),
-//   AppRoute.resetPasswordScreen: (context) => ResetPasswordScreen(),
-//   AppRoute.signupVerificationScreen: (context) => SignUpVerificationScreen(),
-//   AppRoute.verificationSuccess: (context) => VerificationSuccess(),
-// };
 
 List<GetPage<dynamic>>? routes = [
   GetPage(
@@ -46,7 +34,8 @@ List<GetPage<dynamic>>? routes = [
       page: () => SignUpVerificationScreen()),
   GetPage(
       name: AppRoute.verificationSuccess, page: () => VerificationSuccess()),
-  GetPage(name: AppRoute.homePage, page: () => const HomePage()),
+  GetPage(name: AppRoute.homePage, page: () => const HomeScreen()),
+  // GetPage(name: AppRoute.dashBoard, page: () => const DashBoard()),
 ];
 
 

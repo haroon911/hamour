@@ -4,7 +4,7 @@ import 'package:hamour/core/classes/status_request.dart';
 import 'package:hamour/core/functions/data_handler_controller.dart';
 import 'package:hamour/data/source/remote/forgot_password/check_email_data.dart';
 
-import '../../core/constants/route_names.dart';
+import '../../core/constants/app_routes_names.dart';
 
 class ForgotPassowrdController extends GetxController {
   late TextEditingController emailController;

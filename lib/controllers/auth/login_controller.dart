@@ -8,7 +8,7 @@ import 'package:hamour/core/services/services.dart';
 import 'package:hamour/data/source/remote/auth/login_data.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
-import '../../core/constants/route_names.dart';
+import '../../core/constants/app_routes_names.dart';
 
 class LoginController extends GetxController {
   late TextEditingController emailController;

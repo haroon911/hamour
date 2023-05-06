@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:hamour/core/functions/data_handler_controller.dart';
 
 import '../../core/classes/status_request.dart';
-import '../../core/constants/route_names.dart';
+import '../../core/constants/app_routes_names.dart';
 import '../../data/source/remote/auth/signup_data.dart';
 import 'roles.dart';
 

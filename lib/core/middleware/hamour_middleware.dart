@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/services/services.dart';
 
-import '../constants/route_names.dart';
+import '../constants/app_routes_names.dart';
 
 class HamourMiddleware extends GetMiddleware {
   @override

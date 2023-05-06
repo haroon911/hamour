@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/classes/status_request.dart';
-import '../../core/constants/route_names.dart';
+import '../../core/constants/app_routes_names.dart';
 import '../../core/functions/data_handler_controller.dart';
 import '../../data/source/remote/auth/verification_signup.dart';
 

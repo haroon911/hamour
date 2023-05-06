@@ -11,4 +11,5 @@ class AppRoute {
   static const String resetPasswordScreen = "/resetPasswordScreen";
   static const String testScreen = "/testScreen";
   static const String verificationSuccess = "/successfullSignUpScreen";
+  static const String dashBoard = "/dashBoard";
 }

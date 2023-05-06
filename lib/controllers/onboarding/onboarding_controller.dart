@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/services/services.dart';
 
-import '../../core/constants/route_names.dart';
+import '../../core/constants/app_routes_names.dart';
 import '../../core/functions/change_lang_dialog.dart';
 import '../../data/source/static/static.dart';
 
