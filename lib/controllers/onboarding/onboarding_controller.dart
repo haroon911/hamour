@@ -18,7 +18,7 @@ class OnBoardingController extends GetxController {
 
   // next() {}
   goToLogin() {
-    hamourServices.sharedPrefrences.setBool("finishOnboarding", true);
+    hamourServices.sharedPrefrences.setString("step", "1");
     Get.offAllNamed(AppRoute.login);
   }
 

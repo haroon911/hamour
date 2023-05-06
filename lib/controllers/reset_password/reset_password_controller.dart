@@ -11,7 +11,7 @@ class ResetPasswordController extends GetxController {
   late TextEditingController conformPasswordController;
   bool obscureText = true;
   String? email;
-StatusRequest statusRequest = StatusRequest.noState;
+  StatusRequest statusRequest = StatusRequest.noState;
   ResetPasswordData resetPasswordData = ResetPasswordData(Get.find());
   showPassword() {
     obscureText = !obscureText;
@@ -30,7 +30,7 @@ StatusRequest statusRequest = StatusRequest.noState;
   goToVerificationSuccess() async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await resetPasswordData.postResetPasswordData(
+    var response = await resetPasswordData.getData(
         email: email!, password: newPasswordController.text);
     statusRequest = dataHandler(response);
     debugPrint("+++++++++++ $statusRequest");

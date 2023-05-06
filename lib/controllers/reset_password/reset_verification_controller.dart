@@ -20,7 +20,7 @@ class ResetVerificationController extends GetxController {
   goToResetPassword() async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await verificationResetData.postVerificationResetData(
+    var response = await verificationResetData.getData(
         email: email!, verificationCode: verificationCode);
     statusRequest = dataHandler(response);
     debugPrint("+++++++++++ $statusRequest");

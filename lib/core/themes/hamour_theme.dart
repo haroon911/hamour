@@ -27,9 +27,11 @@ class HamourTheme {
       // primaryColor: AppColor.primaryColor,
       checkboxTheme: CheckboxThemeData(
           fillColor: MaterialStateColor.resolveWith((states) => Colors.black)),
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         // backgroundColor: Color.fromARGB(255, 239, 140, 26),
-        backgroundColor: AppColor.primaryLightColor,
+        // backgroundColor: AppColor.primaryLightColor,
+
+        backgroundColor: Color(0xFF1C192B),
         foregroundColor: Colors.white,
         // backgroundColor: Color(0xFFf4aeff),
       ),
@@ -48,8 +50,9 @@ class HamourTheme {
 
   static ThemeData dark() {
     return ThemeData(
-      colorScheme:const ColorScheme.dark().copyWith(
+      colorScheme: const ColorScheme.dark().copyWith(
         primary: AppColor.primaryDarkColor,
+        secondary: Colors.amber.shade600,
       ),
       fontFamily: "Cairo",
       useMaterial3: true,

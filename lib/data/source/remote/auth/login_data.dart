@@ -6,7 +6,7 @@ import '../../../../core/constants/api_links.dart';
 class LoginData {
   Crud crud;
   LoginData(this.crud);
-  postLoginData({
+  getData({
     required String email,
     required String password,
   }) async {
@@ -18,5 +18,4 @@ class LoginData {
 
     return response.fold((l) => l, (r) => r);
   }
-  
 }

@@ -3,15 +3,11 @@ import 'package:hamour/core/classes/crud.dart';
 
 import '../../../../core/constants/api_links.dart';
 
-class CheckEmailData {
+class HomeData {
   Crud crud;
-  CheckEmailData(this.crud);
-  getData({
-    required String email,
-  }) async {
-    var response = await crud.postData(ApiLinks.checkEmail, {
-      "email": email,
-    });
+  HomeData(this.crud);
+  getData() async {
+    var response = await crud.postData(ApiLinks.home, {});
     debugPrint('"---------"+$response');
 
     return response.fold((l) => l, (r) => r);

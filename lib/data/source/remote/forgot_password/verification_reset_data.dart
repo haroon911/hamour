@@ -6,7 +6,7 @@ import '../../../../core/constants/api_links.dart';
 class VerificationResetData {
   Crud crud;
   VerificationResetData(this.crud);
-  postVerificationResetData({
+  getData({
     required String email,
     required String verificationCode,
   }) async {

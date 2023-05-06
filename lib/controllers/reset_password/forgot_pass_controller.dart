@@ -9,7 +9,7 @@ import '../../core/constants/route_names.dart';
 class ForgotPassowrdController extends GetxController {
   late TextEditingController emailController;
   CheckEmailData checkEmailData = CheckEmailData(Get.find());
-StatusRequest statusRequest = StatusRequest.noState;
+  StatusRequest statusRequest = StatusRequest.noState;
   @override
   void onInit() {
     emailController = TextEditingController();
@@ -25,8 +25,7 @@ StatusRequest statusRequest = StatusRequest.noState;
   onEmailChecked() async {
     statusRequest = StatusRequest.loading;
     update();
-    var response =
-        await checkEmailData.postEmailData(email: emailController.text);
+    var response = await checkEmailData.getData(email: emailController.text);
     statusRequest = dataHandler(response);
     debugPrint("+++++++++++ $statusRequest");
     if (statusRequest == StatusRequest.success) {
@@ -34,7 +33,8 @@ StatusRequest statusRequest = StatusRequest.noState;
         Get.offNamed(AppRoute.resetVerificationScreen,
             arguments: {"email": emailController.text});
       } else {
-        Get.defaultDialog(title: "warning".tr, content: Text("EmailnotExist".tr));
+        Get.defaultDialog(
+            title: "warning".tr, content: Text("EmailnotExist".tr));
         statusRequest = StatusRequest.failure;
       }
     } else {

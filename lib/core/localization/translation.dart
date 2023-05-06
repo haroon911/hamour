@@ -8,11 +8,15 @@ class HamourTranslations extends Translations {
           "appName": "هامور",
           ...onBoardingAr,
           ...authAr,
+          "categories": "الفئات",
+          "see_more": "تصفح المزيد",
         },
         "en": {
           "appName": "Hamour",
           ...onBoardingEn,
           ...authEn,
+          "categories": "Categories",
+          "see_more": "See More",
         },
       };
 

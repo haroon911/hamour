@@ -35,21 +35,58 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
+
+  #DateTime
+  jiffy: ^5.0.0
+  intl: ^0.17.0
+  http: ^0.13.5
+  #images
+  cached_network_image: ^3.2.3
+  image_picker: ^0.8.7+4
+  #animations
+  show_up_animation: ^2.0.0
+  auto_animated: ^3.1.0
+  #google map
+  flutter_polyline_points: ^1.0.0
+  google_maps_flutter: ^2.2.5
+  geolocator: ^9.0.2
+  geocoding: ^2.1.0
+  #firebase and notification
+  firebase_messaging: ^14.4.1
+  firebase_core: ^2.10.0
+  flutter_local_notifications: ^14.0.0+1
+  cloud_firestore: ^4.5.3
+  # local data cache
+  sqflite: ^2.2.8
+  shared_preferences: ^2.0.20
+  path: ^1.8.2
+  #QR code
+  qr_flutter: ^4.0.0
+  scan: ^1.6.0
+  grouped_list: ^5.1.2
+  url_launcher: ^6.1.10
+  dropdown_search: ^5.0.6
+  badges: ^3.1.1
+  #icons
+  flutter_svg: ^2.0.5
+  font_awesome_flutter: ^10.4.0
+  fluttericon: ^2.0.0
   cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
+  lottie: ^2.3.2
+  #others
   get: ^4.6.5
   smooth_page_indicator: ^1.0.1
-  shared_preferences: ^2.0.20
-  font_awesome_flutter: ^10.4.0
-  dartz: ^0.10.1
-  http: ^0.13.5
-  lottie: ^2.3.2
   #Google Auth
   google_sign_in: ^6.1.0
+  device_preview: ^1.1.0
   responsive_builder: ^0.6.4
-  flutter_svg: ^2.0.5
   flutter_otp_text_field: ^1.1.1
-  image_picker: ^0.8.7+4
-
+  #themes
+  google_fonts: ^4.0.4
+  flutter_colorpicker: ^1.0.3
+  carousel_slider: ^4.2.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -74,10 +111,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/
     - assets/lottie/
     - assets/images/
     - assets/images/onboarding/
     - assets/images/product_item_images/
+    - assets/images/slider_images/
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

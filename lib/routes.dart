@@ -3,7 +3,7 @@ import 'package:hamour/views/screens/auth/forgot_password/reset_password.dart';
 import 'package:hamour/views/screens/auth/forgot_password/verification.dart';
 import 'package:hamour/views/screens/auth/signup/supplier_signup.dart';
 import 'package:hamour/views/screens/auth/verification_succuss.dart';
-import 'package:hamour/views/screens/home/store_home.dart';
+import 'package:hamour/views/screens/home/home_page.dart';
 
 import 'core/constants/route_names.dart';
 import 'core/middleware/hamour_middleware.dart';
@@ -29,8 +29,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: "/",
       page: () => OnBoardingScreen(),
-      // name: "/",
-      // page: () => const TestView(),
       middlewares: [HamourMiddleware()]),
   GetPage(name: AppRoute.login, page: () => LoginScreen()),
   GetPage(name: AppRoute.signUp, page: () => SignUp()),
@@ -48,8 +46,7 @@ List<GetPage<dynamic>>? routes = [
       page: () => SignUpVerificationScreen()),
   GetPage(
       name: AppRoute.verificationSuccess, page: () => VerificationSuccess()),
-  GetPage(
-      name: AppRoute.storeHomePage, page: () =>const  StoreHomePage()),
+  GetPage(name: AppRoute.homePage, page: () => const HomePage()),
 ];
 
 

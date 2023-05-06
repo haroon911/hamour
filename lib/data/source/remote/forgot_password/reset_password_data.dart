@@ -6,7 +6,7 @@ import '../../../../core/constants/api_links.dart';
 class ResetPasswordData {
   Crud crud;
   ResetPasswordData(this.crud);
-  postResetPasswordData({
+  getData({
     required String email,
     required String password,
   }) async {
