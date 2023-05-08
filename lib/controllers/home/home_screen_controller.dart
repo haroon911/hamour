@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hamour/views/screens/test/dashboard.dart';
 
 import '../../views/screens/home/home.dart';
 
 class HomeScreenController extends GetxController {
-  int currentPage = 0;
+  int currentPage = 2;
+
   List<Widget> pages = [
-    const _TestPages(title: "التحكم"),
-    const _TestPages(title: "منتجاتي"),
-    const Home(),
+    const DashBoard(),
     const _TestPages(title: "الفئات"),
-    const _TestPages(title: "السلة"),
+    const Home(),
+    const _TestPages(title: "منتجاتي"),
   ];
   goToPage(int pageIndex) {
     currentPage = pageIndex;
@@ -19,7 +20,7 @@ class HomeScreenController extends GetxController {
 }
 
 class _TestPages extends StatelessWidget {
-  const _TestPages({super.key, required this.title});
+  const _TestPages({required this.title});
   final String title;
   @override
   Widget build(BuildContext context) {

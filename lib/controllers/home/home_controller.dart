@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/services/services.dart';
+import 'package:hamour/data/models/products.dart';
 import 'package:hamour/data/source/remote/home/home_data.dart';
 
 import '../../core/classes/status_request.dart';
@@ -31,6 +32,7 @@ class HomeController extends GetxController {
   // List data = [];
   // List hotItems=[];
   List<Categories> categories = [];
+  List<Products> products = [];
   List<Offers> offers = [];
   late StatusRequest statusRequest;
 
@@ -46,6 +48,8 @@ class HomeController extends GetxController {
             .forEach((value) => categories.add(Categories.fromJson(value)));
         response['offers']
             .forEach((value) => offers.add(Offers.fromJson(value)));
+        response['products']
+            .forEach((value) => products.add(Products.fromJson(value)));
       } else {
         statusRequest = StatusRequest.failure;
       }

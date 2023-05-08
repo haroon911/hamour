@@ -1,88 +1,75 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hamour/controllers/home/home_controller.dart';
+import 'package:hamour/core/constants/api_links.dart';
 
 class ProductThumbnail extends StatelessWidget {
   const ProductThumbnail({super.key});
   // final Product product;
   @override
   Widget build(BuildContext context) {
+    HomeController controller = Get.find();
     var size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: 250,
-      width: size.width,
-      child: GridView(
+    return Container(
+      height: 300,
+      constraints: BoxConstraints(maxWidth: size.width, maxHeight: 300),
+      child: ListView.builder(
+        itemCount: controller.products.length,
         scrollDirection: Axis.horizontal,
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-            mainAxisExtent: size.width / 2 - 10,
-            maxCrossAxisExtent: 375,
-            childAspectRatio: 12 / 13,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10),
-        children: [
-          ...List.generate(
-            8,
-            (index) => Container(
-              constraints: const BoxConstraints.expand(height: 350, width: 25),
+        itemBuilder: (context, index) => Column(
+          children: [
+            Card(
+              clipBehavior: Clip.antiAlias,
+              // padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Image.network(
+                "${ApiLinks.productImages}/${controller.products[index].images.first}",
+                fit: BoxFit.cover,
+                width: 250,
+                height: 200,
+              ),
+            ),
+            SizedBox(
+              width: 220,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: Card(
-                      clipBehavior: Clip.antiAlias,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Ink.image(
-                        image: const AssetImage(
-                            "assets/images/product_item_images/col1.jpg"),
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                      ),
-                    ),
+                  Text(controller.products[index].name,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleMedium),
+                  Text(
+                    '${controller.products[index].price} ريال',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                        decoration: TextDecoration.lineThrough,
+                        color: Colors.grey),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.all(18.0).copyWith(top: 5, bottom: 0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          " product.about",
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 14),
-                        ),
-                        Text(
-                          '\${product.productItem.first.price} ريال',
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 14, color: Colors.green),
-                        ),
-                      ],
-                    ),
+                  const SizedBox(width: 20),
+                  Row(
+                    children: [
+                      Text(
+                        '${(controller.products[index].price * controller.products[index].discount).round()}',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            decoration: TextDecoration.underline,
+                            color: Colors.green),
+                      ),
+                      Text(
+                        'Riyal'.tr,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
-  }
-}
-
-/*
-
-
- */
-
-class AppBarCustom extends AppBar {
-  AppBarCustom({super.key});
-
-  @override
-  State<AppBarCustom> createState() => _AppBarCustomState();
-}
-
-class _AppBarCustomState extends State<AppBarCustom> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
