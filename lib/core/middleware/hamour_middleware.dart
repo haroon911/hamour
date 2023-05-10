@@ -12,9 +12,9 @@ class HamourMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if (hamourServices.sharedPrefrences.getString("step") == "2") {
-      return const RouteSettings(name: AppRoute.homePage);
+      return const RouteSettings(name: AppRoutes.homePage);
     } else if (hamourServices.sharedPrefrences.getString("step") == "1") {
-      return const RouteSettings(name: AppRoute.login);
+      return const RouteSettings(name: AppRoutes.login);
     }
     return super.redirect(route);
   }

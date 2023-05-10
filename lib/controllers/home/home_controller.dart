@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/core/services/services.dart';
 import 'package:hamour/data/models/products.dart';
 import 'package:hamour/data/source/remote/home/home_data.dart';
@@ -13,6 +14,7 @@ class HomeController extends GetxController {
   HamourServices hamourServices = Get.find();
 
   String? name;
+  late int catId;
 
   String? id;
   @override
@@ -27,6 +29,14 @@ class HomeController extends GetxController {
     name = hamourServices.sharedPrefrences.getString("name");
   }
 
+  gotoProducts(List<Categories> categories, int selectedCatIndex , int catId) {
+    Get.toNamed(AppRoutes.productsScreen, arguments: {
+      "categories": categories,
+      "selectedCatIndex": selectedCatIndex,
+      "catId": catId
+    });
+  }
+
   HomeData homeData = HomeData(Get.find());
 
   // List data = [];
@@ -38,7 +48,7 @@ class HomeController extends GetxController {
 
   getData() async {
     statusRequest = StatusRequest.loading;
-    var response = await homeData.getData();
+    var response = await homeData.getData(1, 1);
     statusRequest = dataHandler(response);
     debugPrint("+++++++++++ $statusRequest");
     if (statusRequest == StatusRequest.success) {

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/constants/api_links.dart';
 
-import '../../../controllers/home/home_controller.dart';
+import '../../../../controllers/home/home_controller.dart';
 
 class HamourCarouselSlider extends StatelessWidget {
   const HamourCarouselSlider({super.key});

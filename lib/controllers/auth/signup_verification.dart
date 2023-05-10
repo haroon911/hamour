@@ -10,15 +10,15 @@ class SignUpVerificationController extends GetxController {
       VerificationSignUpData(Get.find());
   late String verificationCode;
   String? email;
-StatusRequest statusRequest = StatusRequest.noState; 
- @override
+  StatusRequest statusRequest = StatusRequest.noState;
+  @override
   onInit() {
     email = Get.arguments['email'];
     super.onInit();
   }
 
   goToSignUp() {
-    Get.offNamed(AppRoute.signUp);
+    Get.offNamed(AppRoutes.signUp);
     // Get.delete<SignUpVerificationController>();
   }
 
@@ -36,9 +36,10 @@ StatusRequest statusRequest = StatusRequest.noState;
     debugPrint("+++++++++++ $statusRequest");
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {
-        Get.offNamed(AppRoute.verificationSuccess);
+        Get.offNamed(AppRoutes.verificationSuccess);
       } else {
-        Get.defaultDialog(title: "warning".tr, content: Text("verificationErrText".tr));
+        Get.defaultDialog(
+            title: "warning".tr, content: Text("verificationErrText".tr));
         statusRequest = StatusRequest.failure;
       }
     } else {

@@ -1,4 +1,4 @@
-class AppRoute {
+class AppRoutes {
   static const String onBoarding = "/onBoarding";
   static const String homePage = "/homePage";
   static const String login = "/login";
@@ -12,4 +12,5 @@ class AppRoute {
   static const String testScreen = "/testScreen";
   static const String verificationSuccess = "/successfullSignUpScreen";
   static const String dashBoard = "/dashBoard";
+  static const String productsScreen = "/productsScreen";
 }

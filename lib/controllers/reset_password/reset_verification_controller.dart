@@ -26,7 +26,7 @@ class ResetVerificationController extends GetxController {
     debugPrint("+++++++++++ $statusRequest");
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {
-        Get.offNamed(AppRoute.resetPasswordScreen,
+        Get.offNamed(AppRoutes.resetPasswordScreen,
             arguments: {"email": email!});
       } else {
         Get.defaultDialog(
@@ -44,7 +44,7 @@ class ResetVerificationController extends GetxController {
 
   resendVerificationCode() {}
   goToLogin() {
-    Get.offAllNamed(AppRoute.login);
+    Get.offAllNamed(AppRoutes.login);
     // Get.delete<ResetVerificationController>();
   }
 

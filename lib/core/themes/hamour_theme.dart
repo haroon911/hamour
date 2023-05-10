@@ -10,12 +10,12 @@ class HamourTheme {
   static ThemeData light() {
     return ThemeData(
       colorScheme: ColorScheme.light(
-        onSurfaceVariant: AppColor.secondaryLightColor.withOpacity(0.9),
-        primary: AppColor.secondaryLightColor,
-        surfaceTint: AppColor.primaryLightColor,
-        // onSurface: Colors.red,
-        tertiaryContainer: Colors.red,
-      ),
+          onSurfaceVariant: AppColor.secondaryLightColor.withOpacity(0.9),
+          primary: AppColor.secondaryLightColor,
+          surfaceTint: AppColor.primaryLightColor,
+          // onSurface: Colors.red,
+          tertiaryContainer: Colors.red,
+          secondary: AppColor.primaryDarkColor),
 
       // inputDecorationTheme: inputDecorationTheme(AppColor.secondaryLightColor),
       // inputDecorationTheme: InputDecorationTheme(),

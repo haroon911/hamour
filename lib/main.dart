@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: HamourTheme.light(),
-      // darkTheme: HamourTheme.dark(),
+      darkTheme: HamourTheme.dark(),
       translations: HamourTranslations(),
       locale: localController.language,
       // initialRoute: '/',

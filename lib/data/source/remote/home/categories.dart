@@ -3,13 +3,13 @@ import 'package:hamour/core/classes/crud.dart';
 
 import '../../../../core/constants/api_links.dart';
 
-class HomeData {
+class CategoriesData {
   Crud crud;
-  HomeData(this.crud);
-  getData(int level , int parentId) async {
-    var response = await crud.postData(ApiLinks.home, {"level":level.toString() ,"parent_id":parentId.toString() });
+  CategoriesData(this.crud);
+  getData() async {
+    var response = await crud.postData(ApiLinks.categories, {"level": "1"});
     debugPrint('"---------"+$response');
-    
+
     return response.fold((l) => l, (r) => r);
   }
 }

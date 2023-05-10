@@ -49,7 +49,7 @@ class SupplierSignUpController extends GetxController {
   }
 
   goToLoginScreen() {
-    Get.offAllNamed(AppRoute.login);
+    Get.offAllNamed(AppRoutes.login);
     // Get.delete<SupplierSignUpController>();
   }
 
@@ -58,7 +58,7 @@ class SupplierSignUpController extends GetxController {
   }
 
   goToSignUpScreen() {
-    Get.offNamed(AppRoute.signUp);
+    Get.offNamed(AppRoutes.signUp);
     // Get.delete<SupplierSignUpController>();
   }
 
@@ -76,7 +76,7 @@ class SupplierSignUpController extends GetxController {
     debugPrint("+++++++++++ $statusRequest");
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {
-        Get.offAllNamed(AppRoute.signupVerificationScreen,
+        Get.offAllNamed(AppRoutes.signupVerificationScreen,
             arguments: {"email": emailController.text});
       } else {
         Get.defaultDialog(title: "warning".tr, content: Text("userExist".tr));

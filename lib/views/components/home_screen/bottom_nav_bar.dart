@@ -17,16 +17,17 @@ class BottomNavBar extends StatelessWidget {
               },
               currentIndex: controller.currentPage,
               type: BottomNavigationBarType.fixed,
-              items: const [
+              items: [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.menu_rounded), label: "dashboard"),
+                    icon: const Icon(Icons.menu_rounded),
+                    label: "dashboard".tr),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.category_rounded), label: "categories"),
+                    icon: const Icon(Icons.category_rounded), label: "categories".tr),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.store_mall_directory_rounded),
-                    label: "home"),
+                    icon: const Icon(Icons.store_mall_directory_rounded),
+                    label: "home".tr),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.warehouse_rounded), label: "reposetry"),
+                    icon:const  Icon(Icons.warehouse_rounded), label: "reposetry".tr),
               ],
             ));
   }

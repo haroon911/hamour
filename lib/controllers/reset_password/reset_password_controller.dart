@@ -36,7 +36,7 @@ class ResetPasswordController extends GetxController {
     debugPrint("+++++++++++ $statusRequest");
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {
-        Get.offAllNamed(AppRoute.verificationSuccess);
+        Get.offAllNamed(AppRoutes.verificationSuccess);
       } else {
         Get.defaultDialog(title: "warning".tr, content: Text("notExist".tr));
         statusRequest = StatusRequest.failure;

@@ -10,6 +10,8 @@ class HamourTranslations extends Translations {
           ...authAr,
           "categories": "الفئات",
           "see_more": "تصفح المزيد",
+          "dashboard": "لوحة التحكم",
+          "balance": "الرصيد"
         },
         "en": {
           "appName": "Hamour",
@@ -17,6 +19,8 @@ class HamourTranslations extends Translations {
           ...authEn,
           "categories": "Categories",
           "see_more": "See More",
+          "dashboard": "Dash board",
+          "balance": "Balance"
         },
       };
 

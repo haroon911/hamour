@@ -19,7 +19,7 @@ class OnBoardingController extends GetxController {
   // next() {}
   goToLogin() {
     hamourServices.sharedPrefrences.setString("step", "1");
-    Get.offAllNamed(AppRoute.login);
+    Get.offAllNamed(AppRoutes.login);
   }
 
   onPageControllerChanged(int index) {

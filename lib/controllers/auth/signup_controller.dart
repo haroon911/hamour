@@ -48,7 +48,7 @@ class SignUpController extends GetxController {
   }
 
   goToLoginScreen() {
-    Get.offAllNamed(AppRoute.login);
+    Get.offAllNamed(AppRoutes.login);
     // Get.delete<SignUpController>();
   }
 
@@ -57,13 +57,13 @@ class SignUpController extends GetxController {
   }
 
   goToSupplierSignUp() {
-    Get.offNamed(AppRoute.supplierSignUpScreen);
+    Get.offNamed(AppRoutes.supplierSignUpScreen);
     // Get.delete<SignUpController>();
   }
 
   _getData() async {
     statusRequest = StatusRequest.loading;
-        update();
+    update();
     var response = await signUpData.postStoreData(
       email: emailController.text,
       password: passwordController.text,
@@ -74,7 +74,8 @@ class SignUpController extends GetxController {
     debugPrint("+++++++++++ $statusRequest");
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {
-        Get.offAllNamed(AppRoute.signupVerificationScreen,arguments: {"email":emailController.text});
+        Get.offAllNamed(AppRoutes.signupVerificationScreen,
+            arguments: {"email": emailController.text});
       } else {
         Get.defaultDialog(title: "warning".tr, content: Text("userExist".tr));
         statusRequest = StatusRequest.failure;

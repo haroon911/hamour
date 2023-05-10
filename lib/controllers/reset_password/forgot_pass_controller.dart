@@ -30,7 +30,7 @@ class ForgotPassowrdController extends GetxController {
     debugPrint("+++++++++++ $statusRequest");
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {
-        Get.offNamed(AppRoute.resetVerificationScreen,
+        Get.offNamed(AppRoutes.resetVerificationScreen,
             arguments: {"email": emailController.text});
       } else {
         Get.defaultDialog(
@@ -44,7 +44,7 @@ class ForgotPassowrdController extends GetxController {
   }
 
   goToLoginScreen() {
-    Get.offNamed(AppRoute.login);
+    Get.offNamed(AppRoutes.login);
     // Get.delete<ForgotPassowrdController>();
   }
 }

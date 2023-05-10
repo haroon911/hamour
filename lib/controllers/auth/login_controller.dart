@@ -55,12 +55,12 @@ class LoginController extends GetxController {
   }
 
   goToSignupScreen() {
-    Get.toNamed(AppRoute.signUp);
+    Get.toNamed(AppRoutes.signUp);
     // Get.delete<LoginController>();
   }
 
   goToForgetPassword() {
-    Get.offNamed(AppRoute.forgotPasswordScreen);
+    Get.offNamed(AppRoutes.forgotPasswordScreen);
     // Get.delete<LoginController>();
   }
 
@@ -99,10 +99,10 @@ class LoginController extends GetxController {
         if ("${response['data']['role_id']}" == "1") {
           // hamourServices.sharedPrefrences.setString("profile_image", value);
           // hamourServices.sharedPrefrences.setString("details", value);
-          Get.offNamed(AppRoute.homePage);
+          Get.offNamed(AppRoutes.homePage);
         } else if ("${response['data']['role_id']}" == "2") {
           //change the route later to supplier home page
-          Get.offNamed(AppRoute.homePage);
+          Get.offNamed(AppRoutes.homePage);
         }
       } else {
         Get.defaultDialog(title: "warning".tr, content: Text("notExist".tr));

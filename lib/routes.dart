@@ -3,7 +3,8 @@ import 'package:hamour/views/screens/auth/forgot_password/reset_password.dart';
 import 'package:hamour/views/screens/auth/forgot_password/verification.dart';
 import 'package:hamour/views/screens/auth/signup/supplier_signup.dart';
 import 'package:hamour/views/screens/auth/verification_succuss.dart';
-import 'package:hamour/views/screens/home/home_screen.dart';
+import 'package:hamour/views/screens/home_screen/home_screen.dart';
+import 'package:hamour/views/screens/home_screen/home/products_cat/product_cat_screen.dart';
 
 import 'core/constants/app_routes_names.dart';
 import 'core/middleware/hamour_middleware.dart';
@@ -18,24 +19,24 @@ List<GetPage<dynamic>>? routes = [
       name: "/",
       page: () => OnBoardingScreen(),
       middlewares: [HamourMiddleware()]),
-  GetPage(name: AppRoute.login, page: () => LoginScreen()),
-  GetPage(name: AppRoute.signUp, page: () => SignUp()),
+  GetPage(name: AppRoutes.login, page: () => LoginScreen()),
+  GetPage(name: AppRoutes.signUp, page: () => SignUp()),
   GetPage(
-      name: AppRoute.forgotPasswordScreen, page: () => ForgotPasswordScreen()),
+      name: AppRoutes.forgotPasswordScreen, page: () => ForgotPasswordScreen()),
   GetPage(
-      name: AppRoute.supplierSignUpScreen, page: () => SupplierSignUpSceen()),
+      name: AppRoutes.supplierSignUpScreen, page: () => SupplierSignUpSceen()),
   GetPage(
-      name: AppRoute.resetVerificationScreen,
+      name: AppRoutes.resetVerificationScreen,
       page: () => ResetVerificationScreen()),
   GetPage(
-      name: AppRoute.resetPasswordScreen, page: () => ResetPasswordScreen()),
+      name: AppRoutes.resetPasswordScreen, page: () => ResetPasswordScreen()),
   GetPage(
-      name: AppRoute.signupVerificationScreen,
+      name: AppRoutes.signupVerificationScreen,
       page: () => SignUpVerificationScreen()),
   GetPage(
-      name: AppRoute.verificationSuccess, page: () => VerificationSuccess()),
-  GetPage(name: AppRoute.homePage, page: () => const HomeScreen()),
-  // GetPage(name: AppRoute.dashBoard, page: () => const DashBoard()),
+      name: AppRoutes.verificationSuccess, page: () => VerificationSuccess()),
+  GetPage(name: AppRoutes.homePage, page: () => const HomeScreen()),
+  GetPage(name: AppRoutes.productsScreen, page: () => const ProductCatScreen()),
 ];
 
 

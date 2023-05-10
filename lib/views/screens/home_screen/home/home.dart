@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/controllers/home/home_controller.dart';
-import 'package:hamour/views/components/home/category_list.dart';
-import 'package:hamour/views/components/home/appbar_hamour.dart';
-import 'package:hamour/views/components/home/product_home.dart';
-import 'package:hamour/views/components/home/section_title.dart';
-import 'package:hamour/views/components/home/slider.dart';
+import 'package:hamour/views/components/home_screen/home/category_list.dart';
+import 'package:hamour/views/components/home_screen/appbar_hamour.dart';
+import 'package:hamour/views/components/home_screen/home/product_home.dart';
+import 'package:hamour/views/components/home_screen/section_title.dart';
+import 'package:hamour/views/components/home_screen/home/slider.dart';
 
-import '../../../core/classes/data_view_hander.dart';
+import '../../../../core/classes/data_view_hander.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
