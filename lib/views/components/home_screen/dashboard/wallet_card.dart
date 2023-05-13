@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 
@@ -10,11 +9,10 @@ class WalletCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
+      height: 100,
       width: MediaQuery.of(context).size.width,
       child: Padding(
-        padding:
-            const EdgeInsets.symmetric(vertical: 8, horizontal: 1),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 1),
         child: Card(
             shape: ContinuousRectangleBorder(
                 borderRadius: BorderRadius.circular(80)),
@@ -25,15 +23,17 @@ class WalletCard extends StatelessWidget {
                   Row(children: [
                     Text(
                       "balance".tr,
-                      style:
-                          Theme.of(context).textTheme.headlineMedium,
+                      style: Theme.of(context).textTheme.headlineMedium,
                     ),
-                  ]),
-                  Row(children: [
+                    const SizedBox(
+                      width: 10,
+                    ),
                     Text(
-                      "0",
-                      style:
-                          Theme.of(context).textTheme.headlineMedium,
+                      "0" " \$",
+                      style: Theme.of(context)
+                          .textTheme
+                          .displayLarge!
+                          .copyWith(color: Colors.green),
                     ),
                   ]),
                 ],

@@ -14,14 +14,29 @@ class HomeScreen extends StatelessWidget {
     return GetBuilder<HomeScreenController>(
         builder: (controller) => Scaffold(
               body: controller.pages.elementAt(controller.currentPage),
-              floatingActionButton: FloatingActionButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40)),
-                onPressed: () {},
-                child: const Icon(
-                  FontAwesomeIcons.cartShopping,
-                  size: 30,
-                ),
+              floatingActionButton: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  FloatingActionButton(
+                    shape: ContinuousRectangleBorder(
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    onPressed: () {},
+                    tooltip: "explore your products".tr,
+                    child: const Icon(
+                      // FontAwesomeIcons.warehouse,
+                      Icons.warehouse_rounded,
+                      size: 30,
+                    ),
+                  ),
+                  Text(
+                    "repositry".tr,
+                    maxLines: 1,
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                        color: Theme.of(context).colorScheme.secondary),
+                  ),
+                ],
               ),
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerDocked,

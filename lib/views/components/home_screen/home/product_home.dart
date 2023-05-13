@@ -38,7 +38,7 @@ class ProductThumbnail extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.titleMedium),
                   Text(
-                    '${controller.products[index].price} ريال',
+                    '${controller.products[index].price} ${"riyal".tr}',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
@@ -56,8 +56,9 @@ class ProductThumbnail extends StatelessWidget {
                             decoration: TextDecoration.underline,
                             color: Colors.green),
                       ),
+                      const SizedBox(width: 5),
                       Text(
-                        'Riyal'.tr,
+                        'riyal'.tr,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodyLarge,

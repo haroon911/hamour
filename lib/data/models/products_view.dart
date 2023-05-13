@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-class Products {
+class ProductsView {
   int id;
   String name;
   String nameEn;
@@ -28,7 +28,7 @@ class Products {
   String catCode;
   List<String> images;
 
-  Products({
+  ProductsView({
     required this.id,
     required this.name,
     required this.nameEn,
@@ -53,7 +53,7 @@ class Products {
     required this.images,
   });
 
-  Products copyWith({
+  ProductsView copyWith({
     int? id,
     String? name,
     String? nameEn,
@@ -77,7 +77,7 @@ class Products {
     String? catCode,
     List<String>? images,
   }) =>
-      Products(
+      ProductsView(
         id: id ?? this.id,
         name: name ?? this.name,
         nameEn: nameEn ?? this.nameEn,
@@ -102,12 +102,12 @@ class Products {
         images: images ?? this.images,
       );
 
-  factory Products.fromRawJson(String str) =>
-      Products.fromJson(json.decode(str));
+  factory ProductsView.fromRawJson(String str) =>
+      ProductsView.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory Products.fromJson(Map<String, dynamic> json) => Products(
+  factory ProductsView.fromJson(Map<String, dynamic> json) => ProductsView(
         id: json["id"],
         name: json["name"],
         nameEn: json["name_en"],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hamour/core/constants/colors.dart';
+
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
 
@@ -13,16 +15,21 @@ class HomeAppBar extends StatelessWidget {
           Container(
             height: 100,
             decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    colors: [colorScheme.primary, colorScheme.secondary]),
+                gradient: LinearGradient(colors: [
+                  // colorScheme.primary,
+                  Theme.of(context).floatingActionButtonTheme.backgroundColor!,
+
+                  AppColor.primaryDarkColor
+                ]),
                 borderRadius:
-                    const BorderRadius.vertical(bottom: Radius.circular(40))),
+                    const BorderRadius.vertical(bottom: Radius.circular(30))),
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 16),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 26, vertical: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -57,20 +64,20 @@ class HomeAppBar extends StatelessWidget {
             bottom: 0,
             left: 20,
             right: 20,
-            child: Material(
-              shadowColor: Colors.black,
-              elevation: 3,
-              borderRadius: BorderRadius.circular(15),
-              child: Padding(
-                padding:const EdgeInsets.symmetric(horizontal: 10),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Material(
+                shadowColor: Colors.black,
+                elevation: 3,
+                shape: ContinuousRectangleBorder(
+                    borderRadius: BorderRadius.circular(40)),
+                // borderRadius: BorderRadius.circular(15),
                 child: TextField(
                   decoration: InputDecoration(
                       filled: true,
                       // fillColor: Colors.white,
-                      fillColor: Theme.of(context)
-                          .colorScheme
-                          .background
-                          .withOpacity(0.9),
+                      fillColor:
+                          Theme.of(context).splashColor.withOpacity(0.15),
                       contentPadding: const EdgeInsets.all(10),
                       suffixIcon: const Icon(
                         Icons.search,
@@ -79,7 +86,7 @@ class HomeAppBar extends StatelessWidget {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                           borderSide: BorderSide.none),
-                      hintText: "Search here",
+                      hintText: "searchHere".tr,
                       hintStyle: const TextStyle(
                           fontSize: 14,
                           color: Color.fromARGB(255, 131, 131, 131))),

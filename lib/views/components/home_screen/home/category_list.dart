@@ -19,7 +19,8 @@ class CategoriesList extends GetView<HomeController> {
           return controller.categories[index].level == 1
               ? GestureDetector(
                   onTap: () {
-                    controller.gotoProducts(controller.categories, index  , controller.categories[index].id);
+                    controller.gotoProducts(controller.categories,
+                        controller.categories[index].id);
                   },
                   child: Column(
                     children: [

@@ -21,7 +21,6 @@ class OnBoardingController extends GetxController {
     hamourServices.sharedPrefrences.setString("step", "1");
     Get.offAllNamed(AppRoutes.login);
   }
-
   onPageControllerChanged(int index) {
     currentPage = index;
     backgroundController.animateToPage(index,

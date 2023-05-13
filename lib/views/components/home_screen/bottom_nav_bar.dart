@@ -22,12 +22,14 @@ class BottomNavBar extends StatelessWidget {
                     icon: const Icon(Icons.menu_rounded),
                     label: "dashboard".tr),
                 BottomNavigationBarItem(
-                    icon: const Icon(Icons.category_rounded), label: "categories".tr),
-                BottomNavigationBarItem(
                     icon: const Icon(Icons.store_mall_directory_rounded),
                     label: "home".tr),
-                BottomNavigationBarItem(
-                    icon:const  Icon(Icons.warehouse_rounded), label: "reposetry".tr),
+                // BottomNavigationBarItem(
+                //     icon: const Icon(Icons.category_rounded),
+                //     label: "categories".tr),
+                // BottomNavigationBarItem(
+                //     icon: const Icon(Icons.warehouse_rounded),
+                //     label: "reposetry".tr),
               ],
             ));
   }

@@ -20,7 +20,7 @@ class HamourCarouselSlider extends StatelessWidget {
       options: CarouselOptions(
         // height: 200,
 
-        aspectRatio: 16 / 7,
+        aspectRatio: 16 / 8,
         // aspectRatio: 14 / 6,
         // viewportFraction: 0.8,
         viewportFraction: 0.97,
@@ -40,20 +40,18 @@ class HamourCarouselSlider extends StatelessWidget {
   }
 }
 
-
 class SlideImages extends StatelessWidget {
   const SlideImages({super.key, required this.image});
   final String image;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: Image.network(
-          image,
-          fit: BoxFit.cover,
-          width: MediaQuery.of(context).size.width,
-        ),
+    return Card(
+      shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(30)),
+      clipBehavior: Clip.antiAlias,
+      child: Image.network(
+        image,
+        fit: BoxFit.cover,
+        width: MediaQuery.of(context).size.width,
       ),
     );
   }

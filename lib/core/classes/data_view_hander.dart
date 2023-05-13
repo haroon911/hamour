@@ -86,7 +86,18 @@ class DataRequestHandler extends StatelessWidget {
                       Lottie.asset(ImageAssets.serverFailur),
                       const Text("Oops Server is on prepare.."),
                     ],
-                  ))
+                  )): statusRequest == StatusRequest.failure
+                    ? Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Lottie.asset(ImageAssets.womanNoData),
+                            // Lottie.asset(ImageAssets.serverFailur),
+                            // Icon(Icons.query_stats_rounded),
+                            const Text("query not found .."),
+                          ],
+                        ),
+                      )
                 : widget;
   }
 }

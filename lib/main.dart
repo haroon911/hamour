@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final LocalController localController = Get.put(LocalController());
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Hamour App',
       theme: HamourTheme.light(),
       darkTheme: HamourTheme.dark(),
       translations: HamourTranslations(),

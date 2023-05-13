@@ -1,71 +1,72 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:hamour/controllers/home/product_cat_controller.dart';
+import 'package:hamour/core/classes/data_view_hander.dart';
 import 'package:hamour/views/components/home_screen/home/product_cat.dart/categories_view.dart';
+import 'package:hamour/views/components/home_screen/home/product_cat.dart/product_card.dart';
+import 'package:hamour/views/components/home_screen/surfing_appbar.dart';
 
 class ProductCatScreen extends StatelessWidget {
-  const ProductCatScreen({super.key});
+  ProductCatScreen({super.key});
 
+  final ProductCatController controller = Get.put(ProductCatController());
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => ProductCatController());
-    return Scaffold(
-      body: Column(
-        children: const [
-          SurfingAppBar(),
-          CategoriesView(),
-        ],
-      ),
-    );
-  }
-}
+    Future<bool> returning() {
+      Get.close(0);
+      if (controller.categoryStack.isNotEmpty) {
+        controller.categoryStack.removeLast();
+        // controller.getProducts(controller.categoryStack.last.id);
+        controller.initialData();
+      }
+      return Future.value(true);
+    }
 
-class SurfingAppBar extends StatelessWidget {
-  const SurfingAppBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15)
-          .copyWith(top: 40),
-      child: Row(
-        children: [
-          Expanded(
-            child: Card(
-              clipBehavior: Clip.antiAlias,
-              child: TextField(
-                decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Theme.of(context).cardColor.withAlpha(0),
-                    contentPadding: const EdgeInsets.all(15),
-                    suffixIcon: const Icon(
-                      Icons.search,
-                      color: Color.fromARGB(255, 146, 146, 146),
+    return WillPopScope(
+      onWillPop: returning,
+      child: Scaffold(
+        body: SingleChildScrollView(
+          controller: controller.hideButtonController,
+          child: Column(
+            children: [
+              const SurfingAppBar(),
+              controller.subCategories.isNotEmpty
+                  ? const CategoriesView()
+                  : const SizedBox(),
+              GetBuilder<ProductCatController>(
+                builder: (controller) => DataRequestHandler(
+                  post: true,
+                  statusRequest: controller.statusRequest,
+                  widget: MasonryGridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: controller.products.length,
+                    gridDelegate:
+                        const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
                     ),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide.none),
-                    hintText: "Search here",
-                    hintStyle: const TextStyle(
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 131, 131, 131))),
+                    // crossAxisSpacing: 8,
+                    itemBuilder: (context, index) {
+                      return ProductCard(
+                        product: controller.products[index],
+                      );
+                    },
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-          const SizedBox(width: 10),
-          Card(
-            child: SizedBox(
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.notifications_none,
-                    size: 35,
-                  )),
-            ),
-          )
-        ],
+        ),
+        floatingActionButton: Obx(() => Visibility(
+              visible: controller.isVisible,
+              child: FloatingActionButton(
+                onPressed: () {},
+                tooltip: 'Increment',
+                child: Icon(Icons.add),
+              ),
+            )),
       ),
     );
   }

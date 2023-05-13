@@ -10,17 +10,18 @@ class DashBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
     return Scaffold(
-      key: _scaffoldKey,
+      key: scaffoldKey,
+      floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
       floatingActionButton: FloatingActionButton(
-          onPressed: () => _scaffoldKey.currentState!.openDrawer()),
+          onPressed: () => scaffoldKey.currentState!.openDrawer()),
       drawer: !Responsive.isDesktop(context)
           ? SizedBox(
               width: 250,
               child: HamourDrawer(
-                scaffoldKey: _scaffoldKey,
+                scaffoldKey: scaffoldKey,
               ))
           : null,
       body: SingleChildScrollView(

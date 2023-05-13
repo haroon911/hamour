@@ -10,8 +10,15 @@ class HamourTranslations extends Translations {
           ...authAr,
           "categories": "الفئات",
           "see_more": "تصفح المزيد",
+          "search": "بحث",
           "dashboard": "لوحة التحكم",
-          "balance": "الرصيد"
+          "balance": "الرصيد",
+          "price": "السعر",
+          "riyal": "ريال",
+          "addToRepo": "الاضافة الى المخزن؟",
+          "searchHere": "البحث عن المنتجات...",
+          "repositry": "قائمة منتجاتي",
+          "home": "الرئيسية",
         },
         "en": {
           "appName": "Hamour",
@@ -20,7 +27,13 @@ class HamourTranslations extends Translations {
           "categories": "Categories",
           "see_more": "See More",
           "dashboard": "Dash board",
-          "balance": "Balance"
+          "balance": "Balance",
+          "price": "Price",
+          "riyal": "Riyal",
+          "addToRepo": "Add to repositry?",
+          "searchHere": "Search here",
+          "repositry": "Repositry",
+          "home": "Home",
         },
       };
 

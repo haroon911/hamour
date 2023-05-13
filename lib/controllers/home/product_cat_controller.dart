@@ -1,50 +1,88 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/classes/status_request.dart';
-import 'package:hamour/core/constants/app_routes_names.dart';
+import 'package:hamour/core/functions/add_to_repo_dialog.dart';
+import 'package:hamour/core/functions/data_handler_controller.dart';
 import 'package:hamour/data/models/categories.dart';
-import 'package:hamour/data/source/remote/home/home_data.dart';
+import 'package:hamour/data/models/only_products.dart';
+import 'package:hamour/data/source/remote/home/products_data.dart';
 
 class ProductCatController extends GetxController {
+  // late int selectedCatIndex;
+  late int catId;
   List<Categories> categories = [];
-  List<Categories> restCategories = [];
-  late int selectedCatIndex;
-  late int newLevel;
-  HomeData homeData = HomeData(Get.find());
-  late StatusRequest statusRequest;
+  List<Categories> subCategories = [];
+  List<Categories> categoryStack = [];
+  List<Products> products = [];
+  final _isVisible = true.obs;
+  final _hideButtonController = ScrollController();
+
   @override
   onInit() {
     initialData();
     super.onInit();
+
+    _hideButtonController.addListener(() {
+      _isVisible.value = _hideButtonController.position.userScrollDirection ==
+              ScrollDirection.reverse
+          ? true
+          : false;
+    });
   }
 
-  initialData() async {
-    // restCategories.clear();
-    // categories.clear();
-    // selectedCatIndex = 0;
-    // newLevel = 0;
-    categories = Get.arguments["categories"];
-    selectedCatIndex = Get.arguments["selectedCatIndex"];
-    // newLevel = categories[selectedCatIndex].level + 1;
-    for (int i = 0; i < categories.length; i++) {
+  bool get isVisible => _isVisible.value;
+  ScrollController get hideButtonController => _hideButtonController;
 
-      if (categories[i].categoryCode == categories[selectedCatIndex].categoryCode) {
-        restCategories.add(categories[i]);
+  initialData() {
+    if (categoryStack.isEmpty) {
+      // selectedCatIndex = Get.arguments["selectedCatIndex"];
+      categories = Get.arguments["categories"];
+      catId = Get.arguments["catId"];
+      subCategories
+          .add(categories.firstWhere((category) => category.id == catId));
+      getChildCategories(catId);
+    } else {
+      getChildCategories(categoryStack.last.id);
+    }
+    // if (products.isEmpty) {
+    //   getProducts(catId);
+    // }
+  }
+
+  onAddRepoPressed() {
+    addToRepo();
+  }
+
+  getChildCategories(int categoryId) {
+    subCategories = categories
+        .where((category) => category.parentId == categoryId)
+        .toList();
+    getProducts(categoryId);
+    update();
+  }
+
+  late StatusRequest statusRequest;
+  ProductsData productsData = ProductsData(Get.find());
+
+  getProducts(categoryId) async {
+    products.clear();
+    statusRequest = StatusRequest.loading;
+    var response = await productsData.getAllData(
+      categoryId: categoryId.toString(),
+    );
+    statusRequest = dataHandler(response);
+    if (statusRequest == StatusRequest.success) {
+      if (response['status'] == "success") {
+        response['products']
+            .forEach((value) => products.add(Products.fromJson(value)));
+        debugPrint("+-+-+-+-+--+-- ${response['status']}");
+      } else {
+        statusRequest = StatusRequest.failure;
       }
+    } else {
+      // statusRequest = StatusRequest.serverFailure;
     }
-    if (categories.isNotEmpty) {
-      newLevel = categories[selectedCatIndex].level + 1;
-    }
-  }
-
-  gotoProducts(List<Categories> categories, int selectedCatIndex) {
-    Get.toNamed(AppRoutes.productsScreen,
-        arguments: {
-          "categories": categories,
-          "selectedCatIndex": selectedCatIndex,
-          // "catId": catId
-        },
-        preventDuplicates: false);
-    onInit();
-    // Get.delete<ProductCatController>();
+    update();
   }
 }

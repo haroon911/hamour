@@ -36,7 +36,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: AppRoutes.verificationSuccess, page: () => VerificationSuccess()),
   GetPage(name: AppRoutes.homePage, page: () => const HomeScreen()),
-  GetPage(name: AppRoutes.productsScreen, page: () => const ProductCatScreen()),
+  GetPage(name: AppRoutes.productsScreen, page: () =>  ProductCatScreen()),
 ];
 
 
