@@ -23,6 +23,7 @@ class SignUp extends StatelessWidget {
       appBar: myAppBar(),
       body: GetBuilder<SignUpController>(
         builder: (controller) => DataRequestHandler(
+          post: true,
           statusRequest: controller.statusRequest,
           widget: SingleChildScrollView(
             child: Align(

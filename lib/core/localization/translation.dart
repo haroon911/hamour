@@ -19,6 +19,8 @@ class HamourTranslations extends Translations {
           "searchHere": "البحث عن المنتجات...",
           "repositry": "قائمة منتجاتي",
           "home": "الرئيسية",
+          "details": "التفاصيل",
+          "stock": "الكمية",
         },
         "en": {
           "appName": "Hamour",
@@ -34,6 +36,8 @@ class HamourTranslations extends Translations {
           "searchHere": "Search here",
           "repositry": "Repositry",
           "home": "Home",
+          "details": "Details",
+          "stock": "Stock",
         },
       };
 

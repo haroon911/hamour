@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/controllers/home/drawer_controller.dart';
-import 'package:hamour/data/models/dashBoard/menu_modal.dart';
 import 'package:hamour/views/screens/responsive.dart';
 
 class HamourDrawer extends StatelessWidget {

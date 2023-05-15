@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/constants/colors.dart';
+import 'package:hamour/core/functions/change_lang_dialog.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    // ColorScheme colorScheme = Theme.of(context).colorScheme;
     return SizedBox(
       height: 120,
       child: Stack(
@@ -50,6 +51,13 @@ class HomeAppBar extends StatelessWidget {
                           IconButton(
                             onPressed: () {},
                             icon: const Icon(Icons.notifications),
+                            color: Colors.white,
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              changeLanguage();
+                            },
+                            icon: const Icon(Icons.language_rounded),
                             color: Colors.white,
                           ),
                         ],

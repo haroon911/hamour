@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/constants/api_links.dart';
+import 'package:hamour/core/functions/translate_database.dart';
 import '../../../../controllers/home/home_controller.dart';
 
 class CategoriesList extends GetView<HomeController> {
@@ -19,8 +20,8 @@ class CategoriesList extends GetView<HomeController> {
           return controller.categories[index].level == 1
               ? GestureDetector(
                   onTap: () {
-                    controller.gotoProducts(controller.categories,
-                        controller.categories[index].id);
+                    controller.gotoProducts(
+                        controller.categories, controller.categories[index].id);
                   },
                   child: Column(
                     children: [
@@ -37,14 +38,25 @@ class CategoriesList extends GetView<HomeController> {
                           ),
                         ),
                       ),
-                      Text(
-                        controller.categories[index].name,
-                        style: Theme.of(context).textTheme.labelLarge,
+                      FittedBox(
+                        child: SizedBox(
+                          width: 80,
+                          child: Text(
+                            translateDb(
+                                arColumn: controller.categories[index].name,
+                                enColumn: controller.categories[index].nameEn),
+                            style: Theme.of(context).textTheme.labelLarge,
+                            softWrap: true,
+                            maxLines: 1,
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
                       ),
                     ],
                   ),
                 )
-              : SizedBox();
+              : const SizedBox();
         },
       ),
     );

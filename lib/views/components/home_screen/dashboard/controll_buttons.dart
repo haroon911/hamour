@@ -33,7 +33,7 @@ class ControllButtons extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: GridView.builder(
-          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
           itemCount: buttonDetails.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: Responsive.isMobile(context) ? 2 : 4,

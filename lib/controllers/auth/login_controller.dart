@@ -87,8 +87,8 @@ class LoginController extends GetxController {
             .setString("email", response['data']['email']);
         hamourServices.sharedPrefrences
             .setString("phone_number", response['data']['phone_number']);
-        hamourServices.sharedPrefrences
-            .setString("name", response['data']['name']);
+        // hamourServices.sharedPrefrences
+        //     .setString("name", response['data']['name']);
         // hamourServices.sharedPrefrences.setString("wallet_id", value);
         // hamourServices.sharedPrefrences.setString("created_date", value);
 
@@ -96,12 +96,16 @@ class LoginController extends GetxController {
 
         debugPrint(hamourServices.sharedPrefrences.get("step").toString());
         //here we make sure if the user is merchant or supplier so we can navigate him to the right screen
-        if ("${response['data']['role_id']}" == "1") {
-          // hamourServices.sharedPrefrences.setString("profile_image", value);
+        if (response['data']['role_id'] == 1) {
+          hamourServices.sharedPrefrences
+              .setString("store_id", response['data']['store_id'].toString());
           // hamourServices.sharedPrefrences.setString("details", value);
+          debugPrint(hamourServices.sharedPrefrences.getString("store_id"));
           Get.offNamed(AppRoutes.homePage);
-        } else if ("${response['data']['role_id']}" == "2") {
-          //change the route later to supplier home page
+        } else if (response['data']['role_id'] == 2) {
+          hamourServices.sharedPrefrences.setString(
+              "supplier_id", response['data']['supplier_id'].toString());
+          //change the route later for supplier home page
           Get.offNamed(AppRoutes.homePage);
         }
       } else {

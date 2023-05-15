@@ -13,4 +13,6 @@ class AppRoutes {
   static const String verificationSuccess = "/successfullSignUpScreen";
   static const String dashBoard = "/dashBoard";
   static const String productsScreen = "/productsScreen";
+  static const String productDetails = "/productDetails";
+  static const String repositryScreen = "/repositryScreen";
 }

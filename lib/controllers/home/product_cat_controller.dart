@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 import 'package:hamour/core/classes/status_request.dart';
 import 'package:hamour/core/functions/add_to_repo_dialog.dart';
 import 'package:hamour/core/functions/data_handler_controller.dart';
+import 'package:hamour/core/services/services.dart';
 import 'package:hamour/data/models/categories.dart';
-import 'package:hamour/data/models/only_products.dart';
+import 'package:hamour/data/models/products.dart';
 import 'package:hamour/data/source/remote/home/products_data.dart';
 
 class ProductCatController extends GetxController {
@@ -64,13 +65,17 @@ class ProductCatController extends GetxController {
 
   late StatusRequest statusRequest;
   ProductsData productsData = ProductsData(Get.find());
-
+  HamourServices hamourServices = Get.find();
   getProducts(categoryId) async {
     products.clear();
     statusRequest = StatusRequest.loading;
-    var response = await productsData.getAllData(
-      categoryId: categoryId.toString(),
-    );
+    dynamic response;
+    hamourServices.sharedPrefrences.getString("role_id") == "1"
+        ? response = await productsData.getAllData(
+            categoryId: categoryId.toString(),
+            storeId: hamourServices.sharedPrefrences.getString("store_id"))
+        : response =
+            await productsData.getAllData(categoryId: categoryId.toString());
     statusRequest = dataHandler(response);
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {

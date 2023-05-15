@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:hamour/controllers/home/product_cat_controller.dart';
 import 'package:hamour/core/constants/api_links.dart';
 import 'package:hamour/core/constants/app_routes_names.dart';
+import 'package:hamour/core/functions/translate_database.dart';
 
 class CategoriesView extends StatelessWidget {
   const CategoriesView({
@@ -46,7 +47,9 @@ class CategoriesView extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
-                          controller.subCategories[index].name,
+                          translateDb(
+                              arColumn: controller.subCategories[index].name,
+                              enColumn: controller.subCategories[index].nameEn),
                           style: Theme.of(context).textTheme.labelLarge,
                         ),
                       ),

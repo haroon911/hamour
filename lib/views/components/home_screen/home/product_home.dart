@@ -1,7 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/controllers/home/home_controller.dart';
 import 'package:hamour/core/constants/api_links.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
+import 'package:hamour/core/functions/translate_database.dart';
 
 class ProductThumbnail extends StatelessWidget {
   const ProductThumbnail({super.key});
@@ -18,14 +21,22 @@ class ProductThumbnail extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => Column(
           children: [
-            Card(
-              clipBehavior: Clip.antiAlias,
-              // padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Image.network(
-                "${ApiLinks.productImages}/${controller.products[index].images.first}",
-                fit: BoxFit.cover,
-                width: 250,
-                height: 200,
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(AppRoutes.productDetails, arguments: {
+                  "product": controller.products[index],
+                });
+              },
+              child: Card(
+                clipBehavior: Clip.antiAlias,
+                // padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: CachedNetworkImage(
+                  imageUrl:
+                      "${ApiLinks.productImages}/${controller.products[index].images.first}",
+                  fit: BoxFit.cover,
+                  width: 250,
+                  height: 200,
+                ),
               ),
             ),
             SizedBox(
@@ -33,7 +44,10 @@ class ProductThumbnail extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(controller.products[index].name,
+                  Text(
+                      translateDb(
+                          arColumn: controller.products[index].name,
+                          enColumn: controller.products[index].nameEn),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.titleMedium),

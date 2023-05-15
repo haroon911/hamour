@@ -15,7 +15,8 @@
 
 class ApiLinks {
   //keep changin serverLinkName with your server link or in local write your ipconfig in cmd
-  static const String server = "http://192.168.1.4/hamour";
+  static const String _ipAddress = "192.168.1.3";
+  static const String server = "http://$_ipAddress/hamour";
   static const String _imageLink = "$server/upload";
   //test
   static const String test = "$server/test.php";

@@ -8,12 +8,16 @@ class ProductsData {
   ProductsData(this.crud);
   getAllData({
     required String categoryId,
+    String? storeId,
   }) async {
     var response = await crud.postData(
       ApiLinks.products,
-      {
+      storeId==null?{
         "category_id": categoryId,
-      },
+      }:{
+        "category_id": categoryId,
+        "store_id":storeId
+      }
     );
     // debugPrint('"---------"+$response');
     return response.fold((l) => l, (r) => r);

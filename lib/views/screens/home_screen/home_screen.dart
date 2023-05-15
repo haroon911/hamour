@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
 
 import '../../../controllers/home/home_screen_controller.dart';
 import '../../components/home_screen/bottom_nav_bar.dart';
@@ -19,10 +19,13 @@ class HomeScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   FloatingActionButton(
+                    heroTag: "repoHero",
                     shape: ContinuousRectangleBorder(
                       borderRadius: BorderRadius.circular(40),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.repositryScreen);
+                    },
                     tooltip: "explore your products".tr,
                     child: const Icon(
                       // FontAwesomeIcons.warehouse,
@@ -39,6 +42,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               floatingActionButtonLocation:
+              
                   FloatingActionButtonLocation.centerDocked,
               bottomNavigationBar: const BottomNavBar(),
             ));

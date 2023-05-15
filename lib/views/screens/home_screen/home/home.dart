@@ -19,7 +19,6 @@ class Home extends StatelessWidget {
 
     return GetBuilder<HomeController>(
       builder: (controller) => DataRequestHandler(
-        post: true,
         statusRequest: controller.statusRequest,
         widget: SingleChildScrollView(
           child: Column(

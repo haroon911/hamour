@@ -1,17 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/get_utils.dart';
+import 'package:get/get.dart';
 import 'package:hamour/core/constants/api_links.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/core/functions/add_to_repo_dialog.dart';
-import 'package:hamour/data/models/only_products.dart';
-import 'package:hamour/data/models/products_view.dart';
+import 'package:hamour/core/functions/translate_database.dart';
+import 'package:hamour/data/models/products.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
     required this.product,
+    this.active = false,
   });
-
+  final bool active;
   final Products product;
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,19 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CachedNetworkImage(
-              imageUrl: "${ApiLinks.productImages}/${product.images.first}",
-              // height: 200,
-              // width: 200,
-              fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(AppRoutes.productDetails,
+                    arguments: {"product": product});
+              },
+              child: Hero(
+                tag:
+                    "image${product.id}no${product.images.indexOf(product.images.first)}",
+                child: CachedNetworkImage(
+                  imageUrl: "${ApiLinks.productImages}/${product.images.first}",
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -34,7 +44,8 @@ class ProductCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    product.name,
+                    translateDb(
+                        arColumn: product.name, enColumn: product.nameEn),
                     style: Theme.of(context).textTheme.bodyLarge,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -97,7 +108,9 @@ class ProductCard extends StatelessWidget {
                         onPressed: addToRepo(),
                         icon: Icon(
                           // size: 30,
-                          Icons.add_business_rounded,
+                          active
+                              ? Icons.store_rounded
+                              : Icons.add_business_outlined,
                           color: Theme.of(context).colorScheme.secondary,
                         ),
                       ),
