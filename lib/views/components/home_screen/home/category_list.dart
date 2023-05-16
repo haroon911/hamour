@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/constants/api_links.dart';
@@ -11,7 +12,7 @@ class CategoriesList extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120,
+      height: 126,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -32,8 +33,13 @@ class CategoriesList extends GetView<HomeController> {
                           shape: ContinuousRectangleBorder(
                               borderRadius: BorderRadius.circular(50)),
                           clipBehavior: Clip.antiAlias,
-                          child: Image.network(
-                            "${ApiLinks.categoryImages}/${controller.categories[index].image}",
+                          child: CachedNetworkImage(
+                            imageUrl:
+                                "${ApiLinks.categoryImages}/${controller.categories[index].image}",
+                            placeholder: (context, url) =>
+                                const CircularProgressIndicator(),
+                            errorWidget: (context, url, error) =>
+                               const Icon(Icons.error),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -47,7 +53,7 @@ class CategoriesList extends GetView<HomeController> {
                                 enColumn: controller.categories[index].nameEn),
                             style: Theme.of(context).textTheme.labelLarge,
                             softWrap: true,
-                            maxLines: 1,
+                            maxLines: 2,
                             textAlign: TextAlign.center,
                             overflow: TextOverflow.ellipsis,
                           ),

@@ -33,6 +33,8 @@ class ProductThumbnail extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl:
                       "${ApiLinks.productImages}/${controller.products[index].images.first}",
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(),
                   fit: BoxFit.cover,
                   width: 250,
                   height: 200,

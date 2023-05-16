@@ -7,13 +7,13 @@ import '../../components/auth/Widgets/auth_button.dart';
 import '../../components/auth/Widgets/auth_intro.dart';
 
 class VerificationSuccess extends StatelessWidget {
-  VerificationSuccess({super.key});
-  final VerificationSuccessController controller =
-      Get.put(VerificationSuccessController());
-  final formKey = GlobalKey<FormState>();
+  const VerificationSuccess({super.key});
 
   @override
   Widget build(BuildContext context) {
+  final VerificationSuccessController controller =
+      Get.put(VerificationSuccessController());
+  // final formKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: myAppBar(),
       body: SingleChildScrollView(

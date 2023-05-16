@@ -4,9 +4,14 @@ import 'package:hamour/views/components/home_screen/continues_icon_button.dart';
 
 class SurfingAppBar extends StatelessWidget {
   const SurfingAppBar({
-    super.key, this.onBackPressed,
+    super.key,
+    this.onBackPressed,
+    this.onSearchPressed,
+    this.onNotificationPresseed,
   });
   final Function()? onBackPressed;
+  final void Function()? onSearchPressed;
+  final void Function()? onNotificationPresseed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +19,7 @@ class SurfingAppBar extends StatelessWidget {
           .copyWith(top: 40),
       child: Row(
         children: [
-          ContinuesIconButton(onPressed:onBackPressed),
+          ContinuesIconButton(onPressed: onBackPressed),
           Expanded(
             child: Card(
               clipBehavior: Clip.antiAlias,
@@ -23,9 +28,12 @@ class SurfingAppBar extends StatelessWidget {
                     filled: true,
                     fillColor: Theme.of(context).cardColor.withAlpha(0),
                     contentPadding: const EdgeInsets.all(15),
-                    suffixIcon: const Icon(
-                      Icons.search,
-                      color: Color.fromARGB(255, 146, 146, 146),
+                    suffixIcon: IconButton(
+                      icon: const Icon(
+                        Icons.search,
+                        color: Color.fromARGB(255, 146, 146, 146),
+                      ),
+                      onPressed: onSearchPressed,
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
@@ -41,7 +49,7 @@ class SurfingAppBar extends StatelessWidget {
           Card(
             child: SizedBox(
               child: IconButton(
-                  onPressed: () {},
+                  onPressed: onNotificationPresseed,
                   icon: const Icon(
                     Icons.notifications_none,
                     size: 35,

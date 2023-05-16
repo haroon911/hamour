@@ -15,7 +15,7 @@
 
 class ApiLinks {
   //keep changin serverLinkName with your server link or in local write your ipconfig in cmd
-  static const String _ipAddress = "192.168.1.3";
+  static const String _ipAddress = "192.168.1.4";
   static const String server = "http://$_ipAddress/hamour";
   static const String _imageLink = "$server/upload";
   //test
@@ -39,4 +39,8 @@ class ApiLinks {
   static const String productImages = "$_imageLink/products";
   // ----------------  Products
   static const String products = "$server/components/products.php";
+  // ============ store_repositry
+  static const String addOnStore = "$server/components/store_repositry/add.php";
+  static const String removeFromStore = "$server/components/store_repositry/remove.php";
+  static const String storeProducts = "$server/components/store_repositry/view.php";
 }

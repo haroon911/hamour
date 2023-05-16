@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -48,8 +49,9 @@ class SlideImages extends StatelessWidget {
     return Card(
       shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(30)),
       clipBehavior: Clip.antiAlias,
-      child: Image.network(
-        image,
+      child: CachedNetworkImage(
+        imageUrl: image,
+        placeholder: (context, url) => const CircularProgressIndicator(),
         fit: BoxFit.cover,
         width: MediaQuery.of(context).size.width,
       ),

@@ -7,7 +7,7 @@ import '../../components/home_screen/bottom_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     Get.put(HomeScreenController());
@@ -42,9 +42,18 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               floatingActionButtonLocation:
-              
                   FloatingActionButtonLocation.centerDocked,
-              bottomNavigationBar: const BottomNavBar(),
+              bottomNavigationBar: Obx(() => Visibility(
+                  visible: controller.isVisible,
+                  
+                  maintainAnimation: true,
+                  maintainState: true,
+                  child: AnimatedOpacity(
+                    
+                      opacity: controller.isVisible ? 1 : 0,
+                      curve: Curves.fastOutSlowIn,
+                      duration: const Duration(milliseconds: 1000),
+                      child: const BottomNavBar()))),
             ));
   }
 }

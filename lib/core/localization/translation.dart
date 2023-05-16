@@ -21,6 +21,9 @@ class HamourTranslations extends Translations {
           "home": "الرئيسية",
           "details": "التفاصيل",
           "stock": "الكمية",
+          "removed": "تمت الازالة من  المتجر",
+          "added": "تمت الاضافة الى المتجر",
+          "remove": "ازالة",
         },
         "en": {
           "appName": "Hamour",
@@ -38,6 +41,9 @@ class HamourTranslations extends Translations {
           "home": "Home",
           "details": "Details",
           "stock": "Stock",
+          "removed": "item has been reomved from your repositry",
+          "added": "item has been add to your repositry",
+          "remove": "Remove",
         },
       };
 

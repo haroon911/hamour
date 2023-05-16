@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:hamour/controllers/home/product_cat_controller.dart';
+import 'package:hamour/controllers/home/repositry_controller.dart';
 import 'package:hamour/core/classes/data_view_hander.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/views/components/home_screen/home/product_cat/categories_view.dart';
 import 'package:hamour/views/components/home_screen/home/product_cat/product_card.dart';
 import 'package:hamour/views/components/home_screen/surfing_appbar.dart';
 
 class ProductCatScreen extends StatelessWidget {
-  ProductCatScreen({super.key});
+  const ProductCatScreen({super.key});
 
-  final ProductCatController controller = Get.put(ProductCatController());
   @override
   Widget build(BuildContext context) {
+    final RepositryController controllerRepo = Get.put(RepositryController());
+    final ProductCatController controller = Get.put(ProductCatController());
     Future<bool> returning() {
       Get.close(0);
       if (controller.categoryStack.isNotEmpty) {
@@ -55,6 +58,8 @@ class ProductCatScreen extends StatelessWidget {
                     ),
                     // crossAxisSpacing: 8,
                     itemBuilder: (context, index) {
+                      controllerRepo.onStore[controller.products[index].id] =
+                          controller.products[index].onStore;
                       return ProductCard(
                         product: controller.products[index],
                       );
@@ -68,7 +73,9 @@ class ProductCatScreen extends StatelessWidget {
         floatingActionButton: Obx(() => Visibility(
               visible: controller.isVisible,
               child: FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(AppRoutes.repositryScreen);
+                },
                 tooltip: 'Increment',
                 child: const Icon(Icons.warehouse_rounded),
               ),

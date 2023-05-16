@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hamour/controllers/home/repositry_controller.dart';
 import 'package:hamour/core/constants/api_links.dart';
 import 'package:hamour/core/constants/app_routes_names.dart';
-import 'package:hamour/core/functions/add_to_repo_dialog.dart';
 import 'package:hamour/core/functions/translate_database.dart';
 import 'package:hamour/data/models/products.dart';
 
@@ -104,16 +104,77 @@ class ProductCard extends StatelessWidget {
                             .copyWith(color: Colors.green),
                       ),
                       const Spacer(),
-                      IconButton(
-                        onPressed: addToRepo(),
-                        icon: Icon(
-                          // size: 30,
-                          active
-                              ? Icons.store_rounded
-                              : Icons.add_business_outlined,
-                          color: Theme.of(context).colorScheme.secondary,
-                        ),
-                      ),
+                      GetBuilder<RepositryController>(builder: (controller) {
+                        return IconButton(
+                          onPressed: () {
+                            controller.onStore[product.id] == 1
+                                ? Get.defaultDialog(
+                                    title: 'remove'.tr,
+                                    content: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        ElevatedButton(
+                                          child: Text('remove'.tr),
+                                          onPressed: () {
+                                            controller.setToStore(
+                                                product.id, 0);
+                                            controller.removeFromStore(
+                                                productId:
+                                                    product.id.toString());
+                                            Get.back();
+                                          },
+                                          onLongPress: () {
+                                            Get.back();
+                                          },
+                                        ),
+                                        ElevatedButton(
+                                          child: Text('cancel'.tr),
+                                          onPressed: () {
+                                            Get.back();
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                : Get.defaultDialog(
+                                    title: 'addToRepo'.tr,
+                                    content: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        ElevatedButton(
+                                          child: const Text('add'),
+                                          onPressed: () {
+                                            controller.setToStore(
+                                                product.id, 1);
+                                            controller.addOnStore(
+                                                productId:
+                                                    product.id.toString());
+                                            Get.back();
+                                          },
+                                          onLongPress: () {
+                                            Get.back();
+                                          },
+                                        ),
+                                        ElevatedButton(
+                                          child: Text('cancel'.tr),
+                                          onPressed: () {
+                                            Get.back();
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                          },
+                          icon: Icon(
+                            controller.onStore[product.id] == 1
+                                ? Icons.library_add_check_rounded
+                                : Icons.add_business_outlined,
+                            color: Theme.of(context).colorScheme.secondary,
+                          ),
+                        );
+                      }),
                     ],
                   ),
                 ],
