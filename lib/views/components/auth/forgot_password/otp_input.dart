@@ -9,7 +9,7 @@ class OtpInput extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Container(
-        padding: const EdgeInsets.all(26),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(40)),
@@ -19,13 +19,13 @@ class OtpInput extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           borderWidth: 5,
           filled: true,
-          
+
           fillColor: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.8),
           // filled: true,
           // borderColor: const Color(0xFF512DA8),
           // borderColor: Theme.of(context).primaryColor,
           //set to true to show as box or false to show as dash
-          showFieldAsBox: false,
+          showFieldAsBox: true,
           fieldWidth: 50,
           //runs when a code is typed in
           onCodeChanged: (String code) {

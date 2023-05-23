@@ -10,14 +10,14 @@ class WalletCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      // height: 150,
       child: Stack(
         children: [
           SizedBox(
-            height: 140,
+            // height: 140,
             width: MediaQuery.of(context).size.width,
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 1),
+              padding: const EdgeInsets.only(top: 8),
               child: Card(
                   shape: ContinuousRectangleBorder(
                       borderRadius: BorderRadius.circular(80)),

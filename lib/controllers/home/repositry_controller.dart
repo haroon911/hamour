@@ -4,7 +4,6 @@ import 'package:hamour/core/classes/status_request.dart';
 import 'package:hamour/core/functions/data_handler_controller.dart';
 import 'package:hamour/core/services/services.dart';
 import 'package:hamour/data/models/products.dart';
-import 'package:hamour/data/models/repositry_products.dart';
 import 'package:hamour/data/source/remote/home/repositry_data.dart';
 
 class RepositryController extends GetxController {
@@ -37,14 +36,18 @@ class RepositryController extends GetxController {
           // Get.snackbar('appName'.tr, 'added'.tr,
           //     snackPosition: SnackPosition.BOTTOM,
           //     duration: Duration(milliseconds: 500));
+
+          debugPrint(response["status"]);
         } else {
           statusRequest = StatusRequest.failure;
         }
       } else {
         // statusRequest = StatusRequest.serverFailure;
       }
-      // update();
     }
+    repositryProducts.clear();
+    update();
+    viewProducts();
   }
 
   removeFromStore({required String productId}) async {
@@ -70,7 +73,7 @@ class RepositryController extends GetxController {
           statusRequest = StatusRequest.failure;
         }
       }
-      // update();
+      update();
     }
   }
 
@@ -87,8 +90,12 @@ class RepositryController extends GetxController {
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
           List responseProducts = response['products'];
-          repositryProducts
-              .addAll(responseProducts.map((e) => Products.fromJson(e)));
+          repositryProducts.addAll(responseProducts.map((e) {
+            return Products.fromJson(e);
+          }));
+          for (var element in repositryProducts) {
+            onStore[element.id] = element.onStore;
+          }
           // debugPrint(repositryProducts[0].onStore.toString());
           // responseProducts.map((e) => RepositryProducts.fromJson(e)));
         } else {
@@ -102,8 +109,9 @@ class RepositryController extends GetxController {
   }
 
   @override
-  void onInit() {
-    viewProducts();
+  void onInit() async {
+    await viewProducts();
+    // print(repositryProducts.length);
     super.onInit();
   }
 }

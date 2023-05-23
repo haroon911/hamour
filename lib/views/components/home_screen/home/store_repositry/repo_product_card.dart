@@ -120,6 +120,11 @@ class RepoProductCard extends StatelessWidget {
                             .copyWith(color: Colors.green),
                       ),
                       const Spacer(),
+                      Card(
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.add_shopping_cart_rounded)),
+                      )
                     ],
                   ),
                 ],

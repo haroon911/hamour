@@ -30,7 +30,7 @@ class ProductCatScreen extends StatelessWidget {
       onWillPop: returning,
       child: Scaffold(
         body: SingleChildScrollView(
-          controller: controller.hideButtonController,
+          // controller: controller.hideButtonController,
           child: Column(
             children: [
               SurfingAppBar(
@@ -70,16 +70,13 @@ class ProductCatScreen extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton: Obx(() => Visibility(
-              visible: controller.isVisible,
-              child: FloatingActionButton(
-                onPressed: () {
-                  Get.toNamed(AppRoutes.repositryScreen);
-                },
-                tooltip: 'Increment',
-                child: const Icon(Icons.warehouse_rounded),
-              ),
-            )),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+              Get.toNamed(AppRoutes.repositryScreen);
+          },
+          tooltip: 'Increment',
+          child: const Icon(Icons.warehouse_rounded),
+        ),
       ),
     );
   }

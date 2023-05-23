@@ -15,7 +15,7 @@
 
 class ApiLinks {
   //keep changin serverLinkName with your server link or in local write your ipconfig in cmd
-  static const String _ipAddress = "192.168.1.4";
+  static const String _ipAddress = "192.168.0.125";
   static const String server = "http://$_ipAddress/hamour";
   static const String _imageLink = "$server/upload";
   //test
@@ -24,6 +24,8 @@ class ApiLinks {
   static const String signup = "$server/auth/signup.php";
   static const String login = "$server/auth/login.php";
   static const String signupVerification = "$server/auth/verification.php";
+  static const String resendVerification =
+      "$server/auth/resend_verification.php";
   // ----------------- Forgot Password Links
   static const String resetPassword =
       "$server/forgot_password/reset_password.php";
@@ -41,6 +43,15 @@ class ApiLinks {
   static const String products = "$server/components/products.php";
   // ============ store_repositry
   static const String addOnStore = "$server/components/store_repositry/add.php";
-  static const String removeFromStore = "$server/components/store_repositry/remove.php";
-  static const String storeProducts = "$server/components/store_repositry/view.php";
+  static const String removeFromStore =
+      "$server/components/store_repositry/remove.php";
+  static const String storeProducts =
+      "$server/components/store_repositry/view.php";
+
+  // 0-0-0-0-0-0-0-0-0- cart -0-0-0-0-0-0-0-0-0-0
+  static const String cartView = "$server/components/cart/view.php";
+  static const String cartAdd = "$server/components/cart/add.php";
+  static const String cartRemove = "$server/components/cart/remove.php";
+  static const String cartProdcutQuantity =
+      "$server/components/cart/product_quantity.php";
 }

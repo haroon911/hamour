@@ -22,9 +22,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Hamour App',
       theme: HamourTheme.light(),
-      // darkTheme: HamourTheme.dark(),
+      darkTheme: HamourTheme.dark(),
       translations: HamourTranslations(),
       locale: localController.language,
+      themeMode: ThemeMode.light,
       // initialRoute: '/',
       // initialRoute: AppRoute.onBoarding,
       debugShowCheckedModeBanner: false,

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 
@@ -19,6 +18,8 @@ class DashButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyle(
+          iconColor:
+              MaterialStatePropertyAll(Theme.of(context).colorScheme.secondary),
           shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
               borderRadius: BorderRadius.circular(40)))),
       onPressed: () {},
@@ -51,10 +52,11 @@ class DashButtonContent {
   final IconData icon;
   final String content;
   final int? notification;
+  final Function()? onTap;
 
   DashButtonContent(
       {required this.title,
       required this.content,
       required this.icon,
-      this.notification = 0});
+      this.notification = 0 , this.onTap});
 }

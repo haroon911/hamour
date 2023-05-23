@@ -3,6 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:hamour/controllers/home/repositry_controller.dart';
 import 'package:hamour/core/classes/data_view_hander.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/views/components/home_screen/dashboard/drawer.dart';
 import 'package:hamour/views/components/home_screen/home/store_repositry/repo_product_card.dart';
 import 'package:hamour/views/components/home_screen/surfing_appbar.dart';
@@ -19,10 +20,16 @@ class RepositryScreen extends StatelessWidget {
       key: scaffoldKey,
       // appBar: AppBar(),
       floatingActionButton: FloatingActionButton.extended(
-          heroTag: "repoHero",
-          label: Text("menu".tr),
-          icon: const Icon(Icons.menu_rounded),
-          onPressed: () => scaffoldKey.currentState!.openDrawer()),
+          heroTag: "cartHero",
+          label: Text("cart".tr),
+          icon: const Icon(Icons.shopping_cart_rounded),
+          onPressed: () => Get.toNamed(AppRoutes.cartScreen)),
+      // floatingActionButton: FloatingActionButton.extended(
+      //     heroTag: "repoHero",
+      //     label: Text("menu".tr),
+      //     icon: const Icon(Icons.menu_rounded),
+      //     onPressed: () => scaffoldKey.currentState!.openDrawer()),
+
       drawer: !Responsive.isDesktop(context)
           ? SizedBox(
               width: 250,

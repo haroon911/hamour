@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/core/constants/colors.dart';
-import 'package:hamour/core/functions/change_lang_dialog.dart';
 
 class HomeAppBar extends StatelessWidget {
-  const HomeAppBar({super.key});
+  const HomeAppBar({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -44,20 +46,16 @@ class HomeAppBar extends StatelessWidget {
                       Row(
                         children: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.toNamed(AppRoutes.cartScreen);
+                            },
                             icon: const Icon(Icons.shopping_cart),
                             color: Colors.white,
+                            iconSize: 30,
                           ),
                           IconButton(
                             onPressed: () {},
                             icon: const Icon(Icons.notifications),
-                            color: Colors.white,
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              changeLanguage();
-                            },
-                            icon: const Icon(Icons.language_rounded),
                             color: Colors.white,
                           ),
                         ],

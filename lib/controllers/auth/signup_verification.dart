@@ -22,7 +22,15 @@ class SignUpVerificationController extends GetxController {
     // Get.delete<SignUpVerificationController>();
   }
 
-  resendVerificationCode() {}
+  int counter = 1;
+  resendVerificationCode() {
+    if (counter <= 3) {
+      verificationSignUpData.resendVerification(email: email!);
+    } else {
+      Get.rawSnackbar(title: "warning".tr , messageText: Text("too_many_attempts".tr));
+
+    }
+  }
 
   checkVerificationCode() {
     // Get.toNamed(AppRoute.login);

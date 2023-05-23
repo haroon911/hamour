@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/classes/status_request.dart';
@@ -26,13 +27,15 @@ class LoginController extends GetxController {
 
   @override
   void onInit() {
-    if (Platform.isAndroid || Platform.isIOS) {
-      FirebaseMessaging.instance.getToken().then(
-        (value) {
-          String? token = value;
-          debugPrint(token);
-        },
-      );
+    if (!kIsWeb) {
+      if (Platform.isAndroid || Platform.isIOS) {
+        FirebaseMessaging.instance.getToken().then(
+          (value) {
+            String? token = value;
+            debugPrint(token);
+          },
+        );
+      }
     }
     emailController = TextEditingController();
     passwordController = TextEditingController();

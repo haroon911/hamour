@@ -14,6 +14,7 @@ class Home extends StatelessWidget {
   const Home({super.key});
   @override
   Widget build(BuildContext context) {
+    
     // final size = MediaQuery.of(context).size;
     // ColorScheme colorScheme = Theme.of(context).colorScheme;
     Get.put(HomeController());
@@ -21,22 +22,25 @@ class Home extends StatelessWidget {
     return GetBuilder<HomeController>(
       builder: (controller) => DataRequestHandler(
         statusRequest: controller.statusRequest,
-        widget: SingleChildScrollView(
-          controller: homeScreenController.hideButtonController,
-          child: Column(
-            children: [
-              const HomeAppBar(),
-              const SizedBox(height: 10),
-              const HamourCarouselSlider(),
-              const SizedBox(height: 10),
-              SectionTitle(title: "categories", onTap: () {}),
-              const CategoriesList(),
-              SectionTitle(title: "categories", onTap: () {}),
-              const ProductThumbnail(),
-              SectionTitle(title: "categories", onTap: () {}),
-              const ProductThumbnail(),
-              SectionTitle(title: "categories", onTap: () {}),
-            ],
+        widget: Scaffold(
+          
+          body: SingleChildScrollView(
+            controller: homeScreenController.hideButtonController,
+            child: Column(
+              children: [
+                const HomeAppBar(),
+                const SizedBox(height: 10),
+                const HamourCarouselSlider(),
+                const SizedBox(height: 10),
+                SectionTitle(title: "categories", onTap: () {}),
+                const CategoriesList(),
+                SectionTitle(title: "categories", onTap: () {}),
+                const ProductThumbnail(),
+                SectionTitle(title: "categories", onTap: () {}),
+                const ProductThumbnail(),
+                SectionTitle(title: "categories", onTap: () {}),
+              ],
+            ),
           ),
         ),
       ),

@@ -3,6 +3,8 @@ import 'package:hamour/views/screens/auth/forgot_password/reset_password.dart';
 import 'package:hamour/views/screens/auth/forgot_password/verification.dart';
 import 'package:hamour/views/screens/auth/signup/supplier_signup.dart';
 import 'package:hamour/views/screens/auth/verification_succuss.dart';
+import 'package:hamour/views/screens/home_screen/cart/cart_screen.dart';
+import 'package:hamour/views/screens/home_screen/dashboard/dashboard.dart';
 import 'package:hamour/views/screens/home_screen/home_screen.dart';
 import 'package:hamour/views/screens/home_screen/home/products_cat/product_cat_screen.dart';
 import 'package:hamour/views/screens/home_screen/products_details.dart';
@@ -36,11 +38,15 @@ List<GetPage<dynamic>>? routes = [
       name: AppRoutes.signupVerificationScreen,
       page: () => SignUpVerificationScreen()),
   GetPage(
-      name: AppRoutes.verificationSuccess, page: () =>const  VerificationSuccess()),
+      name: AppRoutes.verificationSuccess,
+      page: () => const VerificationSuccess()),
   GetPage(name: AppRoutes.homePage, page: () => const HomeScreen()),
   GetPage(name: AppRoutes.productsScreen, page: () => const ProductCatScreen()),
   GetPage(name: AppRoutes.productDetails, page: () => const ProductDetails()),
   GetPage(name: AppRoutes.repositryScreen, page: () => const RepositryScreen()),
+  GetPage(name: AppRoutes.dashBoard, page: () => const DashBoard()),
+  GetPage(name: AppRoutes.cartScreen, page: () => const 
+  CartScreen()),
 ];
 
 

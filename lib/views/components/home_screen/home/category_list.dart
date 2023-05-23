@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/constants/api_links.dart';
 import 'package:hamour/core/functions/translate_database.dart';
+import 'package:hamour/views/components/size_configuration.dart';
 import '../../../../controllers/home/home_controller.dart';
 
 class CategoriesList extends GetView<HomeController> {
@@ -12,7 +13,7 @@ class CategoriesList extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 126,
+      height: SizeConfig.getProperateHight(140),
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -39,7 +40,7 @@ class CategoriesList extends GetView<HomeController> {
                             placeholder: (context, url) =>
                                 const CircularProgressIndicator(),
                             errorWidget: (context, url, error) =>
-                               const Icon(Icons.error),
+                                const Icon(Icons.error),
                             fit: BoxFit.cover,
                           ),
                         ),

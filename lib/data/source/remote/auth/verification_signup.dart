@@ -18,4 +18,14 @@ class VerificationSignUpData {
 
     return response.fold((l) => l, (r) => r);
   }
+
+  resendVerification({
+    required String email,
+  }) async {
+    var response = await crud.postData(ApiLinks.resendVerification, {
+      "email": email,
+    });
+
+    return response.fold((l) => l, (r) => r);
+  }
 }

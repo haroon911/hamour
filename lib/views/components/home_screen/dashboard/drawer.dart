@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/controllers/home/drawer_controller.dart';
+import 'package:hamour/core/constants/api_links.dart';
 import 'package:hamour/views/screens/responsive.dart';
 
 class HamourDrawer extends StatelessWidget {
@@ -12,18 +13,32 @@ class HamourDrawer extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(
-      () => HamourDrawerController(),
-    );
+    // Get.lazyPut(() => HamourDrawerController());
+    // Get.find<HamourDrawerController>();
 
     return Drawer(
-      
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: SingleChildScrollView(
             child: GetBuilder<HamourDrawerController>(
                 builder: (controller) => Column(
                       children: [
+                        Column(
+                          children: [
+                            const SizedBox(height: 20),
+                            Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Image.network(
+                                  "${ApiLinks.productImages}/user.png",
+                                  height: 100,
+                                  width: 100,
+                                  fit: BoxFit.cover,
+                                )),
+                            const SizedBox(width: 10),
+                            const Text("ستورزانا"),
+                          ],
+                        ),
                         SizedBox(
                           height: Responsive.isMobile(context) ? 40 : 80,
                         ),
@@ -43,8 +58,8 @@ class HamourDrawer extends StatelessWidget {
                             child: InkWell(
                               onTap: () {
                                 controller.onMenuChange(index);
-
                                 scaffoldKey.currentState!.closeDrawer();
+                                controller.menu[index].onTap();
                               },
                               child: Row(
                                 children: [
@@ -52,7 +67,7 @@ class HamourDrawer extends StatelessWidget {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 13, vertical: 7),
                                     child: Icon(
-                                      Icons.store,
+                                      controller.menu[index].icon,
                                       color: controller.menuIndex == index
                                           ? Colors.white
                                           : Theme.of(context)
@@ -61,7 +76,7 @@ class HamourDrawer extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    controller.menu[index].title,
+                                    controller.menu[index].title.tr,
                                     style: TextStyle(
                                         fontSize: 16,
                                         color: controller.menuIndex == index

@@ -23,6 +23,7 @@ class ProductThumbnail extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
+                debugPrint(controller.products[index].onStore.toString());
                 Get.toNamed(AppRoutes.productDetails, arguments: {
                   "product": controller.products[index],
                 });
@@ -50,12 +51,12 @@ class ProductThumbnail extends StatelessWidget {
                       translateDb(
                           arColumn: controller.products[index].name,
                           enColumn: controller.products[index].nameEn),
-                      maxLines: 2,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.titleMedium),
                   Text(
                     '${controller.products[index].price} ${"riyal".tr}',
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         decoration: TextDecoration.lineThrough,
@@ -66,7 +67,7 @@ class ProductThumbnail extends StatelessWidget {
                     children: [
                       Text(
                         '${(controller.products[index].price * controller.products[index].discount).round()}',
-                        maxLines: 2,
+                        maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             decoration: TextDecoration.underline,
@@ -75,7 +76,7 @@ class ProductThumbnail extends StatelessWidget {
                       const SizedBox(width: 5),
                       Text(
                         'riyal'.tr,
-                        maxLines: 2,
+                        maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),

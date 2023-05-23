@@ -105,75 +105,83 @@ class ProductCard extends StatelessWidget {
                       ),
                       const Spacer(),
                       GetBuilder<RepositryController>(builder: (controller) {
-                        return IconButton(
-                          onPressed: () {
-                            controller.onStore[product.id] == 1
-                                ? Get.defaultDialog(
-                                    title: 'remove'.tr,
-                                    content: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        ElevatedButton(
-                                          child: Text('remove'.tr),
-                                          onPressed: () {
-                                            controller.setToStore(
-                                                product.id, 0);
-                                            controller.removeFromStore(
-                                                productId:
-                                                    product.id.toString());
-                                            Get.back();
-                                          },
-                                          onLongPress: () {
-                                            Get.back();
-                                          },
-                                        ),
-                                        ElevatedButton(
-                                          child: Text('cancel'.tr),
-                                          onPressed: () {
-                                            Get.back();
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  )
-                                : Get.defaultDialog(
-                                    title: 'addToRepo'.tr,
-                                    content: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        ElevatedButton(
-                                          child: const Text('add'),
-                                          onPressed: () {
-                                            controller.setToStore(
-                                                product.id, 1);
-                                            controller.addOnStore(
-                                                productId:
-                                                    product.id.toString());
-                                            Get.back();
-                                          },
-                                          onLongPress: () {
-                                            Get.back();
-                                          },
-                                        ),
-                                        ElevatedButton(
-                                          child: Text('cancel'.tr),
-                                          onPressed: () {
-                                            Get.back();
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                          },
-                          icon: Icon(
-                            controller.onStore[product.id] == 1
-                                ? Icons.library_add_check_rounded
-                                : Icons.add_business_outlined,
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
-                        );
+                        if (controller.hamourServices.sharedPrefrences
+                                .getString("role_id") ==
+                            "1") {
+                          return IconButton(
+                            onPressed: () {
+                              controller.onStore[product.id] == 1
+                                  ? Get.defaultDialog(
+                                      title: 'remove'.tr,
+                                      content: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          ElevatedButton(
+                                            child: Text('remove'.tr),
+                                            onPressed: () {
+                                              controller.setToStore(
+                                                  product.id, 0);
+                                              controller.removeFromStore(
+                                                  productId:
+                                                      product.id.toString());
+                                              Get.back();
+                                            },
+                                            onLongPress: () {
+                                              Get.back();
+                                            },
+                                          ),
+                                          ElevatedButton(
+                                            child: Text('cancel'.tr),
+                                            onPressed: () {
+                                              Get.back();
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  : Get.defaultDialog(
+                                      title: 'addToRepo'.tr,
+                                      content: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          ElevatedButton(
+                                            child: const Text('add'),
+                                            onPressed: () {
+                                              controller.setToStore(
+                                                  product.id, 1);
+
+                                              controller.addOnStore(
+                                                  productId:
+                                                      product.id.toString());
+
+                                              Get.back();
+                                            },
+                                            onLongPress: () {
+                                              Get.back();
+                                            },
+                                          ),
+                                          ElevatedButton(
+                                            child: Text('cancel'.tr),
+                                            onPressed: () {
+                                              Get.back();
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                            },
+                            icon: Icon(
+                              controller.onStore[product.id] == 1
+                                  ? Icons.library_add_check_rounded
+                                  : Icons.add_business_outlined,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+                          );
+                        } else {
+                          return SizedBox();
+                        }
                       }),
                     ],
                   ),
