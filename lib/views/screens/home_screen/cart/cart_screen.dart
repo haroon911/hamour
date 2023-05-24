@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/controllers/home/cart_controller.dart';
 import 'package:hamour/core/classes/data_view_hander.dart';
-import 'package:hamour/data/models/cart_products.dart';
 import 'package:hamour/views/components/home_screen/cart/bottom_cart_bar.dart';
 import 'package:hamour/views/components/home_screen/cart/cart_card.dart';
 
@@ -13,20 +12,19 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put<CartController>(CartController());
-    TotalCart totalCart = TotalCart(totalPrice: 0, totalQuantity: 0);
+    Get.put(CartController());
+    // TotalCart totalCart = TotalCart(totalPrice: 0, totalQuantity: 0);
     return Scaffold(
-      body: GetBuilder<CartController>(
-        builder: (controller) {
-          totalCart = controller.totalCart;
-          return ListView(
-            // shrinkWrap: true,
-            children: [
-              const TopBar(
-                icon: Icons.location_on_rounded,
-                title: "chooseLocation",
-              ),
-              DataRequestHandler(
+      body: ListView(
+        // shrinkWrap: true,
+        children: [
+          const TopBar(
+            icon: Icons.location_on_rounded,
+            title: "chooseLocation",
+          ),
+          GetBuilder<CartController>( 
+            builder: (controller) {
+              return DataRequestHandler(
                   statusRequest: controller.statusRequest,
                   widget: SizedBox(
                     height: MediaQuery.of(context).size.height - 230,
@@ -37,11 +35,13 @@ class CartScreen extends StatelessWidget {
                         index: index,
                       ),
                     ),
-                  )),
-              BottomCartBar(totalCart: controller.totalCart)
-            ],
-          );
-        },
+                  ));
+            },
+          ),
+        ],
+      ),
+      bottomNavigationBar: GetBuilder<CartController>(
+        builder: (controller) => BottomCartBar(totalCart: controller.totalCart),
       ),
     );
   }

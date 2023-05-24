@@ -45,6 +45,7 @@ class ProductThumbnail extends StatelessWidget {
             SizedBox(
               width: 220,
               child: Column(
+                
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -66,7 +67,7 @@ class ProductThumbnail extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        '${(controller.products[index].price * controller.products[index].discount).round()}',
+                        '${(controller.products[index].price - (controller.products[index].discount * controller.products[index].price)).ceil()}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(

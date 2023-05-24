@@ -1,9 +1,10 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/core/services/services.dart';
 import 'package:hamour/data/models/products.dart';
 import 'package:hamour/data/source/remote/home/home_data.dart';
+import 'package:hamour/data/source/remote/home/search_data.dart';
 
 import '../../core/classes/status_request.dart';
 import '../../core/functions/data_handler_controller.dart';
@@ -16,9 +17,57 @@ class HomeController extends GetxController {
   String? name;
   late int catId;
 
+  //searching section
+  SearchData searchData = SearchData(Get.find());
+  List<Products> searchProducts = [];
+  viewProducts(String item) async {
+    print(item);
+    var response;
+    if (hamourServices.sharedPrefrences.getString('role_id') == "1") {
+      response = await searchData.searchData(
+        search: item,
+        storeId: hamourServices.sharedPrefrences.getString("store_id")!,
+      );
+    } else {
+      response = await searchData.searchData(search: item);
+    }
+    if (response['status'] == "success") {
+      List responseProducts = response['products'];
+      searchProducts.addAll(responseProducts.map((e) {
+        return Products.fromJson(e);
+      }));
+    }
+
+    update();
+  }
+
+  late bool isSearching;
+  Color iconSearchColor = Color.fromARGB(255, 146, 146, 146);
+  late TextEditingController searchController;
+  onSearch() {
+    searchProducts.clear();
+    viewProducts(searchController.text);
+    isSearching = true;
+    update();
+  }
+
+  onChanged(value) {
+    if (value == "") {
+      isSearching = false;
+      iconSearchColor = const Color.fromARGB(255, 146, 146, 146);
+    } else {
+      iconSearchColor = Get.theme.colorScheme.secondary;
+    }
+    update();
+  }
+  //end searching section
+
   String? id;
   @override
   void onInit() async {
+    isSearching = false;
+    searchController = TextEditingController();
+
     await getData();
     initiateData();
     super.onInit();

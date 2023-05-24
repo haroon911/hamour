@@ -46,6 +46,7 @@ class HamourTranslations extends Translations {
           "shippingPrice": "تكلفة الشحن",
           "addToCart": "اضافة الى السلة",
           "chooseLocation": "اضف الموقع",
+          "discounts": "تخفيضات",
         },
         "en": {
           "appName": "Hamour",
@@ -88,6 +89,7 @@ class HamourTranslations extends Translations {
           "shippingPrice": "Shipping price",
           "addToCart": "Add to cart",
           "chooseLocation": "Choose location",
+          "discounts": "Discounts",
         },
       };
 

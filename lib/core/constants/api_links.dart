@@ -54,4 +54,6 @@ class ApiLinks {
   static const String cartRemove = "$server/components/cart/remove.php";
   static const String cartProdcutQuantity =
       "$server/components/cart/product_quantity.php";
+  static const String searchProducts =
+      "$server/search.php";
 }

@@ -45,7 +45,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.productDetails, page: () => const ProductDetails()),
   GetPage(name: AppRoutes.repositryScreen, page: () => const RepositryScreen()),
   GetPage(name: AppRoutes.dashBoard, page: () => const DashBoard()),
-  GetPage(name: AppRoutes.cartScreen, page: () => const 
+  GetPage(name: AppRoutes.cartScreen, page: () =>  const
   CartScreen()),
 ];
 

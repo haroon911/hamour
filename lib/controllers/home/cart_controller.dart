@@ -1,19 +1,19 @@
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/classes/status_request.dart';
 import 'package:hamour/core/functions/data_handler_controller.dart';
 import 'package:hamour/core/services/services.dart';
+import 'package:hamour/data/models/cart_products.dart';
 import 'package:hamour/data/source/remote/home/cart_data.dart';
 
-import '../../data/models/cart_products.dart';
-
 class CartController extends GetxController {
+  //initializing data
   late StatusRequest statusRequest;
   CartData cartData = CartData(Get.find());
   HamourServices hamourServices = Get.find();
   int cartProductQuantity = 0;
   List<CartProducts> cartProducts = [];
-  TotalCart totalCart = TotalCart(totalPrice: 0, totalQuantity: 0);
+  late TotalCart totalCart = TotalCart(totalPrice: 0, totalQuantity: 0);
+
   add({required String productId, required int stock}) async {
     // statusRequest = StatusRequest.loading;
     if (cartProductQuantity < stock &&
@@ -23,46 +23,37 @@ class CartController extends GetxController {
         storeId: hamourServices.sharedPrefrences.getString("store_id")!,
         productId: productId,
       );
-      // statusRequest = dataHandler(response);
-      // debugPrint("+++++++++++ $statusRequest");
-      // if (statusRequest == StatusRequest.success) {
-      //   if (response['status'] == "success") {
-      //     // Get.snackbar('appName'.tr, 'added'.tr,
-      //     //     snackPosition: SnackPosition.TOP,
-      //     //     duration: const Duration(milliseconds: 1500));
-      //   } else {
-      //
-      //     statusRequest = StatusRequest.failure;
-      //   }
-      // } else {
-      //   // statusRequest = StatusRequest.serverFailure;
-      // }
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == "success") {
+          cartProducts.clear();
+          viewCart();
+        } else {
+          statusRequest = StatusRequest.failure;
+        }
+      } else {
+        // statusRequest = StatusRequest.serverFailure;
+      }
     }
     update();
   }
 
   remove({required String productId}) async {
-    // statusRequest = StatusRequest.loading;
-    if (cartProducts.singleWhere((e) => "${e.id}"==productId).cartQuantity > 0 &&
-        hamourServices.sharedPrefrences.getString('role_id') == "1") {
+    if (hamourServices.sharedPrefrences.getString('role_id') == "1") {
       cartProductQuantity -= 1;
       var response = await cartData.removeProduct(
         storeId: hamourServices.sharedPrefrences.getString("store_id")!,
         productId: productId,
       );
-      // statusRequest = dataHandler(response);
+      statusRequest = dataHandler(response);
       // debugPrint("+++++++++++ $statusRequest");
-      // if (statusRequest == StatusRequest.success) {
-      //   if (response['status'] == "success") {
-      //     // Get.snackbar('appName'.tr, 'added'.tr,
-      //     //     snackPosition: SnackPosition.TOP,
-      //     //     duration: const Duration(milliseconds: 1500));
-      //   } else {
-      //     statusRequest = StatusRequest.failure;
-      //   }
-      // } else {
-      //   // statusRequest = StatusRequest.serverFailure;
-      // }
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == "success") {
+          cartProducts.clear();
+          viewCart();
+        } else {
+          statusRequest = StatusRequest.failure;
+        }
+      }
       update();
     }
   }
@@ -75,7 +66,7 @@ class CartController extends GetxController {
         productId: productId,
       );
       statusRequest = dataHandler(response);
-      debugPrint("+++++++++++ $statusRequest");
+      // debugPrint("+++++++++++ $statusRequest");
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
           cartProductQuantity = response['data'];
@@ -97,26 +88,34 @@ class CartController extends GetxController {
         storeId: hamourServices.sharedPrefrences.getString("store_id")!,
       );
       statusRequest = dataHandler(response);
-      debugPrint("+++++++++++ $statusRequest");
+      // debugPrint("+++++++++++ $statusRequest");
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
+          totalCart = TotalCart.fromJson(response['total']);
           response['data'].forEach(
               (value) => cartProducts.add(CartProducts.fromJson(value)));
-          totalCart = TotalCart.fromJson(response['total']);
+          // print("${cartProducts.first.cartQuantity}");
         } else {
           statusRequest = StatusRequest.failure;
         }
-      } else {
-        // statusRequest = StatusRequest.serverFailure;
       }
-      update();
     }
+    update();
+  }
+
+  resetCart() {
+    totalCart = TotalCart(totalPrice: 0, totalQuantity: 0);
+    cartProducts.clear();
+  }
+
+  refreshPage() {
+    resetCart();
+    viewCart();
   }
 
   @override
   void onInit() async {
     await viewCart();
-    debugPrint("${totalCart.totalQuantity}");
     super.onInit();
   }
 }

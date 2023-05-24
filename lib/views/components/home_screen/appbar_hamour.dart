@@ -1,3 +1,8 @@
+// import 'package:get/get.dart';
+// import 'package:hamour/controllers/home/search_controller.dart';
+// import 'package:hamour/core/constants/app_routes_names.dart';
+// import 'package:hamour/core/constants/colors.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/constants/app_routes_names.dart';
@@ -6,11 +11,15 @@ import 'package:hamour/core/constants/colors.dart';
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({
     super.key,
+    this.onChanged,
+    this.searchController,
+    this.onTapSearch,
   });
-
+  final void Function(String)? onChanged;
+  final TextEditingController? searchController;
+  final void Function()? onTapSearch;
   @override
   Widget build(BuildContext context) {
-    // ColorScheme colorScheme = Theme.of(context).colorScheme;
     return SizedBox(
       height: 120,
       child: Stack(
@@ -21,7 +30,6 @@ class HomeAppBar extends StatelessWidget {
                 gradient: LinearGradient(colors: [
                   // colorScheme.primary,
                   Theme.of(context).floatingActionButtonTheme.backgroundColor!,
-
                   AppColor.primaryDarkColor
                 ]),
                 borderRadius:
@@ -51,7 +59,6 @@ class HomeAppBar extends StatelessWidget {
                             },
                             icon: const Icon(Icons.shopping_cart),
                             color: Colors.white,
-                            iconSize: 30,
                           ),
                           IconButton(
                             onPressed: () {},
@@ -68,69 +75,39 @@ class HomeAppBar extends StatelessWidget {
           ),
           Positioned(
             bottom: 0,
-            left: 20,
-            right: 20,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Material(
-                shadowColor: Colors.black,
-                elevation: 3,
-                shape: ContinuousRectangleBorder(
-                    borderRadius: BorderRadius.circular(40)),
-                // borderRadius: BorderRadius.circular(15),
-                child: TextField(
-                  decoration: InputDecoration(
-                      filled: true,
-                      // fillColor: Colors.white,
-                      fillColor:
-                          Theme.of(context).splashColor.withOpacity(0.15),
-                      contentPadding: const EdgeInsets.all(10),
-                      suffixIcon: const Icon(
-                        Icons.search,
-                        color: Color.fromARGB(255, 146, 146, 146),
-                      ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(15),
-                          borderSide: BorderSide.none),
-                      hintText: "searchHere".tr,
-                      hintStyle: const TextStyle(
-                          fontSize: 14,
-                          color: Color.fromARGB(255, 131, 131, 131))),
-                ),
+            left: 40,
+            right: 40,
+            child: Card(
+              clipBehavior: Clip.antiAlias,
+              shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.circular(40)),
+              child: TextField(
+                onChanged: onChanged,
+                controller: searchController,
+                onTapOutside: (event) {
+                  FocusScope.of(context).unfocus();
+                  // controller.searchController.clear();
+                },
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide.none),
+                    hintText: "searchHere".tr,
+                    hintStyle: const TextStyle(
+                        fontSize: 14,
+                        color: Color.fromARGB(255, 131, 131, 131)),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+                    suffixIcon: InkWell(
+                        onTap: onTapSearch,
+                        child: const Icon(
+                          Icons.search_rounded,
+                          size: 26,
+                        ))),
               ),
             ),
-          ),
+          )
         ],
       ),
     );
   }
 }
-
-// class SearchBar extends StatelessWidget {
-//   const SearchBar({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: 40,
-//       width: 120,
-//       // width: double.infinity,
-//       padding: const EdgeInsets.all(5),
-//       margin: const EdgeInsets.all(10).copyWith(right: 40, left: 40),
-//       decoration: BoxDecoration(
-//           color: Theme.of(context).colorScheme.background.withOpacity(0.8),
-//           borderRadius: BorderRadius.circular(50)),
-//       child: Row(
-//         children: [
-//           IconButton(
-//               onPressed: () {},
-//               icon: const Icon(
-//                 Icons.search,
-//               ))
-//         ],
-//       ),
-//     );
-//   }
-// }

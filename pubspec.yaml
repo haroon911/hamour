@@ -80,7 +80,7 @@ dependencies:
   #Google Auth
   google_sign_in: ^6.1.0
   device_preview: ^1.1.0
-  responsive_builder: ^0.6.4
+  responsive_builder: ^0.7.0
   flutter_otp_text_field: ^1.1.1
   #themes
   google_fonts: ^4.0.4

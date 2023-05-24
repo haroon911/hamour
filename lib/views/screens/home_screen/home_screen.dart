@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/constants/app_routes_names.dart';
+import 'package:hamour/core/functions/exite_app_alert.dart';
 
 import '../../../controllers/home/home_screen_controller.dart';
 import '../../components/home_screen/bottom_nav_bar.dart';
@@ -13,7 +14,9 @@ class HomeScreen extends StatelessWidget {
     Get.put(HomeScreenController());
     return GetBuilder<HomeScreenController>(
         builder: (controller) => Scaffold(
-              body: controller.pages.elementAt(controller.currentPage),
+              body: WillPopScope(
+                  onWillPop: () => exitAppAlert(),
+                  child: controller.pages.elementAt(controller.currentPage)),
               floatingActionButton: Obx(
                 () => Visibility(
                   visible: controller.isVisible,

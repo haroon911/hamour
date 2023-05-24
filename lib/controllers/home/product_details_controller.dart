@@ -13,12 +13,18 @@ class ProductDetailsController extends GetxController {
   CarouselController thumbnailImageController = CarouselController();
   int currentPage = 0;
   addToCart() {
-    cartController.add(productId: product.id.toString(), stock: product.stock);
+    if (cartController.cartProductQuantity <= product.stock) {
+      cartController.add(
+          productId: product.id.toString(), stock: product.stock);
+    }
     update();
   }
+
   removeFromCart() {
+    if (cartController.cartProductQuantity > 0) {
       cartController.remove(productId: product.id.toString());
-      update();
+    }
+    update();
   }
 
   onImageControllerChanged(int index) {
