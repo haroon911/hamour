@@ -134,44 +134,6 @@ class ProductDetails extends StatelessWidget {
   }
 }
 
-/**InkWell(
-                              onTap: () {
-                                controller.addToCart();
-                              },
-                              child: SizedBox(
-                                width: MediaQuery.of(context).size.width / 1.2,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text("addToCart".tr,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .displaySmall),
-                                    const SizedBox(width: 10),
-                                    Stack(
-                                      children: [
-                                        const Padding(
-                                          padding: EdgeInsets.symmetric(
-                                              vertical: 18, horizontal: 10),
-                                          child: Icon(
-                                            Icons.shopping_cart,
-                                            size: 26,
-                                          ),
-                                        ),
-                                        Container(
-                                            padding: const EdgeInsets.all(5),
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: Theme.of(context)
-                                                    .cardColor),
-                                            child: Text(
-                                                "${controller.cartController.cartProductQuantity}")),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ), */
 class DetailsCard extends StatelessWidget {
   const DetailsCard({
     super.key,

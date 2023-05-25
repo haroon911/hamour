@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hamour/controllers/home/cart_controller.dart';
 import 'package:hamour/data/models/cart_products.dart';
 
 import 'money_tile.dart';

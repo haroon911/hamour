@@ -19,9 +19,8 @@ class SearchController extends GetxController {
 
   onSearch() {
     searching = searchController.text == "" ? true : false;
-    print("ssssssss");
     update();
   }
 
-  Color iconSearchColor = Color.fromARGB(255, 146, 146, 146);
+  Color iconSearchColor =const Color.fromARGB(255, 146, 146, 146);
 }

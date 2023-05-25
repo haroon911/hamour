@@ -9,6 +9,7 @@ Future<bool> exitAppAlert() {
       middleText: "exitText",
       confirm: ElevatedButton(
         onPressed: () {
+          PaintingBinding.instance.imageCache.clear();
           exit(0);
         },
         child: Text('confirm'.tr),

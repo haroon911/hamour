@@ -11,7 +11,7 @@ class MoneyTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text.rich(TextSpan(children: [
       TextSpan(
-        text: '${price}'.tr,
+        text: '$price'.tr,
         style: Theme.of(context)
             .textTheme
             .displaySmall!

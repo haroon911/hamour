@@ -7,7 +7,7 @@ class SearchData {
   Crud crud;
   SearchData(this.crud);
   searchData({required String search, String? storeId}) async {
-    var response;
+    dynamic response;
     storeId == null
         ? response = await crud
             .postData(ApiLinks.searchProducts, {"search": search.toString()})

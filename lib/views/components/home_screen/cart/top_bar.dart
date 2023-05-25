@@ -35,7 +35,7 @@ class TopBar extends StatelessWidget {
                   ContinuesIconButton(
                       onPressed: () {}, icon: icon ?? Icons.notifications),
                   title == null
-                      ? SizedBox()
+                      ? const SizedBox()
                       : Text(
                           title!.tr,
                           style: Theme.of(context).textTheme.labelLarge,

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:hamour/controllers/home/home_controller.dart';
 import 'package:hamour/controllers/home/home_screen_controller.dart';
 import 'package:hamour/controllers/home/repositry_controller.dart';
-import 'package:hamour/controllers/home/search_controller.dart';
 import 'package:hamour/views/components/home_screen/home/category_list.dart';
 import 'package:hamour/views/components/home_screen/appbar_hamour.dart';
 import 'package:hamour/views/components/home_screen/home/product_cat/product_card.dart';

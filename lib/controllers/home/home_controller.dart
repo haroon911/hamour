@@ -21,8 +21,7 @@ class HomeController extends GetxController {
   SearchData searchData = SearchData(Get.find());
   List<Products> searchProducts = [];
   viewProducts(String item) async {
-    print(item);
-    var response;
+    dynamic response;
     if (hamourServices.sharedPrefrences.getString('role_id') == "1") {
       response = await searchData.searchData(
         search: item,
@@ -42,7 +41,7 @@ class HomeController extends GetxController {
   }
 
   late bool isSearching;
-  Color iconSearchColor = Color.fromARGB(255, 146, 146, 146);
+  Color iconSearchColor = const Color.fromARGB(255, 146, 146, 146);
   late TextEditingController searchController;
   onSearch() {
     searchProducts.clear();
