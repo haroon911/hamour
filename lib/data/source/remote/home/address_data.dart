@@ -7,12 +7,15 @@ class AddressData {
   AddressData(this.crud);
   addAddress({
     required String storeId,
+    required String customerName,
+    required String phoneNumber,
     required double latitude,
     required double longitude,
     required String street,
     required String city,
     required String country,
     required String details,
+    required String distance,
   }) async {
     var response = await crud.postData(ApiLinks.addressAdd, {
       "store_id": storeId,
@@ -22,6 +25,9 @@ class AddressData {
       "city": city,
       "country": country,
       "details": details,
+      "customer_name": customerName,
+      "phone_number": phoneNumber,
+      "distance": distance,
     });
     debugPrint('"---------"+$response');
 
@@ -35,6 +41,7 @@ class AddressData {
     required double city,
     required double country,
     required double details,
+    required double distance,
   }) async {
     var response = await crud.postData(ApiLinks.addressUpdate, {
       "address_id": addressId,
@@ -44,13 +51,16 @@ class AddressData {
       "city": city,
       "country": country,
       "details": details,
+      "customer_name": distance,
+      "phone_number": distance,
+      "distance": distance,
     });
     debugPrint('"---------"+$response');
 
     return response.fold((l) => l, (r) => r);
   }
 
-  removeProduct({required String addressId}) async {
+  removeAddress({required String addressId}) async {
     var response = await crud.postData(ApiLinks.addressRemove, {
       "address_id": addressId,
     });

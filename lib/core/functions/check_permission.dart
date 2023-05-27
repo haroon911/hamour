@@ -1,11 +1,12 @@
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
-Future checkLocationPermission() async {
+Future checkLocationPermission({bool checkEnabled=true}) async {
     bool serviceEnabled;
     LocationPermission permission;
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
+    if (!serviceEnabled && checkEnabled) {
+
       Get.snackbar("warning".tr, "LocationNotenabled".tr);
     }
     permission = await Geolocator.checkPermission();

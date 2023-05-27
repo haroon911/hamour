@@ -19,7 +19,7 @@ class LocalController extends GetxController {
 
   @override
   void onInit() {
-    checkLocationPermission();
+    checkLocationPermission(checkEnabled: false);
     String? sharedPrefLang = hamourServices.sharedPrefrences.getString('lang');
     if (sharedPrefLang == 'ar') {
       language = const Locale("ar");

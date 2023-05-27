@@ -25,13 +25,14 @@ class ControllButtons extends GetView<DashBoardController> {
           icon: FontAwesomeIcons.wallet,
           onTap: () {
             Get.toNamed(AppRoutes.walletScreen);
-            print("Hello");
           }),
       DashButtonContent(
-          title: "messages",
-          content: "seeMessages",
-          icon: FontAwesomeIcons.message,
-          onTap: () {}),
+          title: "customers",
+          content: "customerDetails",
+          icon: FontAwesomeIcons.addressCard,
+          onTap: () {
+            Get.toNamed(AppRoutes.customerDetails);
+          }),
       DashButtonContent(
           title: "supportingCenter",
           content: "contact",

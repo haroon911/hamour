@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/classes/status_request.dart';
 import 'package:hamour/core/constants/app_routes_names.dart';
@@ -7,17 +6,13 @@ import 'package:hamour/core/functions/data_handler_controller.dart';
 import 'package:hamour/core/services/services.dart';
 import 'package:hamour/data/source/remote/home/wallet_data.dart';
 
-import 'dashboard_controller.dart';
 
 class WalletController extends GetxController {
   HamourServices hamourServices = Get.find();
   late TextEditingController cardController;
   late TextEditingController balanceController;
-  DashBoardController dashBoardController = Get.find();
   late int balance;
-  goToOrder() {
-    Get.toNamed(AppRoutes.walletScreen);
-  }
+
 
   signout() {
     hamourServices.sharedPrefrences.clear();
@@ -51,7 +46,6 @@ class WalletController extends GetxController {
                   Get.close(0);
                 },
                 child: Text("ok".tr)));
-        dashBoardController.initialVariables();
       } else {
         statusRequest = StatusRequest.failure;
       }

@@ -21,6 +21,8 @@ import 'package:hamour/views/screens/home_screen/products_details.dart';
 import 'package:hamour/views/screens/home_screen/repositry_screen.dart';
 import 'package:hamour/views/screens/onboarding/onboarding_screen.dart';
 
+import 'views/screens/home_screen/dashboard/customer_details.dart';
+
 List<GetPage<dynamic>>? routes = [
   GetPage(
       name: "/",
@@ -53,7 +55,8 @@ List<GetPage<dynamic>>? routes = [
   GetPage(
       name: AppRoutes.addressDetailsScreen, page: () => AddressDetailsScreen()),
   GetPage(name: AppRoutes.checkOutScreen, page: () => const CheckOutScreen()),
-  GetPage(name: AppRoutes.walletScreen, page: () =>  WalletScreen()),
+  GetPage(name: AppRoutes.walletScreen, page: () => WalletScreen()),
+  GetPage(name: AppRoutes.customerDetails, page: () => const CustomerDetails()),
 ];
 
 

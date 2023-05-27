@@ -74,6 +74,8 @@ class HamourTranslations extends Translations {
           "EnterBalance": "ادخل المبلغ",
           "transaction": "التحويل",
           "transactionSuccess": "تم شحن المحفظة بنجاح بمبلغ",
+          "customers": "الزبائن",
+          "customerDetails": "معلومات ومواقع الزبائن",
         },
         "en": {
           "appName": "Hamour",
@@ -139,6 +141,7 @@ class HamourTranslations extends Translations {
           "EnterBalance": "Enter balance",
           "transaction": "Transaction",
           "transactionSuccess": "transaction to wallet is success with blance ",
+          "payPal": "transaction to wallet is success with blance ",
         },
       };
 

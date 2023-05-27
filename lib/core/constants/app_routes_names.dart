@@ -20,4 +20,5 @@ class AppRoutes {
   static const String addressDetailsScreen = "/addressScreenPart2";
   static const String checkOutScreen = "/checkOutScreen";
   static const String walletScreen = "/walletScreen";
+  static const String customerDetails = "/customerDetails";
 }

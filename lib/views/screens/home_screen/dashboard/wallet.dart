@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hamour/controllers/home/dashboard_controller.dart';
 import 'package:hamour/controllers/home/wallet_controller.dart';
 import 'package:hamour/core/classes/data_view_hander.dart';
 import 'package:hamour/core/functions/input_validation.dart';
@@ -14,7 +15,7 @@ class WalletScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(WalletController());
     return Scaffold(
-      body: GetBuilder<WalletController>(builder: (controller) {
+      body: GetBuilder<DashBoardController>(builder: (controller) {
         return DataRequestHandler(
           statusRequest: controller.statusRequest,
           widget: ListView(children: [

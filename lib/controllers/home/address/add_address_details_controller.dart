@@ -30,10 +30,12 @@ class AddAddressDetailsController extends GetxController {
     street = placemarks[0].country.toString();
   }
 
+  late double distance;
   @override
   void onInit() {
     lat = Get.arguments["lat"];
     lng = Get.arguments["lng"];
+    distance = Get.arguments["distance"];
     initialData();
     super.onInit();
   }
@@ -45,14 +47,16 @@ class AddAddressDetailsController extends GetxController {
   getData() async {
     statusRequest = StatusRequest.loading;
     var response = await addressData.addAddress(
-      latitude: lat,
-      longitude: lng,
-      storeId: hamourServices.sharedPrefrences.getString("store_id")!,
-      city: city,
-      country: country,
-      details: moreDetailsController.text,
-      street: street,
-    );
+        latitude: lat,
+        longitude: lng,
+        storeId: hamourServices.sharedPrefrences.getString("store_id")!,
+        customerName: customerNameController.text,
+        phoneNumber: phoneController.text,
+        city: city,
+        country: country,
+        details: moreDetailsController.text,
+        street: street,
+        distance: distance.toString());
     statusRequest = dataHandler(response);
     debugPrint("+++++++++++ $statusRequest");
     if (statusRequest == StatusRequest.success) {

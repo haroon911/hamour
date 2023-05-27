@@ -12,23 +12,21 @@ class CheckOutScreen extends StatelessWidget {
         title: Text("checkout".tr),
       ),
       body: ListView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Text("choseCheckout".tr),
+          Card(
+            shape: ContinuousRectangleBorder(
+                borderRadius: BorderRadius.circular(80)),
+            child: Row(
+              children: [Text("wallet".tr), const Icon(Icons.wallet_rounded)],
+            ),
+          ),
           GridView(
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2),
-            children: const [
-              DashButtons(
-                  title: "title",
-                  content: "content",
-                  icon: Icons.payments_rounded),
-              DashButtons(
-                  title: "title",
-                  content: "content",
-                  icon: Icons.payments_rounded),
-            ],
+            children: [],
           ),
         ],
       ),

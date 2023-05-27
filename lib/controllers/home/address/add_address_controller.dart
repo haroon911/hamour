@@ -11,10 +11,13 @@ class AddAddressController extends GetxController {
   StatusRequest statusRequest = StatusRequest.success;
   List<Marker> markers = [];
   LatLng? markerLatlng;
+  double universityLat = 15.337414;
+  double universityLng = 44.186368;
+  late double distance;
 
   Position position = Position(
-    latitude: 15.3694,
-    longitude: 44.1910,
+    latitude: 15.337414,
+    longitude: 44.186368,
     timestamp: DateTime.now(),
     accuracy: 10,
     altitude: 2259,
@@ -51,13 +54,24 @@ class AddAddressController extends GetxController {
 
   addMarker(LatLng latlng) async {
     markers.clear();
-    markers.add(Marker(
-      markerId: const MarkerId("1"),
-      infoWindow: InfoWindow(title: "customerInfo".tr),
-      position: latlng,
-    ));
+    markers.addAll([
+      Marker(
+        markerId: const MarkerId("1"),
+        draggable: true,
+        infoWindow: InfoWindow(title: "customerInfo".tr),
+        position: latlng,
+      ),
+      Marker(
+          markerId: const MarkerId("hamour"),
+          icon:
+              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
+          position: LatLng(universityLat, universityLng))
+    ]);
     markerLatlng = latlng;
-
+    distance = Geolocator.distanceBetween(
+        universityLat, universityLng, latlng.latitude, latlng.longitude);
+    debugPrint(
+        "-----------------------------------------Distance: ${(distance / 1000) * 200}");
     update();
   }
 
@@ -66,6 +80,7 @@ class AddAddressController extends GetxController {
       Get.toNamed(AppRoutes.addressDetailsScreen, arguments: {
         "lat": markerLatlng!.latitude,
         "lng": markerLatlng!.longitude,
+        "distance": distance,
       });
       // _showAddressDetailsBottomSheet(context);
     } else {

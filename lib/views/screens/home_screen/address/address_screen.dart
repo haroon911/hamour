@@ -30,6 +30,7 @@ class AddressScreen extends StatelessWidget {
                 alignment: Alignment.center,
                 children: [
                   GoogleMap(
+                    
                     myLocationEnabled: true,
                     mapType: MapType.normal,
                     markers: addAddressController.markers.toSet(),
