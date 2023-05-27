@@ -9,10 +9,10 @@ class AddressData {
     required String storeId,
     required double latitude,
     required double longitude,
-    required double street,
-    required double city,
-    required double country,
-    required double details,
+    required String street,
+    required String city,
+    required String country,
+    required String details,
   }) async {
     var response = await crud.postData(ApiLinks.addressAdd, {
       "store_id": storeId,

@@ -30,13 +30,15 @@ class DashBoard extends StatelessWidget {
           : null,
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Column(
-            children: [
-              const WalletCard(),
-              const ControllButtons(),
-              Container(),
-            ],
-          ),
+          child: GetBuilder<DashBoardController>(builder: (controller) {
+            return Column(
+              children: [
+                const WalletCard(),
+                const ControllButtons(),
+                Container(),
+              ],
+            );
+          }),
         ),
       ),
     );

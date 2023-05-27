@@ -8,8 +8,8 @@ import '../data/source/remote/test_data.dart';
 class TestController extends GetxController {
   TestData testData = TestData(Get.find());
 
-  List data = [];
   late StatusRequest statusRequest;
+  List data = [];
 
   getData() async {
     statusRequest = StatusRequest.loading;

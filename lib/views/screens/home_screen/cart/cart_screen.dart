@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hamour/controllers/home/cart_controller.dart';
 import 'package:hamour/core/classes/data_view_hander.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/views/components/home_screen/cart/bottom_cart_bar.dart';
 import 'package:hamour/views/components/home_screen/cart/cart_card.dart';
 
@@ -18,11 +19,15 @@ class CartScreen extends StatelessWidget {
       body: ListView(
         // shrinkWrap: true,
         children: [
-          const TopBar(
+          TopBar(
+            title: "cart",
             icon: Icons.location_on_rounded,
-            title: "chooseLocation",
+            leftIconString: "chooseLocation",
+            onPressed: () {
+              Get.toNamed(AppRoutes.addressScreen);
+            },
           ),
-          GetBuilder<CartController>( 
+          GetBuilder<CartController>(
             builder: (controller) {
               return DataRequestHandler(
                   statusRequest: controller.statusRequest,

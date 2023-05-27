@@ -1,22 +1,25 @@
 import 'package:get/get.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
+import 'package:hamour/core/middleware/hamour_middleware.dart';
+import 'package:hamour/views/screens/auth/forgot_password/forgot_password.dart';
 import 'package:hamour/views/screens/auth/forgot_password/reset_password.dart';
 import 'package:hamour/views/screens/auth/forgot_password/verification.dart';
+import 'package:hamour/views/screens/auth/login/login.dart';
+import 'package:hamour/views/screens/auth/signup/signup.dart';
+import 'package:hamour/views/screens/auth/signup/signup_verification.dart';
 import 'package:hamour/views/screens/auth/signup/supplier_signup.dart';
 import 'package:hamour/views/screens/auth/verification_succuss.dart';
+import 'package:hamour/views/screens/home_screen/address/address_details_screen.dart';
+import 'package:hamour/views/screens/home_screen/address/address_screen.dart';
 import 'package:hamour/views/screens/home_screen/cart/cart_screen.dart';
+import 'package:hamour/views/screens/home_screen/checkout/checkout.dart';
 import 'package:hamour/views/screens/home_screen/dashboard/dashboard.dart';
+import 'package:hamour/views/screens/home_screen/dashboard/wallet.dart';
 import 'package:hamour/views/screens/home_screen/home_screen.dart';
 import 'package:hamour/views/screens/home_screen/home/products_cat/product_cat_screen.dart';
 import 'package:hamour/views/screens/home_screen/products_details.dart';
-
-import 'core/constants/app_routes_names.dart';
-import 'core/middleware/hamour_middleware.dart';
-import 'views/screens/auth/login/login.dart';
-import 'views/screens/auth/signup/signup.dart';
-import 'views/screens/auth/forgot_password/forgot_password.dart';
-import 'views/screens/auth/signup/signup_verification.dart';
-import 'views/screens/home_screen/repositry_screen.dart';
-import 'views/screens/onboarding/onboarding_screen.dart';
+import 'package:hamour/views/screens/home_screen/repositry_screen.dart';
+import 'package:hamour/views/screens/onboarding/onboarding_screen.dart';
 
 List<GetPage<dynamic>>? routes = [
   GetPage(
@@ -45,8 +48,12 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.productDetails, page: () => const ProductDetails()),
   GetPage(name: AppRoutes.repositryScreen, page: () => const RepositryScreen()),
   GetPage(name: AppRoutes.dashBoard, page: () => const DashBoard()),
-  GetPage(name: AppRoutes.cartScreen, page: () =>  const
-  CartScreen()),
+  GetPage(name: AppRoutes.cartScreen, page: () => const CartScreen()),
+  GetPage(name: AppRoutes.addressScreen, page: () => const AddressScreen()),
+  GetPage(
+      name: AppRoutes.addressDetailsScreen, page: () => AddressDetailsScreen()),
+  GetPage(name: AppRoutes.checkOutScreen, page: () => const CheckOutScreen()),
+  GetPage(name: AppRoutes.walletScreen, page: () =>  WalletScreen()),
 ];
 
 

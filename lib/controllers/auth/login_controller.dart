@@ -90,7 +90,11 @@ class LoginController extends GetxController {
           hamourServices.sharedPrefrences
               .setString("email", response['data']['email']);
           hamourServices.sharedPrefrences
+              .setInt("balance", response['data']['balance']);
+          hamourServices.sharedPrefrences
               .setString("phone_number", response['data']['phone_number']);
+          hamourServices.sharedPrefrences
+              .setString("name", response['data']['name']);
           // hamourServices.sharedPrefrences
           //     .setString("name", response['data']['name']);
           // hamourServices.sharedPrefrences.setString("wallet_id", value);
@@ -102,7 +106,7 @@ class LoginController extends GetxController {
           if (response['data']['role_id'] == 1) {
             hamourServices.sharedPrefrences
                 .setString("store_id", response['data']['store_id'].toString());
-            // hamourServices.sharedPrefrences.setString("details", value);
+
             debugPrint(hamourServices.sharedPrefrences.getString("store_id"));
             Get.offNamed(AppRoutes.homePage);
           } else if (response['data']['role_id'] == 2) {

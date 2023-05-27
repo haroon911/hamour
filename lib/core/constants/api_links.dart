@@ -60,4 +60,6 @@ class ApiLinks {
   static const String addressView = "$server/components/address/view.php";
   static const String addressUpdate = "$server/components/address/update.php";
   static const String addressRemove = "$server/components/address/remove.php";
+  //~~~~~ ~~~ ~~~~~~~ Wallet
+  static const String walletAdd = "$server/components/wallet/add.php";
 }

@@ -7,12 +7,13 @@ class DashButtons extends StatelessWidget {
     required this.title,
     required this.icon,
     required this.content,
-    this.notification = 0,
+    this.notification = 0, this.onTap,
   });
   final String title;
   final IconData icon;
   final String content;
   final int? notification;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class DashButtons extends StatelessWidget {
               MaterialStatePropertyAll(Theme.of(context).colorScheme.secondary),
           shape: MaterialStatePropertyAll(ContinuousRectangleBorder(
               borderRadius: BorderRadius.circular(40)))),
-      onPressed: () {},
+      onPressed: onTap,
       child: SizedBox(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -58,5 +59,6 @@ class DashButtonContent {
       {required this.title,
       required this.content,
       required this.icon,
-      this.notification = 0 , this.onTap});
+      this.notification = 0,
+      this.onTap});
 }

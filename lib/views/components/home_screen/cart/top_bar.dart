@@ -8,11 +8,13 @@ class TopBar extends StatelessWidget {
     super.key,
     this.onPressed,
     this.icon,
-    this.title,
+    this.leftIconString,
+    required this.title,
   });
   final void Function()? onPressed;
   final IconData? icon;
-  final String? title;
+  final String? leftIconString;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +29,17 @@ class TopBar extends StatelessWidget {
                 Get.back();
               }),
               const Spacer(),
-              Text("cart".tr),
+              Text(title.tr),
               const Spacer(),
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   ContinuesIconButton(
-                      onPressed: () {}, icon: icon ?? Icons.notifications),
-                  title == null
+                      onPressed: onPressed, icon: icon ?? Icons.notifications),
+                  leftIconString == null
                       ? const SizedBox()
                       : Text(
-                          title!.tr,
+                          leftIconString!.tr,
                           style: Theme.of(context).textTheme.labelLarge,
                         ),
                 ],

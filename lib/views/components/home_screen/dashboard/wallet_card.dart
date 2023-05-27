@@ -1,14 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/get_utils.dart';
+import 'package:get/get.dart';
+import 'package:hamour/controllers/home/dashboard_controller.dart';
 import 'package:hamour/core/constants/api_links.dart';
 
-class WalletCard extends StatelessWidget {
+class WalletCard extends GetView<DashBoardController> {
   const WalletCard({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
+  
     return SizedBox(
       // height: 150,
       child: Stack(
@@ -19,6 +21,7 @@ class WalletCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Card(
+                  clipBehavior: Clip.antiAlias, 
                   shape: ContinuousRectangleBorder(
                       borderRadius: BorderRadius.circular(80)),
                   child: Padding(
@@ -36,7 +39,7 @@ class WalletCard extends StatelessWidget {
                             width: 10,
                           ),
                           Text(
-                            "0 ${"riyal".tr}",
+                            "${controller.balance} ${"riyal".tr}",
                             style: Theme.of(context)
                                 .textTheme
                                 .headlineSmall!
@@ -52,14 +55,16 @@ class WalletCard extends StatelessWidget {
             children: [
               const SizedBox(width: 20),
               Card(
-                  child: Image.network(
-                "${ApiLinks.productImages}/user.png",
+                  child: CachedNetworkImage(
+                imageUrl: "${ApiLinks.productImages}/user.png",
+                placeholder: (context, url) =>
+                    Image.asset("assets/images/users/profile.jpg"),
                 height: 60,
                 width: 60,
                 fit: BoxFit.cover,
               )),
               const SizedBox(width: 10),
-              const Text("ستورزانا"),
+              Text(controller.name),
             ],
           ),
         ],

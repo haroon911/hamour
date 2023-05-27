@@ -16,4 +16,8 @@ class AppRoutes {
   static const String productDetails = "/productDetails";
   static const String repositryScreen = "/repositryScreen";
   static const String cartScreen = "/cartScreen";
+  static const String addressScreen = "/addressScreen";
+  static const String addressDetailsScreen = "/addressScreenPart2";
+  static const String checkOutScreen = "/checkOutScreen";
+  static const String walletScreen = "/walletScreen";
 }

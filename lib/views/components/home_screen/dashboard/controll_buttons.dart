@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:hamour/controllers/home/dashboard_controller.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/views/components/home_screen/dashboard/dash_card.dart';
 import 'package:hamour/views/screens/responsive.dart';
 
-class ControllButtons extends StatelessWidget {
+class ControllButtons extends GetView<DashBoardController> {
   const ControllButtons({
     super.key,
   });
@@ -13,30 +15,40 @@ class ControllButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     List<DashButtonContent> buttonDetails = [
       DashButtonContent(
-          title: "newOrders",
-          content: "seeOrders",
-          icon: FontAwesomeIcons.store),
-      DashButtonContent(
           title: "orderStatus",
           content: "seeOrders",
-          icon: FontAwesomeIcons.addressCard),
+          icon: FontAwesomeIcons.store,
+          onTap: () {}),
+      DashButtonContent(
+          title: "wallet",
+          content: "chargeWallet",
+          icon: FontAwesomeIcons.wallet,
+          onTap: () {
+            Get.toNamed(AppRoutes.walletScreen);
+            print("Hello");
+          }),
       DashButtonContent(
           title: "messages",
           content: "seeMessages",
-          icon: FontAwesomeIcons.message),
+          icon: FontAwesomeIcons.message,
+          onTap: () {}),
       DashButtonContent(
           title: "supportingCenter",
           content: "contact",
-          icon: FontAwesomeIcons.handshakeSimple),
+          icon: FontAwesomeIcons.handshakeSimple,
+          onTap: () {}),
       DashButtonContent(
           title: "aboutUs",
           content: "aboutHamour",
-          
-          icon: FontAwesomeIcons.warehouse),
+          icon: FontAwesomeIcons.warehouse,
+          onTap: () {}),
       DashButtonContent(
           title: "signout",
           content: "signoutFromHamour",
-          icon: FontAwesomeIcons.arrowRightFromBracket,onTap:(){} ),
+          icon: FontAwesomeIcons.arrowRightFromBracket,
+          onTap: () {
+            controller.signout();
+          }),
     ];
     return SizedBox(
       // height: 500,
@@ -54,6 +66,7 @@ class ControllButtons extends StatelessWidget {
             title: buttonDetails[index].title.tr,
             content: buttonDetails[index].content.tr,
             icon: buttonDetails[index].icon,
+            onTap: buttonDetails[index].onTap,
           ),
         ),
       ),

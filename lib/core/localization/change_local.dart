@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:get/get.dart';
 import 'package:hamour/core/services/services.dart';
 
+import '../functions/check_permission.dart';
+
 // import 'translation.dart';
 
 class LocalController extends GetxController {
@@ -17,16 +19,7 @@ class LocalController extends GetxController {
 
   @override
   void onInit() {
-    // String? sharedPrefLang = hamourServices.sharedPrefrences.getString('lang');
-    // language = sharedPrefLang == null
-    //     ? HamourTranslations()
-    //             .keys
-    //             .keys
-    //             .toList()
-    //             .contains(Get.deviceLocale!.languageCode)
-    //         ? Get.deviceLocale!
-    //         : const Locale('en')
-    //     : Locale(sharedPrefLang);
+    checkLocationPermission();
     String? sharedPrefLang = hamourServices.sharedPrefrences.getString('lang');
     if (sharedPrefLang == 'ar') {
       language = const Locale("ar");
