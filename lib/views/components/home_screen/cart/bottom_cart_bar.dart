@@ -26,7 +26,7 @@ class BottomCartBar extends StatelessWidget {
             MoneyTile(price: totalCart.totalPrice.toDouble()),
             ElevatedButton(
                 onPressed: () {
-                  Get.toNamed(AppRoutes.checkOutScreen);
+                  Get.toNamed(AppRoutes.addressScreen);
                 },
                 // onPressed:controller.totalPrice > 0 ? () {} : null,
                 style: ButtonStyle(

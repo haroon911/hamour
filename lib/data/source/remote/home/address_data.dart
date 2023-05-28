@@ -1,38 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:hamour/core/classes/crud.dart';
 import 'package:hamour/core/constants/api_links.dart';
+import 'package:hamour/data/models/add_order_model.dart';
 
 class AddressData {
   Crud crud;
   AddressData(this.crud);
   addAddress({
-    required String storeId,
-    required String customerName,
-    required String phoneNumber,
-    required double latitude,
-    required double longitude,
-    required String street,
-    required String city,
-    required String country,
-    required String details,
-    required String distance,
+    required AddOrderModel addOrderModel,
   }) async {
     var response = await crud.postData(ApiLinks.addressAdd, {
-      "store_id": storeId,
-      "latitude": latitude,
-      "longitude": longitude,
-      "street": street,
-      "city": city,
-      "country": country,
-      "details": details,
-      "customer_name": customerName,
-      "phone_number": phoneNumber,
-      "distance": distance,
+      "store_id": addOrderModel.storeId,
+      "latitude": addOrderModel.latitude,
+      "longitude": addOrderModel.longitude,
+      "street": addOrderModel.street,
+      "city": addOrderModel.city,
+      "country": addOrderModel.country,
+      "details": addOrderModel.details,
+      "customer_name": addOrderModel.customerName,
+      "phone": addOrderModel.phone,
+      "distance": addOrderModel.distance,
     });
     debugPrint('"---------"+$response');
 
     return response.fold((l) => l, (r) => r);
   }
+
   updateAddress({
     required String addressId,
     required double latitude,
@@ -68,7 +61,6 @@ class AddressData {
 
     return response.fold((l) => l, (r) => r);
   }
-
 
   viewCart({required String storeId}) async {
     var response = await crud.postData(ApiLinks.cartView, {

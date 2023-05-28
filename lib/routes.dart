@@ -17,6 +17,7 @@ import 'package:hamour/views/screens/home_screen/dashboard/dashboard.dart';
 import 'package:hamour/views/screens/home_screen/dashboard/wallet.dart';
 import 'package:hamour/views/screens/home_screen/home_screen.dart';
 import 'package:hamour/views/screens/home_screen/home/products_cat/product_cat_screen.dart';
+import 'package:hamour/views/screens/home_screen/order/order_screen.dart';
 import 'package:hamour/views/screens/home_screen/products_details.dart';
 import 'package:hamour/views/screens/home_screen/repositry_screen.dart';
 import 'package:hamour/views/screens/onboarding/onboarding_screen.dart';
@@ -57,6 +58,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoutes.checkOutScreen, page: () => const CheckOutScreen()),
   GetPage(name: AppRoutes.walletScreen, page: () => WalletScreen()),
   GetPage(name: AppRoutes.customerDetails, page: () => const CustomerDetails()),
+  GetPage(name: AppRoutes.orderScreen, page: () => const OrderScreen()),
 ];
 
 

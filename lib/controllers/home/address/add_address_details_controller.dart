@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/classes/status_request.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/core/functions/data_handler_controller.dart';
 import 'package:hamour/core/services/services.dart';
+import 'package:hamour/data/models/add_order_model.dart';
 import 'package:hamour/data/source/remote/home/address_data.dart';
 
 class AddAddressDetailsController extends GetxController {
@@ -43,20 +45,25 @@ class AddAddressDetailsController extends GetxController {
   AddressData addressData = AddressData(Get.find());
 
   List data = [];
+  onNext() {
+    Get.toNamed(AppRoutes.orderScreen, arguments: ["customerInfo"]);
+  }
 
   getData() async {
+    /** */
     statusRequest = StatusRequest.loading;
     var response = await addressData.addAddress(
-        latitude: lat,
-        longitude: lng,
-        storeId: hamourServices.sharedPrefrences.getString("store_id")!,
-        customerName: customerNameController.text,
-        phoneNumber: phoneController.text,
-        city: city,
-        country: country,
-        details: moreDetailsController.text,
-        street: street,
-        distance: distance.toString());
+        addOrderModel: AddOrderModel(
+            latitude: lat,
+            longitude: lng,
+            storeId: hamourServices.sharedPrefrences.getString("store_id")!,
+            customerName: customerNameController.text,
+            phone: phoneController.text,
+            city: city,
+            country: country,
+            details: moreDetailsController.text,
+            street: street,
+            distance: distance.toString()));
     statusRequest = dataHandler(response);
     debugPrint("+++++++++++ $statusRequest");
     if (statusRequest == StatusRequest.success) {

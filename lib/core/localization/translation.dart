@@ -76,6 +76,7 @@ class HamourTranslations extends Translations {
           "transactionSuccess": "تم شحن المحفظة بنجاح بمبلغ",
           "customers": "الزبائن",
           "customerDetails": "معلومات ومواقع الزبائن",
+          "empty": "فارغ",
         },
         "en": {
           "appName": "Hamour",

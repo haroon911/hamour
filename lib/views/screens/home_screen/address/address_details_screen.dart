@@ -75,7 +75,7 @@ class AddressDetailsScreen extends StatelessWidget {
                           if (formKey.currentState != null &&
                               formKey.currentState!.validate()) {
                             formKey.currentState!.save();
-                            // controller.onLogin();
+                            addAddressController.onNext();
                           }
                         },
                         width: MediaQuery.of(context).size.width - 100,

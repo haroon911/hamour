@@ -14,19 +14,17 @@ changeLanguage() {
           child: const Text('العربية'),
           onPressed: () {
             controller.changeLanguage('ar');
-          },
-          onLongPress: () {
             Get.back();
           },
+          
         ),
         ElevatedButton(
           child: const Text('English'),
           onPressed: () {
             controller.changeLanguage('en');
-          },
-          onLongPress: () {
             Get.back();
           },
+          
         ),
       ],
     ),

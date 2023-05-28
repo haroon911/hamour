@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:hamour/core/constants/app_routes_names.dart';
+import 'package:hamour/views/components/home_screen/widgets/custom_button.dart';
 
 class CustomerDetails extends StatelessWidget {
   const CustomerDetails({super.key});
@@ -10,15 +10,14 @@ class CustomerDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
-        child: Container(
-          child: Icon(
-            FontAwesomeIcons.warehouse,
-            size: 200,
-            color: Colors.amber.shade800,
-          ),
-        ),
-      ),
+      body: Center(child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("empty".tr.tr),
+          const SizedBox(height: 50,),
+          CustomButton(title: "see_more".tr),
+        ],
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.toNamed(AppRoutes.addressScreen);

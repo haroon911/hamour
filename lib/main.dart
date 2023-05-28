@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       darkTheme: HamourTheme.dark(),
       translations: HamourTranslations(),
       locale: localController.language,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       // initialRoute: '/',
       // initialRoute: AppRoute.onBoarding,
       debugShowCheckedModeBanner: false,
