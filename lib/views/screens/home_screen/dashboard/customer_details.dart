@@ -14,7 +14,7 @@ class CustomerDetails extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text("empty".tr.tr),
-          const SizedBox(height: 50,),
+          const SizedBox(height: 50),
           CustomButton(title: "see_more".tr),
         ],
       )),

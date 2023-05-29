@@ -7,6 +7,11 @@ import '../services/services.dart';
 HamourServices hamourServices = Get.find();
 
 changeTheme() {
+     if (hamourServices.sharedPrefrences.getBool('isDarkMode') == null) {
+          hamourServices.sharedPrefrences.setBool("isDarkMode", Get.isDarkMode);
+        }
+    
+
   if (hamourServices.sharedPrefrences.getBool("isDarkMode")!) {
     Get.changeThemeMode(ThemeMode.light);
     hamourServices.sharedPrefrences.setBool("isDarkMode", false);
@@ -15,6 +20,7 @@ changeTheme() {
     Get.changeThemeMode(ThemeMode.dark);
     hamourServices.sharedPrefrences.setBool("isDarkMode", true);
   }
+  
 }
 
 signout() {

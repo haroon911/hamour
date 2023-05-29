@@ -16,7 +16,7 @@ class HamourDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     // Get.lazyPut(() => HamourDrawerController());
     // Get.find<HamourDrawerController>();
-    DashBoardController dashBoardController = Get.put(DashBoardController());
+    DashBoardController dashBoardController = Get.find<DashBoardController>();
     return Drawer(
       child: Padding(
         padding: const EdgeInsets.all(15.0),

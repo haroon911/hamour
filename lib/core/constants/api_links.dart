@@ -63,4 +63,8 @@ class ApiLinks {
   static const String addressRemove = "$server/components/address/remove.php";
   //~~~~~ ~~~ ~~~~~~~ Wallet
   static const String walletAdd = "$server/components/wallet/add.php";
+  // --- ---- -------- Orders
+  static const String orderAdd = "$server/components/order/add.php";
+  static const String orderView = "$server/components/order/view.php";
+
 }

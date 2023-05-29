@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hamour/controllers/home/drawer_controller.dart';
 import 'package:hamour/core/classes/status_request.dart';
 import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/core/functions/data_handler_controller.dart';
@@ -8,6 +9,7 @@ import 'package:hamour/data/source/remote/home/wallet_data.dart';
 
 class DashBoardController extends GetxController {
   HamourServices hamourServices = Get.find();
+  HamourDrawerController drawerController = Get.put(HamourDrawerController());
   late String name;
   late String email;
   late int balance;
@@ -19,8 +21,7 @@ class DashBoardController extends GetxController {
   }
 
   signout() {
-    hamourServices.sharedPrefrences.clear();
-    Get.offAllNamed(AppRoutes.login);
+    
   }
 
   initialVariables() {

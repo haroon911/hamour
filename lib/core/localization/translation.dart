@@ -77,6 +77,9 @@ class HamourTranslations extends Translations {
           "customers": "الزبائن",
           "customerDetails": "معلومات ومواقع الزبائن",
           "empty": "فارغ",
+          "customerLocation": "موقع الزبون",
+          "completeOrder": "اكمل الطلب",
+          "order": "طلب"
         },
         "en": {
           "appName": "Hamour",
@@ -141,8 +144,11 @@ class HamourTranslations extends Translations {
           "BalanceValue": "balance",
           "EnterBalance": "Enter balance",
           "transaction": "Transaction",
-          "transactionSuccess": "transaction to wallet is success with blance ",
-          "payPal": "transaction to wallet is success with blance ",
+          "transactionSuccess": "Transaction to wallet is success with blance ",
+          "payPal": "Transaction to wallet is success with blance ",
+          "customerLocation": "Customer Location",
+          "completeOrder": "Complete Order",
+          "order": "Order"
         },
       };
 

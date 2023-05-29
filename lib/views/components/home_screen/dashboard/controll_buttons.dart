@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:hamour/controllers/home/dashboard_controller.dart';
 import 'package:hamour/core/constants/app_routes_names.dart';
+import 'package:hamour/core/functions/drawer_functions.dart';
 import 'package:hamour/views/components/home_screen/dashboard/dash_card.dart';
 import 'package:hamour/views/screens/responsive.dart';
 
@@ -48,7 +49,7 @@ class ControllButtons extends GetView<DashBoardController> {
           content: "signoutFromHamour",
           icon: FontAwesomeIcons.arrowRightFromBracket,
           onTap: () {
-            controller.signout();
+           signout();
           }),
     ];
     return SizedBox(

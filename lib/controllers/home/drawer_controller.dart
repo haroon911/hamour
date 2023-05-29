@@ -49,5 +49,6 @@ class HamourDrawerController extends GetxController {
   sigout() {
     hamourServices.sharedPrefrences.clear();
     Get.offAllNamed(AppRoutes.login);
+    hamourServices.sharedPrefrences.setString("step", "1");
   }
 }

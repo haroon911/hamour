@@ -9,7 +9,7 @@ import 'package:hamour/data/models/add_order_model.dart';
 import 'package:hamour/data/source/remote/home/address_data.dart';
 
 class AddAddressDetailsController extends GetxController {
-  HamourServices hamourServices = HamourServices();
+  HamourServices hamourServices = Get.find();
   StatusRequest statusRequest = StatusRequest.success;
   late double lat;
   late double lng;
@@ -46,7 +46,19 @@ class AddAddressDetailsController extends GetxController {
 
   List data = [];
   onNext() {
-    Get.toNamed(AppRoutes.orderScreen, arguments: ["customerInfo"]);
+    Get.toNamed(AppRoutes.orderScreen, arguments: {
+      "customerInfo": AddOrderModel(
+          latitude: lat,
+          longitude: lng,
+          storeId: hamourServices.sharedPrefrences.getString("store_id")!,
+          customerName: customerNameController.text,
+          phone: phoneController.text,
+          city: city,
+          country: country,
+          details: moreDetailsController.text,
+          street: street,
+          distance: distance.toString())
+    });
   }
 
   getData() async {

@@ -17,15 +17,16 @@ class HamourServices extends GetxService {
       }
     }
     sharedPrefrences = await SharedPreferences.getInstance();
-    if (sharedPrefrences.getString("step") == "2") {
-      Get.put(HamourDrawerController());
-      if (sharedPrefrences.getBool('isDarkMode') == null) {
-        sharedPrefrences.setBool("isDarkMode", Get.isDarkMode);
-      }
-      if (sharedPrefrences.getBool("isDarkMode")!) {
-        Get.changeThemeMode(ThemeMode.dark);
-      } else {
-        Get.changeThemeMode(ThemeMode.light);
+    if (sharedPrefrences.getString("step") != null) {
+      if (sharedPrefrences.getString("step") == "2") {
+        if (sharedPrefrences.getBool('isDarkMode') == null) {
+          sharedPrefrences.setBool("isDarkMode", Get.isDarkMode);
+        }
+        if (sharedPrefrences.getBool("isDarkMode")!) {
+          Get.changeThemeMode(ThemeMode.dark);
+        } else {
+          Get.changeThemeMode(ThemeMode.light);
+        }
       }
     }
     /*here i called all languages like en - ar from hamour translations

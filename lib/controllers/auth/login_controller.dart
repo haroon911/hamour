@@ -114,6 +114,8 @@ class LoginController extends GetxController {
                 "supplier_id", response['data']['supplier_id'].toString());
             //change the route later for supplier home page
             Get.offNamed(AppRoutes.homePage);
+          } else if(response['data']['role_id'] == 3){
+              
           }
         } else {
           Get.toNamed(AppRoutes.signupVerificationScreen,
