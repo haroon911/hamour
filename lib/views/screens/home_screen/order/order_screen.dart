@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hamour/controllers/home/order/add_order_controller.dart';
+import 'package:hamour/core/constants/app_routes_names.dart';
 import 'package:hamour/views/components/home_screen/widgets/custom_button.dart';
 
 class OrderScreen extends StatelessWidget {
@@ -40,11 +41,20 @@ class OrderScreen extends StatelessWidget {
               // },
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("details".tr),
+          ),
+          Row(
+            children: [],
+          ),
           CustomButton(
               title: "order".tr,
               onTap: () async {
-                // await controller.addOrderData();
-                Get.defaultDialog();
+                await controller.addOrderData();
+                Get.defaultDialog(
+                    title: "success".tr, content: Text("orderSuccess".tr));
+                Get.offAllNamed(AppRoutes.homePage);
               }),
         ],
       ),

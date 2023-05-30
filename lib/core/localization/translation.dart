@@ -79,7 +79,9 @@ class HamourTranslations extends Translations {
           "empty": "فارغ",
           "customerLocation": "موقع الزبون",
           "completeOrder": "اكمل الطلب",
-          "order": "طلب"
+          "order": "طلب",
+          "orderSuccess": "تم الطلب بنجاح",
+          "success": "نجاح"
         },
         "en": {
           "appName": "Hamour",
@@ -148,7 +150,9 @@ class HamourTranslations extends Translations {
           "payPal": "Transaction to wallet is success with blance ",
           "customerLocation": "Customer Location",
           "completeOrder": "Complete Order",
-          "order": "Order"
+          "order": "Order",
+          "success": "Success",
+          "orderSuccess": "Successfully Ordered"
         },
       };
 
