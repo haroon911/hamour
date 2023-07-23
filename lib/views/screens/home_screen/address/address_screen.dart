@@ -36,7 +36,6 @@ class AddressScreen extends StatelessWidget {
                     markers: addAddressController.markers.toSet(),
                     onTap: (latlng) {
                       addAddressController.addMarker(latlng);
-                      
                     },
                     initialCameraPosition: CameraPosition(
                       target: LatLng(addAddressController.position.latitude,

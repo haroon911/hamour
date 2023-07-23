@@ -27,9 +27,9 @@ class AddAddressDetailsController extends GetxController {
     streetController = TextEditingController();
     moreDetailsController = TextEditingController();
     placemarks = await placemarkFromCoordinates(lat, lng);
-    country = placemarks[0].street.toString();
+    country = placemarks[0].country.toString();
     city = placemarks[0].locality.toString();
-    street = placemarks[0].country.toString();
+    street = placemarks[0].street.toString();
   }
 
   late double distance;

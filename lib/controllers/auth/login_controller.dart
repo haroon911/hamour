@@ -90,7 +90,7 @@ class LoginController extends GetxController {
           hamourServices.sharedPrefrences
               .setString("email", response['data']['email']);
           hamourServices.sharedPrefrences
-              .setInt("balance", response['data']['balance']);
+              .setInt("balance", response['data']['balance'].toInt());
           hamourServices.sharedPrefrences
               .setString("phone_number", response['data']['phone_number']);
           hamourServices.sharedPrefrences

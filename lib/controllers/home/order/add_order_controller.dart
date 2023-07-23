@@ -13,9 +13,10 @@ class AddOrderController extends GetxController {
   initialData() {
     addOrderModel = Get.arguments['customerInfo'];
     markers.add(Marker(
-        markerId: const MarkerId("1" ),
+        markerId: const MarkerId("1"),
         position: LatLng(addOrderModel.latitude, addOrderModel.longitude)));
     // print("${Get.arguments['customerInfo']}");
+    
   }
   OrderData orderData = OrderData(Get.find());
   late List<AddOrderModel> orderList ; 

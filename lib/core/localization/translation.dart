@@ -81,7 +81,8 @@ class HamourTranslations extends Translations {
           "completeOrder": "اكمل الطلب",
           "order": "طلب",
           "orderSuccess": "تم الطلب بنجاح",
-          "success": "نجاح"
+          "success": "نجاح",
+          "country": "البلد",
         },
         "en": {
           "appName": "Hamour",
@@ -152,7 +153,8 @@ class HamourTranslations extends Translations {
           "completeOrder": "Complete Order",
           "order": "Order",
           "success": "Success",
-          "orderSuccess": "Successfully Ordered"
+          "orderSuccess": "Successfully Ordered",
+          "country": "Country"
         },
       };
 

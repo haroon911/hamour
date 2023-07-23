@@ -16,7 +16,7 @@
 class ApiLinks {
   //keep changin serverLinkName with your server link or in local write your ipconfig in cmd
   // static const String _ipAddress = "192.168.0.125";
-  static const String _ipAddress = "192.168.0.125";
+  static const String _ipAddress = "192.168.1.3";
   static const String server = "http://$_ipAddress/hamour";
   static const String _imageLink = "$server/upload";
   //test
@@ -66,5 +66,4 @@ class ApiLinks {
   // --- ---- -------- Orders
   static const String orderAdd = "$server/components/order/add.php";
   static const String orderView = "$server/components/order/view.php";
-
 }

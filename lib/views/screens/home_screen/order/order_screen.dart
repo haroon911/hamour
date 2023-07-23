@@ -45,8 +45,38 @@ class OrderScreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text("details".tr),
           ),
-          Row(
-            children: [],
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("customerName".tr),
+                  Text(controller.addOrderModel.customerName)
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("phoneNumber".tr),
+                  Text(controller.addOrderModel.phone)
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("country".tr),
+                  Text(controller.addOrderModel.country)
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("street".tr),
+                  Text(controller.addOrderModel.street)
+                ],
+              ),
+            ],
           ),
           CustomButton(
               title: "order".tr,
