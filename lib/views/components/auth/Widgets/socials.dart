@@ -8,9 +8,9 @@ class Socials extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         Icon(FontAwesomeIcons.facebook, size: 40),
         SizedBox(width: 20),
         Icon(FontAwesomeIcons.google, size: 40),

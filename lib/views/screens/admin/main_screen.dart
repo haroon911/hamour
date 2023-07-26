@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hamour/controllers/home/dashboard_controller.dart';
 import 'package:hamour/views/components/home_screen/dashboard/controll_buttons.dart';
-import 'package:hamour/views/components/home_screen/dashboard/wallet_card.dart';
 import 'package:hamour/views/components/home_screen/dashboard/drawer.dart';
 import 'package:hamour/views/screens/responsive.dart';
 
@@ -27,10 +25,10 @@ class DashBoard extends StatelessWidget {
                 scaffoldKey: scaffoldKey,
               ))
           : null,
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: SafeArea(
           child: Column(
-            children: const [
+            children: [
               ControllButtons(),
             ],
           ),

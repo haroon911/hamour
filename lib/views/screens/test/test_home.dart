@@ -40,8 +40,8 @@ class HomePage extends StatelessWidget {
                 ),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   SizedBox(
                     width: 20,
                   ),
