@@ -1,0 +1,24 @@
+{
+    "onBoarding":[
+        {
+        "title":"create your store",
+        "body":"by creating your store\n you can now start your bussnes\n easily with little amount of money",
+        "imageUrl":"assets/images/onboarding/onboardingone.PNG"
+    },
+        {
+        "title":"easy Payments and sales",
+        "body":"by creating your store\n you can now start your bussnes\n easily with little amount of money",
+        "imageUrl":"assets/images/onboardingtwo.PNG"
+    },
+        {
+        "title":"share your products",
+        "body":"by creating your store\n you can now start your bussnes\n easily with little amount of money",
+        "imageUrl":"assets/images/onboarding/onboardingthree.PNG"
+    },
+        {
+        "title":"sell and buy them without fees",
+        "body":"by creating your store\n you can now start your bussnes\n easily with little amount of money",
+        "imageUrl":"assets/images/onboarding/onboardingfour.PNG"
+    }
+]
+}

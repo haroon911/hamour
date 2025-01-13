@@ -1,0 +1,61 @@
+import 'package:carousel_slider/carousel_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hamour/controllers/home/cart_controller.dart';
+import 'package:hamour/controllers/home/repositry_controller.dart';
+import 'package:hamour/core/classes/status_request.dart';
+import 'package:hamour/data/models/products.dart';
+
+class ProductDetailsController extends GetxController {
+  late Products product;
+  CartController cartController = Get.put(CartController());
+  RepositryController repositryController = Get.put(RepositryController());
+  CarouselSliderController imageController = CarouselSliderController();
+  CarouselSliderController thumbnailImageController = CarouselSliderController();
+  int currentPage = 0;
+  addToCart() {
+    if (cartController.cartProductQuantity <= product.stock) {
+      cartController.add(
+          productId: product.id.toString(), stock: product.stock);
+    }
+    update();
+  }
+
+  removeFromCart() {
+    if (cartController.cartProductQuantity > 0) {
+      cartController.remove(productId: product.id.toString());
+    }
+    update();
+  }
+
+  onImageControllerChanged(int index) {
+    thumbnailImageController.animateToPage(index,
+        duration: const Duration(milliseconds: 100),
+        curve: Curves.linear);
+    currentPage = index;
+    update();
+  }
+
+  onthumbnailImageControllerChanged(int index) {
+    imageController.animateToPage(index,
+        duration: const Duration(milliseconds: 100),
+        curve: Curves.linear);
+    currentPage = index;
+    update();
+  }
+
+  late StatusRequest statusRequest;
+  initialData() async {
+    statusRequest = StatusRequest.loading;
+    product = Get.arguments["product"];
+    await cartController.getProductQuantity(productId: product.id.toString());
+    statusRequest = StatusRequest.success;
+    update();
+  }
+
+  @override
+  void onInit() async {
+    await initialData();
+    super.onInit();
+  }
+}

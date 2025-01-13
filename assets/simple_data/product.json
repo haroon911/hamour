@@ -1,0 +1,291 @@
+{
+    "products":[
+        {
+            "id":"1",
+            "name":"تي شيرت رجالي",
+            "about":"جميل ومريح لفصل صيف مليئ ب الحيوية",
+            "category":"1",
+            "created_date":"2023-1-23",
+            "currency":"RY",
+            "supplier":"cs brothers",
+            
+            "product_item":[
+                {
+                    "id":"1",
+                    "sku":"1a89",
+                    "quantity":11,
+                    "price":3000.500,
+                    "about":"ضخم",
+                    "tax":10.5,
+                    "available":true,
+                    "image_url":["assets/images/product_item_images/y1.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":0.10,
+                        "start_date":"2023-2-1",
+                        "end_date":"2023-3-1"
+                    },
+                    "variation":{
+                        "color":"ابيض",
+                        "type":"قطن",
+                        "size":["s" ,"m", "xl","Xll"]
+                    }
+            },
+                {
+                    "id":"2",
+                    "sku":"2a89",
+                    "quantity":5,
+                    "price":2000.40,
+                    
+                    "about":"سعر مناسب",
+                    "tax":10.0,
+                    "available":true,
+                    "image_url":["assets/images/product_item_images/y1.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":10,
+                        "start_date":"2021-7-22",
+                        "end_date":"2024-3-11"
+                    }
+            },
+                {
+                    "id":"3",
+                    "sku":"3a89",
+                    "quantity":5,
+                    "price":4000.5,
+                    
+                    "about":"قليل",
+                    "tax":10,
+                    "available":true,
+                    "image_url":["assets/images/product_item_images/col1.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":10.0,
+                        "start_date":"2023-2-1",
+                        "end_date":"2023-3-1"
+                    },
+                    "variation":{
+                        "color":"ابيض",
+                        "type":"قطن",
+                        "size":["s" ,"l", "xl","Xll"]
+                    }
+            }
+            ]
+        },
+        {
+            "id":"2",
+            "name":"تي شيرت نسائي",
+            "about":"جميل ومريح لفصل الشتاء مليئ ب الحيوية",
+            "category":"1",
+            "created_date":"2023-1-23",
+            "currency":"RY",
+            "supplier":"cs brothers",
+            "product_item":[
+                {
+                    "id":"1",
+                    "sku":"1a89",
+                    "quantity":12,
+                    "price":2500.00,
+                    "about":"ضخم",
+                    "tax":10.5,
+                    "available":true,
+                    "image_url":["assets/images/product_item_images/col1.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":0.10,
+                        "start_date":"2023-2-1",
+                        "end_date":"2023-3-1"
+                    },
+                    "variation":{
+                        "color":"اسود",
+                        "space":"256",
+                        "ram":"8"
+                    }
+            },
+                {
+                    "id":"2",
+                    "sku":"2a89",
+                    "quantity":5,
+                    "price":2000.40,
+                    
+                    "about":"سعر مناسب",
+                    "tax":10.0,
+                    "available":false,
+                    "image_url":["assets/images/product_item_images/y1.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":10,
+                        "start_date":"2021-7-22",
+                        "end_date":"2024-3-11"
+                    }
+            },
+                {
+                    "id":"3",
+                    "sku":"4a89",
+                    "quantity":5,
+                    "price":2000.5,
+                    
+                    "about":"قليل",
+                    "tax":10,
+                    "available":true,
+                    "image_url":["assets/images/product_item_images/col1.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":11.0,
+                        "start_date":"2023-2-1",
+                        "end_date":"2023-3-1"
+                    },
+                    "variation":{
+                        "color":"اسود",
+                        "type":"قطن",
+                        "size":["x" ,"l", "xl","xxl"]
+                    }
+            }
+            ]
+        },
+        {
+            "id":"3",
+            "name":"تي شيرت رجالي",
+            "about":"جميل ومريح لفصل صيف مليئ ب الحيوية",
+            "category":"1",
+            "created_date":"2023-1-23",
+            "currency":"RY",
+            "supplier":"cs brothers",
+            "product_item":[
+                {
+                    "id":"1",
+                    "sku":"1a89",
+                    "quantity":11,
+                    "price":3000.500,
+                    "about":"ضخم",
+                    "tax":10.5,
+                    "available":true,
+                    "image_url":["assets/images/product_item_images/col3.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":0.10,
+                        "start_date":"2023-2-1",
+                        "end_date":"2023-3-1"
+                    },
+                    "variation":{
+                        "color":"ابيض",
+                        "type":"قطن",
+                        "size":["s" ,"m", "xl","Xll"]
+                    }
+            },
+                {
+                    "id":"2",
+                    "sku":"2a89",
+                    "quantity":5,
+                    "price":2000.40,
+                    
+                    "about":"سعر مناسب",
+                    "tax":10.0,
+                    "available":true,
+                    "image_url":["assets/images/product_item_images/y1.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":10,
+                        "start_date":"2021-7-22",
+                        "end_date":"2024-3-11"
+                    }
+            },
+                {
+                    "id":"3",
+                    "sku":"3a89",
+                    "quantity":5,
+                    "price":4000.5,
+                    
+                    "about":"قليل",
+                    "tax":10,
+                    "available":true,
+                    "image_url":["assets/images/product_item_images/col1.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":10.0,
+                        "start_date":"2023-2-1",
+                        "end_date":"2023-3-1"
+                    },
+                    "variation":{
+                        "color":"ابيض",
+                        "type":"قطن",
+                        "size":["s" ,"l", "xl","Xll"]
+                    }
+            }
+            ]
+        },
+        {
+            "id":"2",
+            "name":"تي شيرت نسائي",
+            "about":"جميل ومريح لفصل الشتاء مليئ ب الحيوية",
+            "category":"1",
+            "created_date":"2023-1-23",
+            "currency":"RY",
+            "supplier":"cs brothers",
+            "product_item":[
+                {
+                    "id":"1",
+                    "sku":"1a89",
+                    "quantity":12,
+                    "price":3000.500,
+                    "about":"ضخم",
+                    "tax":10.5,
+                    "available":true,
+                    "image_url":["assets/images/product_item_images/col2.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":0.10,
+                        "start_date":"2023-2-1",
+                        "end_date":"2023-3-1"
+                    },
+                    "variation":{
+                        "color":"اسود",
+                        "space":"256",
+                        "ram":"8"
+                    }
+            },
+                {
+                    "id":"2",
+                    "sku":"2a89",
+                    "quantity":5,
+                    "price":2000.40,
+                    
+                    "about":"سعر مناسب",
+                    "tax":10.0,
+                    "available":false,
+                    "image_url":["assets/images/product_item_images/y1.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":10,
+                        "start_date":"2021-7-22",
+                        "end_date":"2024-3-11"
+                    }
+            },
+                {
+                    "id":"3",
+                    "sku":"4a89",
+                    "quantity":5,
+                    "price":2000.5,
+                    
+                    "about":"قليل",
+                    "tax":10,
+                    "available":true,
+                    "image_url":["assets/images/product_item_images/col1.jpg","assets/images/product_item_images/y2.jpg","assets/images/product_item_images/y3.jpg"],
+                    "promotion":{
+                        "name":"تخفيضات اخر السنة",
+                        "discount":11.0,
+                        "start_date":"2023-2-1",
+                        "end_date":"2023-3-1"
+                    },
+                    "variation":{
+                        "color":"اسود",
+                        "type":"قطن",
+                        "size":["x" ,"l", "xl","xxl"]
+                    }
+            }
+            ]
+        }
+        
+        
+    ]
+}
